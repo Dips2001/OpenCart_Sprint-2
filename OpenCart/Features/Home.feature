@@ -121,6 +121,110 @@
     And I click on Search button
     Then Search page should open 
     And search text should appear in the Search criteria box
+    
+    
+
+@SearchBox
+  Scenario: To validate that search page is opened after nothing provided in search box and search button is pressed
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And click on Search Box
+    But leaving the serch box empty 
+    And click search button
+    Then OpenCart website should load Search page 
+
+
+@Links
+  Scenario: To validate links for My Account, Wish List, Shopping Cart and Checkout are present in header section
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    Then OpenCart website should load Header section with links for My Account, Wish List, Shopping Cart and Checkout are present in header section
+
+
+@MyAccount
+  Scenario: To validate that dropdown list containing Register and Login appears on clicking on the "My Account" link
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And click on My account in header section
+    Then dropdown list should display options as Register and Login.
+
+@WishList
+  Scenario: To validate that redirection occurs to the Wish List page on clicking on the "Wish List" link
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And click on Wish List in header section
+    Then Wish List page should display all product added to the Wish List.
+
+@ShoppingCart
+  Scenario:To validate that redirection occurs to the Shopping Cart page on clicking the "Shopping Cart" link
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And click on Shopping Cart in header section
+    Then page should redirect to Shopping Cart page which will display all product added to the Shopping Cart.
+
+@Checkout
+  Scenario:To validate that redirection occurs to the Shopping Cart page which contains a link to checkout on clicking the "Checkout" link
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And click on Checkout in header section
+    Then page should redirect to Shopping Cart page which contains a link to checkout.
+
+
+
+@Telephone
+  Scenario:To validate that Company Telephone Number is given is header section
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    Then The company telephone number should be visible at the header.
+
+
+
+
+@Telephone
+  Scenario:To validate that redirection to Contact Us page happens after clicking on 'Phone' icon
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And click on Phone icon
+    Then  the page should redirect to the Contact Us page.
+
+
+
+@RegisterPage
+  Scenario:To validate that redirection to the Register page after clicking Register
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And click on dropdown icon of My Account
+    And click on Register
+    Then  the page should redirect to the Registration page.
+
+@LoginPage
+  Scenario:To validate that redirection to the Login page after clicking Login
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And click on dropdown icon of My Account
+    And click on Login
+    Then  the page should redirect to the Login page.
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    
 
 
   #@tag2
