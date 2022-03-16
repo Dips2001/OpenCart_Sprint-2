@@ -220,130 +220,130 @@
     And I click on Continue Button
     Then I should see Error message for Address, State, Pincode input field in the Address Form
 
-
+#
 #TODO:
-
+#
 #79
-@SameAsCheckbox
-  Scenario: Verification of "Same as" Checkbox of Billing details
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
+#@SameAsCheckbox
+  #Scenario: Verification of "Same as" Checkbox of Billing details
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
 #80
-@SameAsCheckbox
-  Scenario: Verification of "Same as" Checkbox of Billing details
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
-
+#@SameAsCheckbox
+  #Scenario: Verification of "Same as" Checkbox of Billing details
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
+#
 #81
-@BillingDetailsForm
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
+#@BillingDetailsForm
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
 #82
-@BillingDetailsForm
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
+#@BillingDetailsForm
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
 #83
-@BillingDetailsForm
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
+#@BillingDetailsForm
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
 #84
-@BillingDetailsForm
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
+#@BillingDetailsForm
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
 #85
-@BillingDetailsForm
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
+#@BillingDetailsForm
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
 #86
-@BillingDetailsForm
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
-
+#@BillingDetailsForm
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
+#
 #87
-@PaymentPage
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
+#@PaymentPage
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
 #88
-@PaymentPage
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
+#@PaymentPage
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
 #89
-@PaymentFunctionality
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
+#@PaymentFunctionality
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
 #90
-@PaymentFunctionality
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
-
+#@PaymentFunctionality
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
+#
 #91
-@OrderOverviewPage
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
-
+#@OrderOverviewPage
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
+#
 #92
-@ConfirmOrderButton
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
+#@ConfirmOrderButton
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
 #93
-@ConfirmOrderButton
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
+#@ConfirmOrderButton
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
