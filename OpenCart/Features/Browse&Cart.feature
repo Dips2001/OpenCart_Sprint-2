@@ -119,3 +119,91 @@ Feature: Browse and Cart Verification
 		When I go to products page
 		And after clicking on wishlist icon 
 		Then the product get added to wishlist
+		
+	@ProductPage
+  Scenario: To validate Add to compare option is visible on product page
+	  Given Open cart website is ready
+	  And URL should be working
+	  When I open product page
+	  Then Add to compare option should be visible.
+
+ @ProductPage
+	Scenario: To validate after clicking on add to compare, product is added to compare list
+		Given Open cart website is ready
+		And URL should be working
+		When I click on Add to compare option button
+		Then product should be added to compare list.
+	
+	@ShoppingCart
+	Scenario: To validate shopping cart option is visible on page
+		Given Open cart website is ready
+		And URL should be working
+		When I open home page
+		Then shopping cart option should be visible.
+	
+	
+	@ShoppingCart
+	Scenario: To validate products are present in shopping cart, if previously added
+		Given Open cart website is ready
+		And URL should be working
+		When I click on shopping cart
+		Then products added to cart should be present.
+	
+	@ShoppingCart
+	Scenario: 1. To validate coupon code option is visible to customer before heading to checkout
+		Given Open cart website is ready
+		And URL should be working
+		When I heading to checkout
+		Then coupon code  option should be visible to customer.
+	
+	
+	@ShoppingCart
+	Scenario: To validate changes in total cost after adding coupon code
+		Given Open cart website is ready
+		And URL should be working
+		When I insert coupon code while buying product 
+		Then total cost of product should be changed according to coupon discount
+	
+	@ShoppingCart
+	Scenario: To validate estimate shipping taxes option is visible to customer before heading to checkout
+		Given Open cart website is ready
+		And URL should be working
+		When I heading to checkout
+		Then estimate shipping taxes option should be visible
+	
+	
+	@ShoppingCart
+	Scenario: To validate changes in total cost after adding estimate shipping taxes
+		Given Open cart website is ready
+		And URL should be working
+		When I click on add to estimate option
+		Then total cost of product should be changed according to shipping and taxes
+	
+	@ShoppingCart
+	Scenario: To validate coupon code or gift voucher option is visible to customer before heading to checkout
+		Given Open cart website is ready
+		And URL should be working
+		When I heading to checkout
+		Then coupon code or gift voucher option should be visible to customer.
+	
+	@ShoppingCart
+	Scenario: To validate changes in total cost after adding gift voucher
+		Given Open cart website is ready
+		And URL should be working
+		When I  add gift voucher
+		Then total cost of product should be changed according to gift voucher discount
+	
+	@Checkout
+	Scenario: To validate continue to shopping button is visible on home page
+		Given Open cart website is ready
+		And URL should be working
+		When I completed the process of checkout
+		Then continue to shopping option should be visible
+	
+	@Checkout
+	Scenario: To validate working of continue to shopping button
+		Given Open cart website is ready
+		And URL should be working
+		When I click on continue to shopping button
+		Then page should be redirected to home page
+	
