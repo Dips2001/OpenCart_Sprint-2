@@ -30,7 +30,7 @@ public class OrderingCheckoutTest {
 		throw new io.cucumber.java.PendingException();
 	}
 
-	@When("I click on Checkout button")
+	@When("I click on Checkout Button")
 	public void i_click_on_checkout_button() {
 		// Write code here that turns the phrase above into concrete actions
 		throw new io.cucumber.java.PendingException();
@@ -42,7 +42,7 @@ public class OrderingCheckoutTest {
 		throw new io.cucumber.java.PendingException();
 	}
 
-	@When("I click on Register button")
+	@When("I click on Register Button")
 	public void i_click_on_register_button() {
 		// Write code here that turns the phrase above into concrete actions
 		throw new io.cucumber.java.PendingException();
@@ -54,7 +54,7 @@ public class OrderingCheckoutTest {
 		throw new io.cucumber.java.PendingException();
 	}
 
-	@When("I click on Login button")
+	@When("I click on Login Button")
 	public void i_click_on_login_button() {
 		// Write code here that turns the phrase above into concrete actions
 		throw new io.cucumber.java.PendingException();
@@ -66,7 +66,7 @@ public class OrderingCheckoutTest {
 		throw new io.cucumber.java.PendingException();
 	}
 
-	@When("I click on Continue as Guest button")
+	@When("I click on Continue as Guest Button")
 	public void i_click_on_continue_as_guest_button() {
 		// Write code here that turns the phrase above into concrete actions
 		throw new io.cucumber.java.PendingException();
@@ -108,8 +108,8 @@ public class OrderingCheckoutTest {
 		throw new io.cucumber.java.PendingException();
 	}
 
-	@When("I click on Continue Button")
-	public void i_click_on_continue_button() {
+	@When("I click on Submit Button")
+	public void i_click_on_submit_button() {
 		// Write code here that turns the phrase above into concrete actions
 		throw new io.cucumber.java.PendingException();
 	}
@@ -180,12 +180,6 @@ public class OrderingCheckoutTest {
 		throw new io.cucumber.java.PendingException();
 	}
 
-	@When("I click on Continue button")
-	public void i_click_on_continue_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
 	@Then("I should see Address Details Form")
 	public void i_should_see_address_details_form() {
 		// Write code here that turns the phrase above into concrete actions
@@ -248,6 +242,12 @@ public class OrderingCheckoutTest {
 
 	@When("I enter valid Pincode")
 	public void i_enter_valid_pincode() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@When("I click on Continue Button")
+	public void i_click_on_continue_button() {
 		// Write code here that turns the phrase above into concrete actions
 		throw new io.cucumber.java.PendingException();
 	}
