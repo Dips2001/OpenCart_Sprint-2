@@ -1,4 +1,4 @@
-package com.stepDefinition;
+package com.BrowseCart.stepDefinition;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

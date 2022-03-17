@@ -1,4 +1,4 @@
-package com.stepDefinition;
+package com.OrderingCheckout.stepDefinition;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

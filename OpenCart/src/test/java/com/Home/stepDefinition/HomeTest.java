@@ -1,4 +1,4 @@
-package com.stepDefinition;
+package com.Home.stepDefinition;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
