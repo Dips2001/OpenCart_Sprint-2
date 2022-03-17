@@ -3,6 +3,10 @@ package com.Home.stepDefinition;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -18,12 +22,17 @@ import io.cucumber.java.en.*;
 public class HomeTest 
 {
 	public static WebDriver driver;
+	Properties prop;
+	
 	
 	@Before
-	public void beforeScenario()
+	public void beforeScenario() throws IOException
 	{
 		System.setProperty("webdriver.chrome.driver", "E:\\Capgemini\\Internship\\Module-4\\Drivers\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
+		FileInputStream fs = new FileInputStream("src/test/resources/OpenCart.properties");
+		prop = new Properties();
+		prop.load(fs);
 	}
 	
 	@Given("OpenCart website is ready")
@@ -41,13 +50,13 @@ public class HomeTest
 	public void open_cart_website_should_load_with_header_section_in_proper_position() {
 		String title=driver.getTitle();
 		assertEquals(title, "Your Store");
-		assertTrue(driver.findElement(By.id("top")).isDisplayed());
+		assertTrue(driver.findElement(By.id(prop.getProperty("navbar"))).isDisplayed());
 	}
 	
 	@When("I check whether header section is visible in Contact page")
 	public void i_check_whether_header_section_is_visible_in_contact_pages() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//i[@class='fa fa-phone']")).click();
+		driver.findElement(By.xpath(prop.getProperty("call"))).click();
 	}
 	
 	@When("I check whether header section is visible in Wish List \\({int}) page")
