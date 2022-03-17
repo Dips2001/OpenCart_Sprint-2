@@ -129,7 +129,6 @@
     Given OpenCart website is ready
     When I launch URL in chrome browser
     And click on Search Box
-    But leaving the serch box empty 
     And click search button
     Then OpenCart website should load Search page 
 
@@ -153,7 +152,7 @@
     Given OpenCart website is ready
     When I launch URL in chrome browser
     And click on Wish List in header section
-    Then Wish List page should display all product added to the Wish List.
+    Then Wish List button should redirect to Login page
 
 @ShoppingCart
   Scenario:To validate that redirection occurs to the Shopping Cart page on clicking the "Shopping Cart" link
