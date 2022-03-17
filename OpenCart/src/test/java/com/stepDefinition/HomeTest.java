@@ -1,5 +1,10 @@
 package com.stepDefinition;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,134 +28,199 @@ public class HomeTest
 	
 	@Given("OpenCart website is ready")
 	public void open_cart_website_is_ready() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		System.out.println("OpenCart website is up and running");
 	}
 
 	@When("I launch URL in chrome browser")
 	public void i_launch_url_in_chrome_browser() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.get("https://demo.opencart.com/");
+		driver.manage().window().maximize();
 	}
 
 	@Then("OpenCart website should load with Header section in proper position")
 	public void open_cart_website_should_load_with_header_section_in_proper_position() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		String title=driver.getTitle();
+		assertEquals(title, "Your Store");
+		assertTrue(driver.findElement(By.id("top")).isDisplayed());
+	}
+	
+	@When("I check whether header section is visible in Contact page")
+	public void i_check_whether_header_section_is_visible_in_contact_pages() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//i[@class='fa fa-phone']")).click();
+	}
+	
+	@When("I check whether header section is visible in Wish List \\({int}) page")
+	public void i_check_whether_header_section_is_visible_in_wish_list_pages(Integer int1) {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//span[normalize-space()='Wish List ("+int1+")']")).click();
 	}
 
-	@When("I check whether header section is visible in all pages")
-	public void i_check_whether_header_section_is_visible_in_all_pages() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("I check whether header section is visible in Shopping Cart page")
+	public void i_check_whether_header_section_is_visible_in_shopping_cart_pages() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//span[normalize-space()='Shopping Cart']")).click();
 	}
 
-	@Then("OpenCart website should load with Header section")
-	public void open_cart_website_should_load_with_header_section() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("I check whether header section is visible in Checkout page")
+	public void i_check_whether_header_section_is_visible_in_checkout_pages() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//span[normalize-space()='Checkout']")).click();
 	}
 
+	@When("I check whether header section is visible in Register page")
+	public void i_check_whether_header_section_is_visible_in_register_pages() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
+	    driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Register']")).click();
+	}
+
+	@When("I check whether header section is visible in Login page")
+	public void i_check_whether_header_section_is_visible_in_login_pages() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
+	    driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Login']")).click();
+	}
+	
 	@Then("Header Section should be visible in all pages")
 	public void header_section_should_be_visible_in_all_pages() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertTrue(driver.findElement(By.id("top")).isDisplayed());
 	}
 
 	@When("I click on store logo")
 	public void i_click_on_store_logo() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    driver.findElement(By.xpath("//a[normalize-space()='Your Store']")).click();
 	}
 
 	@Then("I should be redirected back to the home page")
 	public void i_should_be_redirected_back_to_the_home_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		String title=driver.getTitle();
+		assertEquals(title, "Your Store");
 	}
 
 	@When("I click on currency block")
 	public void i_click_on_currency_block() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//span[normalize-space()='Currency']")).click();
 	}
 
 	@Then("the currency dropdown containing Euro, Pound Sterling and US dollar should appear")
 	public void the_currency_dropdown_containing_euro_pound_sterling_and_us_dollar_should_appear() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		assertEquals(driver.findElement(By.name("EUR")).getText(),"€ Euro");
+		assertEquals(driver.findElement(By.name("GBP")).getText(),"£ Pound Sterling");
+		assertEquals(driver.findElement(By.name("USD")).getText(),"$ US Dollar");
 	}
-
-	@When("I select {string} currency")
-	public void i_select_currency(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+			
+	@When("I select Euro currency")
+	public void i_select_euro_currency() {
+		driver.findElement(By.name("EUR")).click();
 	}
 
 	@Then("the price of all the products should convert to Euro currency")
 	public void the_price_of_all_the_products_should_convert_to_euro_currency() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath("//strong[contains(text(),'€')]")).getText(),"€");
+	    assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3)")).getText().contains("€"));
+		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(1)")).getText().contains("€"));
+		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(1)")).getText().contains("€"));
+		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(2)")).getText().contains("€"));
+	}
+
+	@When("I select Pound Sterling currency")
+	public void i_select_pound_sterling_currency() {
+		driver.findElement(By.name("GBP")).click();
 	}
 
 	@Then("the price of all the products should convert to Pound Sterling currency")
 	public void the_price_of_all_the_products_should_convert_to_pound_sterling_currency() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath("//strong[contains(text(),'£')]")).getText(),"£");
+		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3)")).getText().contains("£"));
+		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(1)")).getText().contains("£"));
+		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(1)")).getText().contains("£"));
+		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(2)")).getText().contains("£"));
+	}
+
+	@When("I select US Dollar currency")
+	public void i_select_us_dollar_currency() {
+		if(!(driver.findElement(By.xpath("//strong[contains(text(),'$')]")).getText().equals("$"))) {
+			driver.findElement(By.name("USD")).click();
+		}
 	}
 
 	@Then("the price of all the products should convert to US Dollar currency")
-	public void the_price_of_all_the_products_should_convert_to_us_dollar_currency() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void the_price_of_all_the_products_should_convert_to_us_dollar_currency() throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath("//strong[contains(text(),'$')]")).getText(),"$");
+		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3)")).getText().contains("$"));
+		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(1)")).getText().contains("$"));
+		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(1)")).getText().contains("$"));
+		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(2)")).getText().contains("$"));
+	}
+	
+	@When("I click on shopping cart option")
+	public void i_click_on_shopping_cart_option() {
+		driver.findElement(By.xpath("//button[@class='btn btn-inverse btn-block btn-lg dropdown-toggle']")).click();
+	}
+	
+	@Then("it should display {string}")
+	public void it_should_display(String string) {
+	    assertEquals(driver.findElement(By.xpath("//p[@class='text-center']")).getText(),string);
 	}
 
 	@When("I add some products to shopping cart")
 	public void i_add_some_products_to_shopping_cart() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    driver.findElement(By.name("search")).sendKeys("hp");
+	    driver.findElement(By.xpath("//button[@class='btn btn-default btn-lg']")).click();
+	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//span[normalize-space()='Add to Cart']")).click();
+	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    driver.findElement(By.xpath("//button[@id='button-cart']")).click();
+	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    assertEquals(driver.findElement(By.xpath("//div[@class='alert alert-success alert-dismissible']")).getText(), "Success: You have added HP LP3065 to your shopping cart!\n×");
 	}
 
 	@Then("shopping cart button should display number of items purchased and total cost of order")
 	public void shopping_cart_button_should_display_number_of_items_purchased_and_total_cost_of_order() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@When("I click on shopping cart")
-	public void i_click_on_shopping_cart() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("it should display {string}")
-	public void it_should_display(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath("//span[@id='cart-total']")).getText(),"1 item(s) - $122.00");
 	}
 
 	@Then("it should display all product details added to the cart")
 	public void it_should_display_all_product_details_added_to_the_cart() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		//pass
 	}
 
-	@When("I click on shopping cart option")
-	public void i_click_on_shopping_cart_option() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("it should display the options for View Cart and Checkout")
+	public void it_should_display_all_the_options_for_view_cart_and_checkout() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath("//strong[normalize-space()='View Cart']")).getText(),"View Cart");
+		assertEquals(driver.findElement(By.xpath("//strong[normalize-space()='Checkout']")).getText(),"Checkout");
 	}
 
-	@When("I click on {string} or {string}")
-	public void i_click_on_or(String string, String string2) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	
+	@When("I click on View Cart")
+	public void i_click_on_view_cart() {
+	    driver.findElement(By.xpath("//strong[normalize-space()='View Cart']")).click();
 	}
 
-	@Then("the page should be redirected to the shopping cart page")
-	public void the_page_should_be_redirected_to_the_shopping_cart_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("the page should be redirected to the View Cart page")
+	public void the_page_should_be_redirected_to_the_view_cart_page() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.getTitle(),"Shopping Cart");
+	}
+
+	@When("I click on Checkout")
+	public void i_click_on_checkout() {
+		driver.findElement(By.xpath("//strong[normalize-space()='Checkout']")).click();
+	}
+
+	@Then("the page should be redirected to the Checkout page")
+	public void the_page_should_be_redirected_to_the_checkout_page() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.getTitle(),"Checkout");
 	}
 
 	@When("I click on Search Box")
@@ -162,21 +232,17 @@ public class HomeTest
 	@When("I type some text in the search box")
 	public void i_type_some_text_in_the_search_box() {
 		driver.findElement(By.name("search")).sendKeys("iPhone");;
-	  
-	    
 	}
 
 	@When("I click on Search button")
 	public void i_click_on_search_button() {
 		 driver.findElement(By.xpath("//i[@class='fa fa-search']")).click();
-	   
 	}
 
 	@Then("Search page should open")
 	public void search_page_should_open() {
 	  String expectedPageTitle = "Search - iPhone";
 	  String actualPageTitle = driver.getTitle();
-	  
 	  Assert.assertEquals(expectedPageTitle,actualPageTitle);
 	}
 
@@ -311,16 +377,18 @@ public class HomeTest
 	@When("click on Login")
 	public void click_on_login() {
 		 driver.findElement(By.xpath("//span[@class='caret']")).click();
-		 driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Login']")).click();
-		 
+		 driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Login']")).click();	 
 	}
 
 	@Then("the page should redirect to the Login page.")
 	public void the_page_should_redirect_to_the_login_page() {
 		 String expectedPageTitle = "Account Login";
-		  String actualPageTitle = driver.getTitle();
-		  
-		  Assert.assertEquals(expectedPageTitle,actualPageTitle);
-
+		 String actualPageTitle = driver.getTitle();	  
+		 Assert.assertEquals(expectedPageTitle,actualPageTitle);
+	}
+	
+	@After
+	public void afterScenario() {
+		driver.quit();
 	}
 }

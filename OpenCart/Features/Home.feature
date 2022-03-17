@@ -17,7 +17,7 @@
 ## (Comments)
 #Sample Feature Definition Template
 
-  @tag
+  @Home
   Feature: Verification of Home Page
 	  Appearances and Functionalities of Home Page are being verified
 
@@ -31,9 +31,16 @@
   Scenario: To validate header section is visible in all pages
     Given OpenCart website is ready
     When I launch URL in chrome browser
-    And I check whether header section is visible in all pages
-    Then OpenCart website should load with Header section
-    And Header Section should be visible in all pages
+    And I check whether header section is visible in <page_name> page
+    Then Header Section should be visible in all pages
+    Examples: 
+      | page_name     | 
+      | Contact       |
+      | Wish List (0) | 
+      | Shopping Cart |
+      | Checkout      | 
+      | Register      |
+      | Login         |
 
   @StoreLogo
   Scenario: To validate that redirection to Home page occurs after clicking on the logo
@@ -54,25 +61,22 @@
     Given OpenCart website is ready
     When I launch URL in chrome browser
     And I click on currency block
-    And I select 'Euro' currency
-    Then the price of all the products should convert to Euro currency
+    And I select <currency_name> currency
+    Then the price of all the products should convert to <currency_name> currency
+	  Examples: 
+      | currency_name  | 
+      | Euro           |
+      | Pound Sterling | 
+      | US Dollar      |
 
-	@CurrencyBlock
-  Scenario: To validate the complete functionality of the website by selecting 'Sterling Pound' currency
+
+@ShoppingCart
+  Scenario: To validate the functionality of shopping cart option when empty
     Given OpenCart website is ready
     When I launch URL in chrome browser
-    And I click on currency block
-    And I select 'Pound Sterling' currency
-    Then the price of all the products should convert to Pound Sterling currency
-
-	@CurrencyBlock
-  Scenario: To validate the complete functionality of the website by selecting 'US Dollar' currency
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on currency block
-    And I select 'US Dollar' currency
-    Then the price of all the products should convert to US Dollar currency
-
+    And I click on shopping cart option
+    Then it should display "Your shopping cart is empty!"
+    
   @ShoppingCart
   Scenario: To validate that Shopping Cart displays total number of items purchased and total price of orders
     Given OpenCart website is ready
@@ -81,18 +85,11 @@
     Then shopping cart button should display number of items purchased and total cost of order
 
   @ShoppingCart
-  Scenario: To validate the functionality of shopping cart option when empty
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on shopping cart
-    Then it should display "Your shopping cart is empty!"
-    
-  @ShoppingCart
   Scenario: To validate shopping cart option is functioning properly with products added
     Given OpenCart website is ready
     When I launch URL in chrome browser
     And I add some products to shopping cart
-    And I click on shopping cart
+    And I click on shopping cart option
     Then it should display all product details added to the cart 
 
 	@ShoppingCart
@@ -100,8 +97,8 @@
     Given OpenCart website is ready
     When I launch URL in chrome browser
     And I add some products to shopping cart
-    And I click on shopping cart
-    Then the price of all the products should convert to Euro currency
+    And I click on shopping cart option
+    Then it should display the options for View Cart and Checkout
 
 	@ShoppingCart
   Scenario: To validate that page is redirected to the shopping cart page after clicking View Cart or Checkout
@@ -109,8 +106,12 @@
     When I launch URL in chrome browser
     And I add some products to shopping cart
     And I click on shopping cart option
-    And I click on "View Cart" or "Checkout"
-    Then the page should be redirected to the shopping cart page
+    And I click on <option_name>
+    Then the page should be redirected to the <option_name> page
+		Examples: 
+      | option_name | 
+      | View Cart   |
+      | Checkout    | 
 
   @SearchBox
   Scenario: To validate that search page opens with pre-filled search criteria when text is given by customer in Search Box and click on Search button
