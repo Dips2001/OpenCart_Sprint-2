@@ -110,7 +110,7 @@ public class BrowseCartTest {
 
 	@Then("the products should be displayed in grid")
 	public void the_products_should_be_displayed_in_grid() {
-	   
+		assertTrue(driver.findElement(By.xpath("//body//div[@id='product-category']//div[@class='row']//div[@class='row']//div[2]//div[1]//div[2]//div[1]//p[2]")).isDisplayed());
 	}
 
 	@When("select the rating option")
