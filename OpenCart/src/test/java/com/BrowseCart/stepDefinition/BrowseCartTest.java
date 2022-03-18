@@ -100,12 +100,12 @@ public class BrowseCartTest {
 
 	@Then("The grid button should be visible there")
 	public void the_grid_button_should_be_visible_there() {
-	   
+		assertTrue(driver.findElement(By.id("grid-view")).isDisplayed());
 	}
 
 	@When("after clicking on grid preference button")
 	public void after_clicking_on_grid_preference_button() {
-	    
+		driver.findElement(By.id("grid-view")).click();
 	}
 
 	@Then("the products should be displayed in grid")
