@@ -52,20 +52,17 @@ public class BrowseCartTest {
 
 	@Given("Search option should be there")
 	public void search_option_should_be_there() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
 	}
 
 	@When("I search products")
 	public void i_search_products() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
 	}
 
 	@Then("searching should be available based on categories")
 	public void searching_should_be_available_based_on_categories() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
 	}
 
 	@Then("searching should be available based on sub-categories")
@@ -82,38 +79,32 @@ public class BrowseCartTest {
 
 	@Then("The list button should be visible there")
 	public void the_list_button_should_be_visible_there() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	   
 	}
 
 	@When("after clicking on list preference button")
 	public void after_clicking_on_list_preference_button() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
 	}
 
 	@Then("the products should be displayed in list")
 	public void the_products_should_be_displayed_in_list() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
 	}
 
 	@Then("The grid button should be visible there")
 	public void the_grid_button_should_be_visible_there() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	   
 	}
 
 	@When("after clicking on grid preference button")
 	public void after_clicking_on_grid_preference_button() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
 	}
 
 	@Then("the products should be displayed in grid")
 	public void the_products_should_be_displayed_in_grid() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	   
 	}
 
 	@When("select the rating option")
