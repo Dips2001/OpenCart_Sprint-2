@@ -27,32 +27,27 @@ public class BrowseCartTest {
 	
 	@Given("Open cart website is ready")
 	public void open_cart_website_is_ready() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
 	}
 
 	@Given("URL should be working")
 	public void url_should_be_working() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
 	}
 
 	@When("I browse products")
 	public void i_browse_products() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
 	}
 
 	@Then("similar products should be available")
 	public void similar_products_should_be_available() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
 	}
 
 	@Then("same category products should be there")
 	public void same_category_products_should_be_there() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
 	}
 
 	@Given("Search option should be there")
