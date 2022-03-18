@@ -27,12 +27,13 @@ public class BrowseCartTest {
 	
 	@Given("Open cart website is ready")
 	public void open_cart_website_is_ready() {
-	    
+		System.out.println("Open cart website is ready");
 	}
 
 	@Given("URL should be working")
 	public void url_should_be_working() {
-	    
+		driver.get("https://demo.opencart.com/");
+		driver.manage().window().maximize();
 	}
 
 	@When("I browse products")
