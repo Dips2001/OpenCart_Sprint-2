@@ -90,7 +90,7 @@ public class BrowseCartTest {
 
 	@When("after clicking on list preference button")
 	public void after_clicking_on_list_preference_button() {
-	    
+		driver.findElement(By.id("list-view")).click();
 	}
 
 	@Then("the products should be displayed in list")
