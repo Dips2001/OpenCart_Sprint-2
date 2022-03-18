@@ -117,10 +117,10 @@
     And I click on Continue as Guest Button
     And I enter valid First Name
     And I enter valid Last Name
-    And I enter valid Email Address
+    And I enter valid Email
     And I enter valid Phone Number
     And I click on Submit Button
-    Then I should see Address Details Form
+    Then I should see Address Form
 
 #72
   @PersonalDetailsForm
@@ -129,13 +129,13 @@
     When I launch URL in chrome browser
     And I click on Checkout Button
     And I click on Continue as Guest Button
-    And I enter invalid/null in First Name field
-    And I enter invalid/null in Last Name field
-    And I enter invalid/null in Email field
-    And I enter invalid/null in Phone Number field
+    And I enter valid First Name
+    And I enter valid Last Name
+    And I enter valid Email
+    And I enter valid Phone Number
     And I click on Submit Button
     Then I should see Error message for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
-    And Page should not redirect to Address Details Form
+    And Page should not redirect to Address Form
 
 
 #73
@@ -216,7 +216,7 @@
     And I click on Continue as Guest Button
     And I enter valid details in Personal details form
     And I click on Submit Button
-    And I enter invalid/null details in Address form
+    And I enter null details in Address form
     And I click on Continue Button
     Then I should see Error message for Address, State, Pincode input field in the Address Form
 
