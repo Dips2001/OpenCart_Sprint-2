@@ -1,8 +1,12 @@
 package com.OrderingCheckout.stepDefinition;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -41,52 +45,120 @@ public class OrderingCheckoutTest {
 		driver.manage().window().maximize();
 	}
 
+	@When("I add some products to shopping cart")
+	public void i_add_some_products_to_shopping_cart() {
+		driver.findElement(By.name(prop.getProperty("search"))).sendKeys("hp");
+	    driver.findElement(By.xpath(prop.getProperty("search_icon"))).click();
+	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath(prop.getProperty("hp_add_to_cart"))).click();
+	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    driver.findElement(By.xpath(prop.getProperty("button_cart"))).click();
+	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    assertEquals(driver.findElement(By.xpath(prop.getProperty("alert1"))).getText(), "Success: You have added HP LP3065 to your shopping cart!\n×");
+	}
+	
 	@When("I click on Checkout Button")
 	public void i_click_on_checkout_button() {
 		// Clicking on the Checkout Button
-		driver.findElement(By.xpath(prop.getProperty("checkout"))).click();
+//		driver.findElement(By.xpath("//a[@title='Checkout']")).click();
+//		driver.findElement(By.xpath(prop.getProperty("checkout"))).click();
+//		driver.findElement(By.cssSelector("a[title='Checkout'] span[class='hidden-xs hidden-sm hidden-md']")).click();
+//		driver.findElement(By.xpath("//span[normalize-space()='Checkout']")).click();
+		driver.findElement(By.xpath(prop.getProperty("cart_total"))).click();
+		driver.findElement(By.xpath(prop.getProperty("cart_checkout"))).click();
+	}
+	
+	@Then("I should see Checkout Options Form")
+	public void i_should_see_checkout_options_form() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 1: Checkout Options']")).getText(),"Step 1: Checkout Options");
 	}
 
-	@Then("I should see Login and Register options")
-	public void i_should_see_login_and_register_options() {
+	@Then("I should see Login Form")
+	public void i_should_see_login_form() throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		System.out.println(driver.findElement(By.xpath(prop.getProperty("login_heading"))).getText());
+		Thread.sleep(3000);
+	    assertEquals(driver.findElement(By.xpath(prop.getProperty("login_heading"))).getText(),"Returning Customer");
+	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertTrue(driver.findElement(By.xpath(prop.getProperty("login_email"))).isEnabled());
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertTrue(driver.findElement(By.xpath(prop.getProperty("login_password"))).isEnabled());
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertTrue(driver.findElement(By.xpath(prop.getProperty("login_button"))).isDisplayed());
+	}
+	
+	@Then("I should see Register Account and Guest Checkout options")
+	public void i_should_see_register_account_and_guest_checkout_options() {
 		// Register is Displayed
 		boolean register = driver.findElement(By.xpath(prop.getProperty("register_account_label"))).isDisplayed();
 		// Login is Displayed
-		boolean login = driver.findElement(By.xpath(prop.getProperty("guest_account_label"))).isDisplayed();
-
+		boolean guest = driver.findElement(By.xpath(prop.getProperty("guest_account_label"))).isDisplayed();
 		// Assert if register and log is displayed
 		Assert.assertTrue(register);
-		Assert.assertTrue(login);
+		Assert.assertTrue(guest);
 	}
-
-	@When("I click on Register Button")
-	public void i_click_on_register_button() {
-		// Clicking on Register Button
-		driver.findElement(By.xpath(prop.getProperty("input_value_register"))).click();
-		driver.findElement(By.xpath(prop.getProperty("continue_button"))).click();
+	
+	@When("I enter email as <{string}>")
+	public void i_enter_email_as(String email)
+	{
+		driver.findElement(By.xpath(prop.getProperty("login_email"))).clear();
+		driver.findElement(By.xpath(prop.getProperty("login_email"))).sendKeys(email);
 	}
-
-	@Then("I should see Registeration form")
-	public void i_should_see_registeration_form() {
-		// Registration form is displayed
-		boolean registration = driver.findElement(By.xpath(prop.getProperty("personal_details_legend"))).isDisplayed();
-		// Assert if registration form is displayed
-		Assert.assertTrue(registration);
+	
+	@When("I enter password as <{string}>")
+	public void i_enter_password_as(String password)
+	{
+		driver.findElement(By.xpath(prop.getProperty("login_password"))).clear();
+		driver.findElement(By.xpath(prop.getProperty("login_password"))).sendKeys(password);
 	}
-
+	
 	@When("I click on Login Button")
-	public void i_click_on_login_button() {
-		// Clicking on Checkout Button
-		driver.findElement(By.xpath(prop.getProperty("checkout"))).click();
+	public void i_click_on_login_button()
+	{
+		driver.findElement(By.xpath(prop.getProperty("login_button"))).click();
 	}
+	
+	@Then("I should see Billing Details Form")
+	public void i_should_see_billing_details_form() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 2: Account & Billing Details']")).getText(),"Step 2: Account & Billing Details");
+	}
+	
+	
+	
+	
+	
 
-	@Then("I should see Login form")
-	public void i_should_see_login_form() {
-		// Login form is displayed
-		boolean form = driver.findElement(By.xpath(prop.getProperty("returning_customer_legend"))).isDisplayed();
-		// Assert form
-		Assert.assertTrue(form);
-	}
+//	@When("I click on Register Option")
+//	public void i_click_on_register_option() {
+//		// Clicking on Register Option
+////		assertTrue(driver.findElement(By.xpath(prop.getProperty("register_account_label"))).isSelected());
+//		driver.findElement(By.xpath(prop.getProperty("register_account_label"))).click();
+////		driver.findElement(By.xpath(prop.getProperty("continue_button"))).click();
+//	}
+
+//	@Then("I should see Registration form")
+//	public void i_should_see_registeration_form() {
+//		// Registration form is displayed
+//		boolean registration = driver.findElement(By.xpath(prop.getProperty("personal_details_legend"))).isDisplayed();
+//		// Assert if registration form is displayed
+//		Assert.assertTrue(registration);
+//	}
+//
+//	@When("I click on Login Button")
+//	public void i_click_on_login_button() {
+//		// Clicking on Checkout Button
+//		driver.findElement(By.xpath(prop.getProperty("checkout"))).click();
+//	}
+
+//	@Then("I should see Login form")
+//	public void i_should_see_login_form() {
+//		// Login form is displayed
+//		boolean form = driver.findElement(By.xpath(prop.getProperty("returning_customer_legend"))).isDisplayed();
+//		// Assert form
+//		Assert.assertTrue(form);
+//	}
 
 	@When("I click on Continue as Guest Button")
 	public void i_click_on_continue_as_guest_button() {

@@ -23,38 +23,56 @@
 
 #63
   @LoginAndRegister
-  Scenario: To validate, two options-Login and Register-are available
+  Scenario: To validate Login form along with two options-Register and Guest Checkout are available
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
-    Then I should see Login and Register options
+    Then I should see Checkout Options Form
+    And I should see Login Form 
+    And I should see Register Account and Guest Checkout options
+    
+  @LoginAndRegister
+  Scenario: To validate Confirm Order via Login 
+  	Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And I add some products to shopping cart
+    And I click on Checkout Button
+    Then I should see Login Form 
+    When I enter email as <"dipanwita.jash@gmail.com">
+    And I enter password as <"Dipanwita">
+    And I click on Login Button
+    Then I should see Billing Details Form
+    
+    
+    
 
 #64
-  @LoginAndRegister
-  Scenario: To validate Checkout as New User
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Checkout Button
-    And I click on Register Button
-    Then I should see Registeration form
+  #@LoginAndRegister
+  #Scenario: To validate Checkout as New User
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Checkout Button
+    #And I click on Register Option
+    #Then I should see Registeration form
 
 #65
-  @LoginAndRegister
-  Scenario: To validate Checkout as Existing User
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Checkout Button
-    And I click on Login Button
-    Then I should see Login form
+  #@LoginAndRegister
+  #Scenario: To validate Checkout as Existing User
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Checkout Button
+    #And I click on Login Button
+    #Then I should see Login form
 
 #66
-  @LoginAndRegister
-  Scenario: To validate Checkout as a Guest User
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Checkout Button
-    And I click on Continue as Guest Button
-    Then I should see Personal Details Form
+  #@LoginAndRegister
+  #Scenario: To validate Checkout as a Guest User
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Checkout Button
+    #And I click on Continue as Guest Button
+    #Then I should see Personal Details Form
 
 #67
 	@PersonalDetailsForm
