@@ -1,9 +1,12 @@
 package com.BrowseCart.stepDefinition;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -38,17 +41,17 @@ public class BrowseCartTest {
 
 	@When("I browse products")
 	public void i_browse_products() {
-	    
+		driver.findElement(By.xpath("//img[@title='iPhone']")).click();
 	}
 
 	@Then("similar products should be available")
 	public void similar_products_should_be_available() {
-	    
+		assertEquals(driver.findElement(By.xpath("//a[normalize-space()='Apple Cinema 30\"']")).getText(),"Apple Cinema 30\"");
 	}
 
 	@Then("same category products should be there")
 	public void same_category_products_should_be_there() {
-	    
+		assertEquals(driver.findElement(By.xpath("//a[normalize-space()='Apple Cinema 30\"']")).getText(),"Apple Cinema 30\"");
 	}
 
 	@Given("Search option should be there")
