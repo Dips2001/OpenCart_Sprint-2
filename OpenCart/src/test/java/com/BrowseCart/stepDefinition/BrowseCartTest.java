@@ -1,6 +1,9 @@
 package com.BrowseCart.stepDefinition;
 
-import org.openqa.selenium.By;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -10,11 +13,16 @@ import io.cucumber.java.en.*;
 
 public class BrowseCartTest {
 	public static WebDriver driver;
+	Properties prop;
+	
 	@Before
-	public void beforeScenario()
+	public void beforeScenario() throws IOException
 	{
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\Drivers\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
+		FileInputStream fs = new FileInputStream("src/test/resources/OpenCart.properties");
+		prop = new Properties();
+		prop.load(fs);
 	}
 	
 	@Given("Open cart website is ready")
