@@ -1,10 +1,12 @@
 package com.BrowseCart.stepDefinition;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -77,13 +79,13 @@ public class BrowseCartTest {
 
 	@When("I go to products page")
 	public void i_go_to_products_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//ul[@class='nav navbar-nav']//a[contains(text(),'Phones & PDAs')]")).click();
 	}
 
 	@Then("The list button should be visible there")
 	public void the_list_button_should_be_visible_there() {
-	   
+		assertTrue(driver.findElement(By.id("list-view")).isDisplayed());
 	}
 
 	@When("after clicking on list preference button")
