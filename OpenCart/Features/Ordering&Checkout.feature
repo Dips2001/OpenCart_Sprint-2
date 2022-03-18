@@ -221,149 +221,149 @@
     Then I should see Error message for Address, State, Pincode input field in the Address Form
 
 
-
-
+#
+#
 #79
-@SameAsCheckbox
-    Scenario: Verification of "Same as" Checkbox of Billing details
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
- 	and I click on Checkout button
- 	and I click on Continue As Guest
- 	and I enter valid data in Personal Details Form
- 	and I Click on Submit button
- 	and I enter valid data in Address Form
- 	and I click on submit button
- 	and I click on checkbox for same billing address
- 	and I click the submit button
-    Then I should see Error message for Address, State, Pincode input field in the billing details Form
-
+#@SameAsCheckbox
+    #Scenario: Verification of "Same as" Checkbox of Billing details
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+ #	and I click on Checkout button
+ #	and I click on Continue As Guest
+ #	and I enter valid data in Personal Details Form
+ #	and I Click on Submit button
+ #	and I enter valid data in Address Form
+ #	and I click on submit button
+ #	and I click on checkbox for same billing address
+ #	and I click the submit button
+    #Then I should see Error message for Address, State, Pincode input field in the billing details Form
+#
 #80
-@SameAsCheckbox
-  Scenario: Verification of "Same as" Checkbox of Billing details
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    and I click on Checkout button
- 	and I click on Continue As Guest
- 	and I enter valid data in Personal Details Form
- 	and I Click on Submit button
- 	and I enter valid data in Address Form
- 	and I click on submit button
- 	and I do not click the checkbox for same billing address
- 	and I click the submit button
-   Then I should the billing details Form
-   
-
-
+#@SameAsCheckbox
+  #Scenario: Verification of "Same as" Checkbox of Billing details
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #and I click on Checkout button
+ #	and I click on Continue As Guest
+ #	and I enter valid data in Personal Details Form
+ #	and I Click on Submit button
+ #	and I enter valid data in Address Form
+ #	and I click on submit button
+ #	and I do not click the checkbox for same billing address
+ #	and I click the submit button
+   #Then I should the billing details Form
+   #
+#
+#
 #81
-@BillingDetailsForm
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    when I launch URL in chrome browser
-    And I click on Checkout Button
-    And I Click on Continue As Guest
-	and i enter valid data in Personal Details Form
-	and i Click on Submit form
-	and i enter valid in Address Form
-	and i Click on Submit form
-	and i Uncheck the checkbox "Same as Billing Address"
-	and i Click on Submit Button  
-    Then I should see the billing details Form
-
+#@BillingDetailsForm
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #when I launch URL in chrome browser
+    #And I click on Checkout Button
+    #And I Click on Continue As Guest
+#	and i enter valid data in Personal Details Form
+#	and i Click on Submit form
+#	and i enter valid in Address Form
+#	and i Click on Submit form
+#	and i Uncheck the checkbox "Same as Billing Address"
+#	and i Click on Submit Button  
+    #Then I should see the billing details Form
+#
 #82
-@BillingDetailsForm
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Checkout Button
-    And I Click on Continue As Guest
-	and i enter valid data in Personal Details Form
-	and i Click on Submit form
-	and i enter valid in Address Form
-	and i Click on Submit form
-	and i Uncheck the checkbox "Same as Billing Address"
-	and i Click on Submit Button  
-	and I enter address
-	And i enter state
-	and i enter pincode
-    And I click on Continue Button
-    Then I should see the billing details Form
-
+#@BillingDetailsForm
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Checkout Button
+    #And I Click on Continue As Guest
+#	and i enter valid data in Personal Details Form
+#	and i Click on Submit form
+#	and i enter valid in Address Form
+#	and i Click on Submit form
+#	and i Uncheck the checkbox "Same as Billing Address"
+#	and i Click on Submit Button  
+#	and I enter address
+#	And i enter state
+#	and i enter pincode
+    #And I click on Continue Button
+    #Then I should see the billing details Form
+#
 #83
-@BillingDetailsForm
-   Scenario: Verification of Billing Address Form Appearance
-   Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Checkout Button
-    And I Click on Continue As Guest
-	and i enter valid data in Personal Details Form
-	and i Click on Submit form
-	and i enter valid in Address Form
-	and i Click on Submit form
-	and i Uncheck the checkbox "Same as Billing Address"
-	and i Click on Submit Button  
-	and I enter address
-	And i enter state
-	and i enter pincode
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Billing details Form
-
+#@BillingDetailsForm
+   #Scenario: Verification of Billing Address Form Appearance
+   #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Checkout Button
+    #And I Click on Continue As Guest
+#	and i enter valid data in Personal Details Form
+#	and i Click on Submit form
+#	and i enter valid in Address Form
+#	and i Click on Submit form
+#	and i Uncheck the checkbox "Same as Billing Address"
+#	and i Click on Submit Button  
+#	and I enter address
+#	And i enter state
+#	and i enter pincode
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Billing details Form
+#
 #84
-@BillingDetailsForm
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Checkout Button
-    And I Click on Continue As Guest
-	and i enter valid data in Personal Details Form
-	and i Click on Submit form
-	and i enter valid in Address Form
-	and i Click on Submit form
-	and i Uncheck the checkbox "Same as Billing Address"
-	and i Click on Submit Button  
-	#doubt
-	and I  address
-	And i enter state
-	and i enter pincode
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
+#@BillingDetailsForm
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Checkout Button
+    #And I Click on Continue As Guest
+#	and i enter valid data in Personal Details Form
+#	and i Click on Submit form
+#	and i enter valid in Address Form
+#	and i Click on Submit form
+#	and i Uncheck the checkbox "Same as Billing Address"
+#	and i Click on Submit Button  
+#	#doubt
+#	and I  address
+#	And i enter state
+#	and i enter pincode
+    #And I click on Continue Button
+    #Then I should see Error message for Address, State, Pincode input field in the Address Form
+#
 #85
-@BillingDetailsForm
-  Scenario: Verification of Billing Address Form Appearance
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Checkout Button
-    And I Click on Continue As Guest
-	and i enter valid data in Personal Details Form
-	and i Click on Submit form
-	and i enter valid in Address Form
-	and i Click on Submit form
-	and i Uncheck the checkbox "Same as Billing Address"
-    And I click on submit Button
-    and i enter valid data in billing details form
-    and i click on submit button
-    Then I should see the Billing details Form
-
+#@BillingDetailsForm
+  #Scenario: Verification of Billing Address Form Appearance
+    #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Checkout Button
+    #And I Click on Continue As Guest
+#	  And i enter valid data in Personal Details Form
+#	  And i Click on Submit form
+#	  And i enter valid in Address Form
+#	  And i Click on Submit form
+#	  And i Uncheck the checkbox "Same as Billing Address"
+    #And I click on submit Button
+    #And i enter valid data in billing details form
+    #And i click on submit button
+    #Then I should see the Billing details Form
+#
 #86
-@BillingDetailsForm
-  Scenario: Verification of Billing Address Form Appearance
-   Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Checkout Button
-    And I Click on Continue As Guest
-	and i enter valid data in Personal Details Form
-	and i Click on Submit form
-	and i enter valid in Address Form
-	and i Click on Submit form
-	and i Uncheck the checkbox "Same as Billing Address"
-	and i Click on Submit Button  
-	and i do not enter valid data in billing details form
-    and i click on submit button
-    Then I should see the Billing details Form
+#@BillingDetailsForm
+  #Scenario: Verification of Billing Address Form Appearance
+   #Given OpenCart website is ready
+    #When I launch URL in chrome browser
+    #And I click on Checkout Button
+    #And I Click on Continue As Guest
+#	  And i enter valid data in Personal Details Form
+#	  And i Click on Submit form
+#	  And i enter valid in Address Form
+#	  And i Click on Submit form
+#	  And i Uncheck the checkbox "Same as Billing Address"
+#	  And i Click on Submit Button  
+#	  And i do not enter valid data in billing details form
+    #And i click on submit button
+    #Then I should see the Billing details Form
 #todo
 #87
-@PaymentPage
+#@PaymentPage
   #Scenario: Verification of Billing Address Form Appearance
     #Given OpenCart website is ready
     #When I launch URL in chrome browser

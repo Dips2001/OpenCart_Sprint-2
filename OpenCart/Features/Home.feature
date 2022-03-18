@@ -22,25 +22,22 @@
 	  Appearances and Functionalities of Home Page are being verified
 
   @HeaderSection
-  Scenario: To validate the header section is in proper position
+  Scenario: To validate the header section is in proper position and visible in all pages
     Given OpenCart website is ready
     When I launch URL in chrome browser
     Then OpenCart website should load with Header section in proper position
-
-  @HeaderSection
-  Scenario: To validate header section is visible in all pages
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I check whether header section is visible in <page_name> page
+		When I check whether header section is visible in Contact page
     Then Header Section should be visible in all pages
-    Examples: 
-      | page_name     | 
-      | Contact       |
-      | Wish List (0) | 
-      | Shopping Cart |
-      | Checkout      | 
-      | Register      |
-      | Login         |
+    When I check whether header section is visible in Wish List (0) page
+    Then Header Section should be visible in all pages
+    When I check whether header section is visible in Shopping Cart page
+    Then Header Section should be visible in all pages
+    When I check whether header section is visible in Checkout page
+    Then Header Section should be visible in all pages
+    When I check whether header section is visible in Register page
+    Then Header Section should be visible in all pages
+    When I check whether header section is visible in Login page
+    Then Header Section should be visible in all pages
 
   @StoreLogo
   Scenario: To validate that redirection to Home page occurs after clicking on the logo
@@ -55,13 +52,7 @@
     When I launch URL in chrome browser
     And I click on currency block
     Then the currency dropdown containing Euro, Pound Sterling and US dollar should appear
-
-	@CurrencyBlock
-  Scenario: To validate the complete functionality of the website by selecting 'Euro' currency
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on currency block
-    And I select <currency_name> currency
+    When I select <currency_name> currency
     Then the price of all the products should convert to <currency_name> currency
 	  Examples: 
       | currency_name  | 
@@ -83,35 +74,15 @@
     When I launch URL in chrome browser
     And I add some products to shopping cart
     Then shopping cart button should display number of items purchased and total cost of order
-
-  @ShoppingCart
-  Scenario: To validate shopping cart option is functioning properly with products added
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I add some products to shopping cart
-    And I click on shopping cart option
+    When I click on shopping cart option
     Then it should display all product details added to the cart 
-
-	@ShoppingCart
-  Scenario: To validate that clicking on Shopping Cart button will have both "View Cart" and "Checkout" option 
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I add some products to shopping cart
-    And I click on shopping cart option
-    Then it should display the options for View Cart and Checkout
-
-	@ShoppingCart
-  Scenario: To validate that page is redirected to the shopping cart page after clicking View Cart or Checkout
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I add some products to shopping cart
-    And I click on shopping cart option
+    And it should display the options for View Cart and Checkout
     And I click on <option_name>
     Then the page should be redirected to the <option_name> page
 		Examples: 
       | option_name | 
       | View Cart   |
-      | Checkout    | 
+      | Checkout    | 		
 
   @SearchBox
   Scenario: To validate that search page opens with pre-filled search criteria when text is given by customer in Search Box and click on Search button

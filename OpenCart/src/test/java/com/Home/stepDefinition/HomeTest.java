@@ -56,50 +56,50 @@ public class HomeTest
 	@When("I check whether header section is visible in Contact page")
 	public void i_check_whether_header_section_is_visible_in_contact_pages() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath(prop.getProperty("call"))).click();
+		driver.findElement(By.xpath(prop.getProperty("phone"))).click();
 	}
 	
 	@When("I check whether header section is visible in Wish List \\({int}) page")
 	public void i_check_whether_header_section_is_visible_in_wish_list_pages(Integer int1) {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//span[normalize-space()='Wish List ("+int1+")']")).click();
+		driver.findElement(By.cssSelector(prop.getProperty("wishlist"))).click();
 	}
 
 	@When("I check whether header section is visible in Shopping Cart page")
 	public void i_check_whether_header_section_is_visible_in_shopping_cart_pages() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//span[normalize-space()='Shopping Cart']")).click();
+		driver.findElement(By.xpath(prop.getProperty("shopping_cart"))).click();
 	}
 
 	@When("I check whether header section is visible in Checkout page")
 	public void i_check_whether_header_section_is_visible_in_checkout_pages() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//span[normalize-space()='Checkout']")).click();
+		driver.findElement(By.xpath(prop.getProperty("checkout"))).click();
 	}
 
 	@When("I check whether header section is visible in Register page")
 	public void i_check_whether_header_section_is_visible_in_register_pages() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
-	    driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Register']")).click();
+		driver.findElement(By.xpath(prop.getProperty("account"))).click();
+	    driver.findElement(By.xpath(prop.getProperty("register"))).click();
 	}
 
 	@When("I check whether header section is visible in Login page")
 	public void i_check_whether_header_section_is_visible_in_login_pages() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
-	    driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Login']")).click();
+		driver.findElement(By.xpath(prop.getProperty("account"))).click();
+	    driver.findElement(By.xpath(prop.getProperty("login"))).click();
 	}
 	
 	@Then("Header Section should be visible in all pages")
 	public void header_section_should_be_visible_in_all_pages() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertTrue(driver.findElement(By.id("top")).isDisplayed());
+		assertTrue(driver.findElement(By.id(prop.getProperty("navbar"))).isDisplayed());
 	}
 
 	@When("I click on store logo")
 	public void i_click_on_store_logo() {
-	    driver.findElement(By.xpath("//a[normalize-space()='Your Store']")).click();
+	    driver.findElement(By.xpath(prop.getProperty("logo"))).click();
 	}
 
 	@Then("I should be redirected back to the home page")
@@ -112,89 +112,89 @@ public class HomeTest
 	@When("I click on currency block")
 	public void i_click_on_currency_block() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//span[normalize-space()='Currency']")).click();
+		driver.findElement(By.xpath(prop.getProperty("currency"))).click();
 	}
 
 	@Then("the currency dropdown containing Euro, Pound Sterling and US dollar should appear")
 	public void the_currency_dropdown_containing_euro_pound_sterling_and_us_dollar_should_appear() {
-		assertEquals(driver.findElement(By.name("EUR")).getText(),"€ Euro");
-		assertEquals(driver.findElement(By.name("GBP")).getText(),"£ Pound Sterling");
-		assertEquals(driver.findElement(By.name("USD")).getText(),"$ US Dollar");
+		assertEquals(driver.findElement(By.name(prop.getProperty("euro"))).getText(),"€ Euro");
+		assertEquals(driver.findElement(By.name(prop.getProperty("pound"))).getText(),"£ Pound Sterling");
+		assertEquals(driver.findElement(By.name(prop.getProperty("dollar"))).getText(),"$ US Dollar");
 	}
 			
 	@When("I select Euro currency")
 	public void i_select_euro_currency() {
-		driver.findElement(By.name("EUR")).click();
+		driver.findElement(By.name(prop.getProperty("euro"))).click();
 	}
 
 	@Then("the price of all the products should convert to Euro currency")
 	public void the_price_of_all_the_products_should_convert_to_euro_currency() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath("//strong[contains(text(),'€')]")).getText(),"€");
-	    assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3)")).getText().contains("€"));
-		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(1)")).getText().contains("€"));
-		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(1)")).getText().contains("€"));
-		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(2)")).getText().contains("€"));
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("euro_icon"))).getText(),"€");
+	    assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price1"))).getText().contains("€"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price2"))).getText().contains("€"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price3"))).getText().contains("€"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price4"))).getText().contains("€"));
 	}
 
 	@When("I select Pound Sterling currency")
 	public void i_select_pound_sterling_currency() {
-		driver.findElement(By.name("GBP")).click();
+		driver.findElement(By.name(prop.getProperty("pound"))).click();
 	}
 
 	@Then("the price of all the products should convert to Pound Sterling currency")
 	public void the_price_of_all_the_products_should_convert_to_pound_sterling_currency() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath("//strong[contains(text(),'£')]")).getText(),"£");
-		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3)")).getText().contains("£"));
-		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(1)")).getText().contains("£"));
-		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(1)")).getText().contains("£"));
-		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(2)")).getText().contains("£"));
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("pound_icon"))).getText(),"£");
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price1"))).getText().contains("£"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price2"))).getText().contains("£"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price3"))).getText().contains("£"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price4"))).getText().contains("£"));
 	}
 
 	@When("I select US Dollar currency")
 	public void i_select_us_dollar_currency() {
-		if(!(driver.findElement(By.xpath("//strong[contains(text(),'$')]")).getText().equals("$"))) {
-			driver.findElement(By.name("USD")).click();
+		if(!(driver.findElement(By.xpath(prop.getProperty("dollar_icon"))).getText().equals("$"))) {
+			driver.findElement(By.name(prop.getProperty("dollar"))).click();
 		}
 	}
 
 	@Then("the price of all the products should convert to US Dollar currency")
 	public void the_price_of_all_the_products_should_convert_to_us_dollar_currency() throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath("//strong[contains(text(),'$')]")).getText(),"$");
-		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3)")).getText().contains("$"));
-		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(1)")).getText().contains("$"));
-		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(1)")).getText().contains("$"));
-		assertTrue(driver.findElement(By.cssSelector("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > span:nth-child(2)")).getText().contains("$"));
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("dollar_icon"))).getText(),"$");
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price1"))).getText().contains("$"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price2"))).getText().contains("$"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price3"))).getText().contains("$"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price4"))).getText().contains("$"));
 	}
 	
 	@When("I click on shopping cart option")
 	public void i_click_on_shopping_cart_option() {
-		driver.findElement(By.xpath("//button[@class='btn btn-inverse btn-block btn-lg dropdown-toggle']")).click();
+		driver.findElement(By.xpath(prop.getProperty("cart"))).click();
 	}
 	
 	@Then("it should display {string}")
 	public void it_should_display(String string) {
-	    assertEquals(driver.findElement(By.xpath("//p[@class='text-center']")).getText(),string);
+	    assertEquals(driver.findElement(By.xpath(prop.getProperty("cart_text"))).getText(),string);
 	}
 
 	@When("I add some products to shopping cart")
 	public void i_add_some_products_to_shopping_cart() {
-	    driver.findElement(By.name("search")).sendKeys("hp");
-	    driver.findElement(By.xpath("//button[@class='btn btn-default btn-lg']")).click();
+		driver.findElement(By.name(prop.getProperty("search"))).sendKeys("hp");
+	    driver.findElement(By.xpath(prop.getProperty("search_icon"))).click();
 	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//span[normalize-space()='Add to Cart']")).click();
+		driver.findElement(By.xpath(prop.getProperty("hp_add_to_cart"))).click();
 	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	    driver.findElement(By.xpath("//button[@id='button-cart']")).click();
+	    driver.findElement(By.xpath(prop.getProperty("button_cart"))).click();
 	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	    assertEquals(driver.findElement(By.xpath("//div[@class='alert alert-success alert-dismissible']")).getText(), "Success: You have added HP LP3065 to your shopping cart!\n×");
+	    assertEquals(driver.findElement(By.xpath(prop.getProperty("alert1"))).getText(), "Success: You have added HP LP3065 to your shopping cart!\n×");
 	}
 
 	@Then("shopping cart button should display number of items purchased and total cost of order")
 	public void shopping_cart_button_should_display_number_of_items_purchased_and_total_cost_of_order() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath("//span[@id='cart-total']")).getText(),"1 item(s) - $122.00");
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("cart_total"))).getText(),"1 item(s) - $122.00");
 	}
 
 	@Then("it should display all product details added to the cart")
@@ -205,14 +205,14 @@ public class HomeTest
 	@Then("it should display the options for View Cart and Checkout")
 	public void it_should_display_all_the_options_for_view_cart_and_checkout() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath("//strong[normalize-space()='View Cart']")).getText(),"View Cart");
-		assertEquals(driver.findElement(By.xpath("//strong[normalize-space()='Checkout']")).getText(),"Checkout");
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("cart_view"))).getText(),"View Cart");
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("cart_checkout"))).getText(),"Checkout");
 	}
 
 	
 	@When("I click on View Cart")
 	public void i_click_on_view_cart() {
-	    driver.findElement(By.xpath("//strong[normalize-space()='View Cart']")).click();
+	    driver.findElement(By.xpath(prop.getProperty("cart_view"))).click();
 	}
 
 	@Then("the page should be redirected to the View Cart page")
@@ -223,7 +223,7 @@ public class HomeTest
 
 	@When("I click on Checkout")
 	public void i_click_on_checkout() {
-		driver.findElement(By.xpath("//strong[normalize-space()='Checkout']")).click();
+		driver.findElement(By.xpath(prop.getProperty("cart_checkout"))).click();
 	}
 
 	@Then("the page should be redirected to the Checkout page")
