@@ -95,7 +95,7 @@ public class BrowseCartTest {
 
 	@Then("the products should be displayed in list")
 	public void the_products_should_be_displayed_in_list() {
-	    
+		assertTrue(driver.findElement(By.xpath("//div[@id='content']//div[1]//div[1]//div[2]//div[1]")).isDisplayed());
 	}
 
 	@Then("The grid button should be visible there")
