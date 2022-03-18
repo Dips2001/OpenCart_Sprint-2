@@ -193,9 +193,7 @@ public class OrderingCheckoutTest {
 		// Clicking Continue button
 		driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
 		// Checking Error message
-		boolean emailError = driver
-				.findElement(By.xpath(prop.getProperty("email_error_message"))).isDisplayed();
-				.isDisplayed();
+		boolean emailError = driver.findElement(By.xpath(prop.getProperty("email_error_message"))).isDisplayed();
 		// Assert Error
 		Assert.assertTrue(emailError);
 	}
