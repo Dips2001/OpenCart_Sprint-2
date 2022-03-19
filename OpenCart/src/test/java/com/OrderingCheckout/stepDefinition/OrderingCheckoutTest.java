@@ -90,6 +90,7 @@ public class OrderingCheckoutTest {
 	
 	@Then("I should see Register Account and Guest Checkout options")
 	public void i_should_see_register_account_and_guest_checkout_options() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		// Register is Displayed
 		boolean register = driver.findElement(By.xpath(prop.getProperty("register_account_label"))).isDisplayed();
 		// Login is Displayed

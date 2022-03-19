@@ -79,6 +79,7 @@
   Scenario: To validate all the input fields are available
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     Then I should see Personal Details Form
@@ -89,6 +90,7 @@
   Scenario:To validate by providing valid values for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     And I enter valid First Name
@@ -103,6 +105,7 @@
   Scenario:To validate by providing invalid values for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     And I enter invalid First Name
@@ -117,6 +120,7 @@
   Scenario:To validate by providing null values for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     And I don't enter First Name
@@ -131,6 +135,7 @@
   Scenario: To validate that redirection to Address Details form occurs after clicking on the Button if form is filled with valid values
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     And I enter valid First Name
@@ -145,6 +150,7 @@
   Scenario: To validate that redirection to Address Details form does not occurs after clicking on the Button if form is filled with invalid or null values
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     And I enter valid First Name
@@ -161,6 +167,7 @@
   Scenario: To validate all the input fields are available 
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     And I enter valid details in Personal details form
@@ -172,6 +179,7 @@
   Scenario: To validate by providing valid values for Address, State, Pincode input field in the Address Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     And I enter valid details in Personal details form
@@ -187,6 +195,7 @@
   Scenario: To validate by providing invalid values for Address, State, Pincode input field in the Address Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     And I enter valid details in Personal details form
@@ -202,6 +211,7 @@
   Scenario: To validate by providing null values for Address, State, Pincode input field in the Address Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     And I enter valid details in Personal details form
@@ -217,6 +227,7 @@
   Scenario: To validate that redirection occurs after clicking on the Button if form is filled with valid values
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     And I enter valid details in Personal details form
@@ -230,6 +241,7 @@
   Scenario: To validate that redirection does not occur after clicking on the Button if form is filled with invalid or null values
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     And I enter valid details in Personal details form
