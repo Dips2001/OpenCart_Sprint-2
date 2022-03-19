@@ -56,7 +56,7 @@ public class HomeTest
 	@When("I check whether header section is visible in Contact page")
 	public void i_check_whether_header_section_is_visible_in_contact_pages() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath(prop.getProperty("phone"))).click();
+		driver.findElement(By.xpath(prop.getProperty("phone_icon"))).click();
 	}
 	
 	@When("I check whether header section is visible in Wish List \\({int}) page")
@@ -234,22 +234,26 @@ public class HomeTest
 
 	@When("I click on Search Box")
 	public void i_click_on_search_box() {
-	   driver.findElement(By.name("search")).click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	   driver.findElement(By.name(prop.getProperty("search"))).click();
 	    
 	}
 
 	@When("I type some text in the search box")
 	public void i_type_some_text_in_the_search_box() {
-		driver.findElement(By.name("search")).sendKeys("iPhone");;
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.name(prop.getProperty("search"))).sendKeys("iPhone");;
 	}
 
 	@When("I click on Search button")
 	public void i_click_on_search_button() {
-		 driver.findElement(By.xpath("//i[@class='fa fa-search']")).click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 driver.findElement(By.xpath(prop.getProperty("search_icon"))).click();
 	}
 
 	@Then("Search page should open")
 	public void search_page_should_open() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	  String expectedPageTitle = "Search - iPhone";
 	  String actualPageTitle = driver.getTitle();
 	  Assert.assertEquals(expectedPageTitle,actualPageTitle);
@@ -257,8 +261,9 @@ public class HomeTest
 
 	@Then("search text should appear in the Search criteria box")
 	public void search_text_should_appear_in_the_search_criteria_box() {
-	    driver.findElement(By.xpath("//input[@id='input-search']"));
-	    WebElement ActualSearchText = driver.findElement(By.xpath("//input[@id='input-search']"));
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    driver.findElement(By.xpath(prop.getProperty("search_criteria")));
+	    WebElement ActualSearchText = driver.findElement(By.xpath(prop.getProperty("search_criteria")));
 	    String ExpectedSearchText = "iPhone";
 	    
 	    Assert.assertEquals(ExpectedSearchText,ActualSearchText.getText());
@@ -267,7 +272,8 @@ public class HomeTest
 
 	@When("click on Search Box")
 	public void click_on_search_box() {
-	    WebElement s = driver.findElement(By.xpath("//input[@placeholder='Search']"));
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    WebElement s = driver.findElement(By.xpath(prop.getProperty("search")));
 	    s.click();
 	    s.clear();
 	    
@@ -275,11 +281,13 @@ public class HomeTest
 
 	@When("click search button")
 	public void click_search_button() {
-	    driver.findElement(By.xpath("//i[@class='fa fa-search']")).click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    driver.findElement(By.xpath(prop.getProperty("search_icon"))).click();
 	}
 
 	@Then("OpenCart website should load Search page")
 	public void open_cart_website_should_load_search_page() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		 String expectedPageTitle = "Search";
 		  String actualPageTitle = driver.getTitle();
 		  
@@ -288,10 +296,11 @@ public class HomeTest
 
 	@Then("OpenCart website should load Header section with links for My Account, Wish List, Shopping Cart and Checkout are present in header section")
 	public void open_cart_website_should_load_header_section_with_links_for_my_account_wish_list_shopping_cart_and_checkout_are_present_in_header_section() {
-		boolean myAcc = driver.findElement(By.xpath("//span[normalize-space()='My Account']")).isDisplayed();
-		boolean wishList = driver.findElement(By.xpath("//span[normalize-space()='Wish List (0)']")).isDisplayed();
-		boolean ShopCart = driver.findElement(By.xpath("//span[normalize-space()='Shopping Cart']")).isDisplayed();
-		boolean checkout = driver.findElement(By.xpath("//span[normalize-space()='Checkout']")).isDisplayed();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		boolean myAcc = driver.findElement(By.xpath(prop.getProperty("account"))).isDisplayed();
+		boolean wishList = driver.findElement(By.xpath(prop.getProperty("wish_list"))).isDisplayed();
+		boolean ShopCart = driver.findElement(By.xpath(prop.getProperty("shopping_cart"))).isDisplayed();
+		boolean checkout = driver.findElement(By.xpath(prop.getProperty("checkout"))).isDisplayed();
 		
 		
 
@@ -299,22 +308,26 @@ public class HomeTest
 
 	@When("click on My account in header section")
 	public void click_on_my_account_in_header_section() {
-		 driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 driver.findElement(By.xpath(prop.getProperty("account"))).click();
 	}
 
 	@Then("dropdown list should display options as Register and Login.")
 	public void dropdown_list_should_display_options_as_register_and_login() {
-		boolean reg = driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Register']")).isDisplayed();
-		boolean log = driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Login']")).isDisplayed();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		boolean reg = driver.findElement(By.xpath(prop.getProperty("register"))).isDisplayed();
+		boolean log = driver.findElement(By.xpath(prop.getProperty("login"))).isDisplayed();
 	}
 
 	@When("click on Wish List in header section")
 	public void click_on_wish_list_in_header_section() {
-		 driver.findElement(By.xpath("//span[normalize-space()='Wish List (1)']")).click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 driver.findElement(By.xpath(prop.getProperty("wish_list"))).click();
 	}
 
 	@Then("Wish List button should redirect to Login page")
 	public void wish_list_page_should_display_all_product_added_to_the_wish_list() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		 String expectedPageTitle = "Account Login";
 		  String actualPageTitle = driver.getTitle();
 		  
@@ -323,12 +336,14 @@ public class HomeTest
 
 	@When("click on Shopping Cart in header section")
 	public void click_on_shopping_cart_in_header_section() {
-		 driver.findElement(By.xpath("//span[normalize-space()='Shopping Cart']")).click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 driver.findElement(By.xpath(prop.getProperty("shopping_cart"))).click();
 	}
 
 	@Then("page should redirect to Shopping Cart page which will display all product added to the Shopping Cart.")
 	public void page_should_redirect_to_shopping_cart_page_which_will_display_all_product_added_to_the_shopping_cart() {
-		 String expectedPageTitle = "Shopping Cart";
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS); 
+		String expectedPageTitle = "Shopping Cart";
 		  String actualPageTitle = driver.getTitle();
 		  
 		  Assert.assertEquals(expectedPageTitle,actualPageTitle);
@@ -336,11 +351,13 @@ public class HomeTest
 
 	@When("click on Checkout in header section")
 	public void click_on_checkout_in_header_section() {
-		 driver.findElement(By.xpath("//span[normalize-space()='Checkout']")).click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 driver.findElement(By.xpath(prop.getProperty("checkout"))).click();
 	}
 
 	@Then("page should redirect to Shopping Cart page which contains a link to checkout.")
 	public void page_should_redirect_to_shopping_cart_page_which_contains_a_link_to_checkout() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		 String expectedPageTitle = "Shopping Cart";
 		  String actualPageTitle = driver.getTitle();
 		  
@@ -349,16 +366,19 @@ public class HomeTest
 
 	@Then("The company telephone number should be visible at the header.")
 	public void the_company_telephone_number_should_be_visible_at_the_header() {
-		boolean telNumber= driver.findElement(By.xpath("//span[normalize-space()='123456789']")).isDisplayed();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		boolean telNumber= driver.findElement(By.xpath(prop.getProperty("phone_number"))).isDisplayed();
 	}
 
 	@When("click on Phone icon")
 	public void click_on_phone_icon() {
-		 driver.findElement(By.xpath("//i[@class='fa fa-phone']")).click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 driver.findElement(By.xpath(prop.getProperty("phone_icon"))).click();
 	}
 
 	@Then("the page should redirect to the Contact Us page.")
 	public void the_page_should_redirect_to_the_contact_us_page() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		 String expectedPageTitle = "Contact Us";
 		  String actualPageTitle = driver.getTitle();
 		  
@@ -367,16 +387,19 @@ public class HomeTest
 
 	@When("click on dropdown icon of My Account")
 	public void click_on_dropdown_icon_of_my_account() {
-		 driver.findElement(By.xpath("//span[@class='caret']")).click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 driver.findElement(By.xpath(prop.getProperty("account"))).click();
 	}
 
 	@When("click on Register")
 	public void click_on_register() {
-		 driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Register']")).click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 driver.findElement(By.xpath(prop.getProperty("register"))).click();
 	}
 
 	@Then("the page should redirect to the Registration page.")
 	public void the_page_should_redirect_to_the_registration_page() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		 String expectedPageTitle = "Register Account";
 		  String actualPageTitle = driver.getTitle();
 		  
@@ -385,12 +408,14 @@ public class HomeTest
 
 	@When("click on Login")
 	public void click_on_login() {
-		 driver.findElement(By.xpath("//span[@class='caret']")).click();
-		 driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Login']")).click();	 
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 driver.findElement(By.xpath(prop.getProperty("account"))).click();
+		 driver.findElement(By.xpath(prop.getProperty("login"))).click();	 
 	}
 
 	@Then("the page should redirect to the Login page.")
 	public void the_page_should_redirect_to_the_login_page() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		 String expectedPageTitle = "Account Login";
 		 String actualPageTitle = driver.getTitle();	  
 		 Assert.assertEquals(expectedPageTitle,actualPageTitle);
