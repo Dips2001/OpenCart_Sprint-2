@@ -403,7 +403,7 @@
 
 @OrderOverviewPage
   Scenario: To validate the order overview is being displayed and is accurate.
-     Given OpenCart website is ready
+    Given OpenCart website is ready
     When I launch URL in chrome browser
     And I click on Checkout Button
     And I Click on Continue As Guest
