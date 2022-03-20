@@ -58,23 +58,22 @@ public class BrowseCartTest {
 
 	@Given("Search option should be there")
 	public void search_option_should_be_there() {
-	    
+	    assertTrue(driver.findElement(By.name("search")).isDisplayed());
 	}
 
 	@When("I search products")
 	public void i_search_products() {
-	    
+		driver.findElement(By.xpath("//i[@class='fa fa-search']")).click();
 	}
 
 	@Then("searching should be available based on categories")
 	public void searching_should_be_available_based_on_categories() {
-	    
+		assertTrue(driver.findElement(By.name("category_id")).isDisplayed());
 	}
 
 	@Then("searching should be available based on sub-categories")
 	public void searching_should_be_available_based_on_sub_categories() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		assertTrue(driver.findElement(By.name("sub_category")).isDisplayed());
 	}
 
 	@When("I go to products page")
