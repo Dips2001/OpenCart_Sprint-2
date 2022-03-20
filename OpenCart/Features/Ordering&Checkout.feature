@@ -418,8 +418,7 @@
 	  And i click on one of the Payment option 
 	  And i enter Payment Details 
 	  And i click on Submit Button
-    Then I sould see An overview of the purchase which will include
-     the product description, quantity, and price (including tax and shipping).
+    Then I sould see An overview of the purchase which will include the product description, quantity, and price (including tax and shipping).
 
 
 @ConfirmOrderButton
