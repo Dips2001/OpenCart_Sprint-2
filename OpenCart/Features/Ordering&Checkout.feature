@@ -192,23 +192,22 @@
     Then I should see Error message for First Name, Last Name, Address1, Address2, City, Post Code, Country, Zone input field in the Billing Details Form
 
 
-@SameAsCheckbox
-    Scenario: To validate that redirection doesnot heppens to billing address form if checkbox is checked.
- 
-  Given OpenCart website is ready
-  When I launch URL in chrome browser
- 	And I click on Checkout button
- 	And I click on Continue As Guest
- 	And I enter valid data in Personal Details Form
- 	And I Click on Submit button
- 	And I enter valid data in Address Form
- 	And I click on submit button
- 	And I click on checkbox for same billing address
- 	And I click the submit button
-  Then I should see Error message for Address, State, Pincode input field in the billing details Form
+	@SameAsCheckbox
+  Scenario: To validate that redirection doesnot heppens to billing address form if checkbox is checked.
+  	Given OpenCart website is ready
+  	When I launch URL in chrome browser
+ 		And I click on Checkout button
+ 		And I click on Continue As Guest
+ 		And I enter valid data in Personal Details Form
+ 		And I Click on Submit button
+ 		And I enter valid data in Address Form
+ 		And I click on submit button
+ 		And I click on checkbox for same billing address
+ 		And I click the submit button
+  	Then I should see Error message for Address, State, Pincode input field in the billing details Form
 
-#80
-@SameAsCheckbox
+
+	@SameAsCheckbox
   Scenario: To validate that redirection heppens to billing address form if checkbox is not checked.
     Given OpenCart website is ready
     When I launch URL in chrome browser
@@ -220,15 +219,15 @@
  		And I click on submit button
  		And I do not click the checkbox for same billing address
  		And I click the submit button
-   Then I should see the billing details Form
+    Then I should see the billing details Form
    
 
 
-#81
-@BillingDetailsForm
+
+	@BillingDetailsForm
   Scenario: To validate all the input fields are available
     Given OpenCart website is ready
-    when I launch URL in chrome browser
+    When I launch URL in chrome browser
     And I click on Checkout Button
     And I Click on Continue As Guest
 	  And I enter valid data in Personal Details Form
@@ -239,8 +238,8 @@
 		And i Click on Submit Button  
     Then I should see the billing details Form
 
-#82
-@BillingDetailsForm
+
+	@BillingDetailsForm
   Scenario: To validate by providing valid values for Address, State, Pincode input field in the Billing Address Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
@@ -258,46 +257,46 @@
     And I click on Continue Button
     Then I should see the billing details Form
 
-#83
-@BillingDetailsForm
+
+	@BillingDetailsForm
    Scenario: To validate by providing invalid values for Address, State, Pincode input field in the Billing Address Form
-   Given OpenCart website is ready
+   	Given OpenCart website is ready
     When I launch URL in chrome browser
-  And I click on Checkout Button
-  And I Click on Continue As Guest
-	And i enter valid data in Personal Details Form
-	And i Click on Submit form
-	And i enter valid in Address Form
-	And i Click on Submit form
-	And i Uncheck the checkbox "Same as Billing Address"
-	And i Click on Submit Button  
-	And I enter address
-	And i enter state
-	And i enter pincode
+  	And I click on Checkout Button
+  	And I Click on Continue As Guest
+		And i enter valid data in Personal Details Form
+		And i Click on Submit form
+		And i enter valid in Address Form
+		And i Click on Submit form
+		And i Uncheck the checkbox "Same as Billing Address"
+		And i Click on Submit Button  
+		And I enter address
+		And i enter state
+		And i enter pincode
     And I click on Continue Button
     Then I should see Error message for Address, State, Pincode input field in the Billing details Form
 
-#84
-@BillingDetailsForm
+
+	@BillingDetailsForm
   Scenario: To validate by providing null values for Address, State, Pincode input field in the Billing Address Form
-  Given OpenCart website is ready
-  When I launch URL in chrome browser
-  And I click on Checkout Button
-  And I Click on Continue As Guest
-	And i enter valid data in Personal Details Form
-	And i Click on Submit form
-	And i enter valid in Address Form
-	And i Click on Submit form
-	And i Uncheck the checkbox "Same as Billing Address"
-	And i Click on Submit Button  
-	And I enter null Address
-  And I enter null State
-  And I enter null Pincode
-  And I click on Continue Button
-   Then I should see Null values for Address, State, Pincode input field in the Billing Address form
+  	Given OpenCart website is ready
+	  When I launch URL in chrome browser
+	  And I click on Checkout Button
+	  And I Click on Continue As Guest
+		And i enter valid data in Personal Details Form
+		And i Click on Submit form
+		And i enter valid in Address Form
+		And i Click on Submit form
+		And i Uncheck the checkbox "Same as Billing Address"
+		And i Click on Submit Button  
+		And I enter null Address
+	  And I enter null State
+	  And I enter null Pincode
+	  And I click on Continue Button
+	  Then I should see Null values for Address, State, Pincode input field in the Billing Address form
 
 
-@BillingDetailsForm
+	@BillingDetailsForm
   Scenario: To validate that redirection occurs after clicking on the button if form is filled with valid values
     Given OpenCart website is ready
     When I launch URL in chrome browser
@@ -314,21 +313,21 @@
     Then I should see the Payemnt option Page
 
 
-@BillingDetailsForm
+ @BillingDetailsForm
   Scenario: To validate that redirection doesnot occurs after clicking on the button if form is filled with invalid or null values
-  Given OpenCart website is ready
-  When I launch URL in chrome browser
-    And I click on Checkout Button
-    And I Click on Continue As Guest
-	  And i enter valid data in Personal Details Form
-	  And i Click on Submit form
-	  And i enter valid in Address Form
-	  And i Click on Submit form
-	  And i Uncheck the checkbox "Same as Billing Address"
-	  And i Click on Submit Button  
-	  And i do not enter valid data in billing details form
-    And i click on submit button
-    Then I should see the error message 
+      Given OpenCart website is ready
+	    When I launch URL in chrome browser
+	    And I click on Checkout Button
+	    And I Click on Continue As Guest
+		  And i enter valid data in Personal Details Form
+		  And i Click on Submit form
+		  And i enter valid in Address Form
+		  And i Click on Submit form
+		  And i Uncheck the checkbox "Same as Billing Address"
+		  And i Click on Submit Button  
+		  And i do not enter valid data in billing details form
+	    And i click on submit button
+	    Then I should see the error message 
 
 
 @PaymentPage
