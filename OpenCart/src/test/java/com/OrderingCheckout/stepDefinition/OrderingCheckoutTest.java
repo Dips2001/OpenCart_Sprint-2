@@ -13,9 +13,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -126,40 +130,6 @@ public class OrderingCheckoutTest {
 		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 2: Account & Billing Details']")).getText(),"Step 2: Account & Billing Details");
 	}
 	
-	
-	
-	
-	
-
-//	@When("I click on Register Option")
-//	public void i_click_on_register_option() {
-//		// Clicking on Register Option
-////		assertTrue(driver.findElement(By.xpath(prop.getProperty("register_account_label"))).isSelected());
-//		driver.findElement(By.xpath(prop.getProperty("register_account_label"))).click();
-////		driver.findElement(By.xpath(prop.getProperty("continue_button"))).click();
-//	}
-
-//	@Then("I should see Registration form")
-//	public void i_should_see_registeration_form() {
-//		// Registration form is displayed
-//		boolean registration = driver.findElement(By.xpath(prop.getProperty("personal_details_legend"))).isDisplayed();
-//		// Assert if registration form is displayed
-//		Assert.assertTrue(registration);
-//	}
-//
-//	@When("I click on Login Button")
-//	public void i_click_on_login_button() {
-//		// Clicking on Checkout Button
-//		driver.findElement(By.xpath(prop.getProperty("checkout"))).click();
-//	}
-
-//	@Then("I should see Login form")
-//	public void i_should_see_login_form() {
-//		// Login form is displayed
-//		boolean form = driver.findElement(By.xpath(prop.getProperty("returning_customer_legend"))).isDisplayed();
-//		// Assert form
-//		Assert.assertTrue(form);
-//	}
 
 	@When("I click on Continue as Guest Button")
 	public void i_click_on_continue_as_guest_button() {
@@ -179,18 +149,43 @@ public class OrderingCheckoutTest {
 	@Then("I should see First Name field, Last Name field, Email field, Phone Number field and Contine Button")
 	public void i_should_see_first_name_field_last_name_field_email_field_phone_number_field_and_contine_button() {
 		// First Name field is displayed
-		boolean firstName = driver.findElement(By.xpath(prop.getProperty("firstname_label"))).isDisplayed();
-		// Last Name field is displayed
-		boolean lastName = driver.findElement(By.xpath(prop.getProperty("lastname_label"))).isDisplayed();
-		// Email field is displayed
-		boolean email = driver.findElement(By.xpath(prop.getProperty("email_label"))).isDisplayed();
-		// Phone Number field is displayed
-		boolean phone = driver.findElement(By.xpath(prop.getProperty("phone_label"))).isDisplayed();
-		// Assert if all the fields are displayed
-		Assert.assertTrue(firstName);
-		Assert.assertTrue(lastName);
-		Assert.assertTrue(email);
-		Assert.assertTrue(phone);
+        boolean firstName = driver.findElement(By.xpath(prop.getProperty("firstname_label"))).isDisplayed();
+        // Last Name field is displayed
+        boolean lastName = driver.findElement(By.xpath(prop.getProperty("lastname_label"))).isDisplayed();
+        // Email field is displayed
+        boolean email = driver.findElement(By.xpath(prop.getProperty("email_label"))).isDisplayed();
+        // Telephone field is displayed
+        boolean telephone = driver.findElement(By.xpath(prop.getProperty("phone_label"))).isDisplayed();
+        // Company field is displayed
+        boolean company = driver.findElement(By.xpath(prop.getProperty("company_label"))).isDisplayed();
+        // Address 1 field is displayed
+        boolean address1 = driver.findElement(By.xpath(prop.getProperty("address1_label"))).isDisplayed();
+        // Address 2 field is displayed
+        boolean address2 = driver.findElement(By.xpath(prop.getProperty("address2_label"))).isDisplayed();
+        // City field is displayed
+        boolean city = driver.findElement(By.xpath(prop.getProperty("city_label"))).isDisplayed();
+        // Post Code field is displayed
+        boolean postCode = driver.findElement(By.xpath(prop.getProperty("postcode_label"))).isDisplayed();
+        // Country field is displayed
+        boolean country = driver.findElement(By.xpath(prop.getProperty("country_label"))).isDisplayed();
+        // Zone field is displayed
+        boolean zone = driver.findElement(By.xpath(prop.getProperty("zone_label"))).isDisplayed();
+        // Continue Button is displayed
+        boolean continueButton = driver.findElement(By.xpath(prop.getProperty("continue_button_billing_details"))).isDisplayed();
+
+        // Assert if all the fields are displayed
+        Assert.assertTrue(firstName);
+        Assert.assertTrue(lastName);
+        Assert.assertTrue(email);
+        Assert.assertTrue(telephone);
+        Assert.assertTrue(company);
+        Assert.assertTrue(address1);
+        Assert.assertTrue(address2);
+        Assert.assertTrue(city);
+        Assert.assertTrue(postCode);
+        Assert.assertTrue(country);
+        Assert.assertTrue(zone);
+        Assert.assertTrue(continueButton);
 	}
 
 	@When("I enter valid First Name")
@@ -217,218 +212,335 @@ public class OrderingCheckoutTest {
 	@When("I enter valid Phone Number")
 	public void i_enter_valid_phone_number() {
 		// Enter valid Phone Number
-		driver.findElement(By.id(prop.getProperty("phone"))).click();
-		driver.findElement(By.id(prop.getProperty("phone"))).sendKeys("1234567890");
-	}
+        driver.findElement(By.id(prop.getProperty("telephone"))).click();
+        driver.findElement(By.id(prop.getProperty("telephone"))).sendKeys("1234567890");
+    }
 
-	@When("I click on Submit Button")
-	public void i_click_on_submit_button() {
-		// Pass - No submit button
-	}
+	@When("I enter valid Company")
+    public void i_enter_valid_company() {
+        // Enter valid Company
+        driver.findElement(By.id(prop.getProperty("company"))).click();
+        driver.findElement(By.id(prop.getProperty("company"))).sendKeys("Company");
+    }
 
-	@Then("I should see Address Form")
-	public void i_should_see_address_form() {
-		// Checking Address Form
-		boolean address_form = driver.findElement(By.xpath(prop.getProperty("address_legend"))).isDisplayed();
-		Assert.assertTrue(address_form);
-	}
+    @When("I enter valid Address1")
+    public void i_enter_valid_address1() {
+        // Enter valid Address 1
+        driver.findElement(By.id(prop.getProperty("address1"))).click();
+        driver.findElement(By.id(prop.getProperty("address1"))).sendKeys("Address1");
+    }
 
-	@When("I enter invalid First Name")
-	public void i_enter_invalid_first_name() {
-		// Enter invalid First Name
-		driver.findElement(By.id(prop.getProperty("firstname"))).click();
-		driver.findElement(By.id(prop.getProperty("firstname"))).sendKeys("@!123");
-	}
+    @When("I enter valid Address2")
+    public void i_enter_valid_address2() {
+        // Enter valid Address 2
+        driver.findElement(By.id(prop.getProperty("address2"))).click();
+        driver.findElement(By.id(prop.getProperty("address2"))).sendKeys("Address2");
+    }
 
-	@When("I enter invalid Last Name")
-	public void i_enter_invalid_last_name() {
-		// Enter invalid Last Name
-		driver.findElement(By.id(prop.getProperty("lastname"))).click();
-		driver.findElement(By.id(prop.getProperty("lastname"))).sendKeys("@xe!123");
-	}
+    @When("I enter valid City")
+    public void i_enter_valid_city() {
+        // Enter valid City
+        driver.findElement(By.id(prop.getProperty("city"))).click();
+        driver.findElement(By.id(prop.getProperty("city"))).sendKeys("City");
+    }
 
-	@When("I enter invalid Email")
-	public void i_enter_invalid_email() {
-		// Enter invalid Email
-		driver.findElement(By.id(prop.getProperty("email"))).click();
-		driver.findElement(By.id(prop.getProperty("email"))).sendKeys("123");
-	}
+    @When("I enter valid Post Code")
+    public void i_enter_valid_post_code() {
+        // Enter valid Post Code
+        driver.findElement(By.id(prop.getProperty("postcode"))).click();
+        driver.findElement(By.id(prop.getProperty("postcode"))).sendKeys("12345");
+    }
 
-	@When("I enter invalid Phone Number")
-	public void i_enter_invalid_phone_number() {
-		// Enter invalid phone number
-		driver.findElement(By.id(prop.getProperty("phone"))).click();
-		driver.findElement(By.id(prop.getProperty("phone"))).sendKeys("ABCDEF");
-	}
+    @When("I select valid Country")
+    public void i_select_valid_country() {
+        // Select valid Country
+        driver.findElement(By.id(prop.getProperty("country"))).click();
+        WebElement dropdown = driver.findElement(By.id(prop.getProperty("country")));
+        dropdown.findElement(By.xpath(prop.getProperty("india_option"))).click();
+    }
 
-	@Then("I should see Error message for First Name, Last Name, Email, Phone Number input field in the Personal Details Form")
-	public void i_should_see_error_message_for_first_name_last_name_email_phone_number_input_field_in_the_personal_details_form() {
-		// Clicking Continue button
-		driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
-		// Checking Error message
-		boolean emailError = driver.findElement(By.xpath(prop.getProperty("email_error_message"))).isDisplayed();
-		// Assert Error
-		Assert.assertTrue(emailError);
-	}
+    @When("I select valid Zone")
+    public void i_select_valid_zone() {
+        // Select valid Zone
+        driver.findElement(By.id(prop.getProperty("zone"))).click();
+        WebElement dropdown1 = driver.findElement(By.id(prop.getProperty("zone")));
+        dropdown1.findElement(By.xpath(prop.getProperty("mh_option"))).click();
+    }
 
-	@When("I don't enter First Name")
-	public void i_don_t_enter_first_name() {
-		driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
-	}
+    @When("I enter all the valid details in Personal Details form")
+    public void i_enter_all_the_valid_details_in_personal_details_form() {
+        // Enter all the valid details in Personal Details form
+        i_enter_valid_first_name();
+        i_enter_valid_last_name();
+        i_enter_valid_email();
+        i_enter_valid_phone_number();
+        i_enter_valid_company();
+        i_enter_valid_address1();
+        i_enter_valid_address2();
+        i_enter_valid_city();
+        i_enter_valid_post_code();
+        i_select_valid_country();
+        i_select_valid_zone();
+    }
 
-	@When("I don't enter Last Name")
-	public void i_don_t_enter_last_name() {
-		driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
-	}
+    @When("I click on Continue Button in Personal Details Form")
+    public void i_click_on_continue_button_in_personal_details_form() {
+        driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
+    }
 
-	@When("I don't enter Email Address")
-	public void i_don_t_enter_email_address() {
-		driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
-	}
+    @Then("I should see Delivery Method Form")
+    public void i_should_see_delivery_method_form() throws InterruptedException {
+        Thread.sleep(2000);
+        WebElement flatRate = driver.findElement(By.xpath("//p[contains(text(),'Please select the preferred shipping method to use')]"));
+        Assert.assertTrue(flatRate.isDisplayed());
+    }
 
-	@When("I don't enter Phone Number")
-	public void i_don_t_enter_phone_number() {
-		driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
-	}
 
-	@Then("Page should not redirect to Address Details Form")
-	public void page_should_not_redirect_to_address_details_form() {
-		// Pass
-	}
+    @When("I enter invalid First Name")
+    public void i_enter_invalid_first_name() {
+        // Enter invalid First Name
+        driver.findElement(By.id(prop.getProperty("firstname"))).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("firstname"))).sendKeys("@!123");
+    }
 
-	@When("I enter valid details in Personal details form")
-	public void i_enter_valid_details_in_personal_details_form() {
-		driver.findElement(By.id(prop.getProperty("firstname"))).click();
-		driver.findElement(By.id(prop.getProperty("firstname"))).sendKeys("FirstName");
-		driver.findElement(By.id(prop.getProperty("lastname"))).click();
-		driver.findElement(By.id(prop.getProperty("lastname"))).sendKeys("LastName");
-		driver.findElement(By.id(prop.getProperty("email"))).click();
-		driver.findElement(By.id(prop.getProperty("email"))).sendKeys("firstlast@gmail.com");
-		driver.findElement(By.id(prop.getProperty("phone"))).click();
-		driver.findElement(By.id(prop.getProperty("phone"))).sendKeys("1234567890");
-	}
+    @When("I enter invalid Last Name")
+    public void i_enter_invalid_last_name() {
+        // Enter invalid Last Name
+        driver.findElement(By.id(prop.getProperty("lastname"))).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("lastname"))).sendKeys("@xe!123");
+    }
 
-	@Then("I should see Address Form with input fields - Address, State and Pincode")
-	public void i_should_see_address_form_with_input_fields_address_state_and_pincode() {
-		// Checking Address Form
-		boolean address_form = driver.findElement(By.xpath(prop.getProperty("your_address_legend"))).isDisplayed();
-		Assert.assertTrue(address_form);
-	}
+    @When("I enter invalid Email")
+    public void i_enter_invalid_email() {
+        // Enter invalid Email
+        driver.findElement(By.id(prop.getProperty("email"))).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("email"))).sendKeys("123");
+    }
 
-	@When("I enter valid Address")
-	public void i_enter_valid_address() {
-		driver.findElement(By.id(prop.getProperty("address"))).click();
-		driver.findElement(By.id(prop.getProperty("address"))).sendKeys("Fire in Place");
-		driver.findElement(By.id(prop.getProperty("city"))).click();
-		driver.findElement(By.id(prop.getProperty("city"))).sendKeys("Mumbai");
+    @When("I enter invalid Phone Number")
+    public void i_enter_invalid_phone_number() {
+        // Enter invalid phone number
+        driver.findElement(By.id(prop.getProperty("telephone"))).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("telephone"))).sendKeys("ABCDEF");
+    }
 
-	}
+    @When("I enter invalid Address1")
+    public void i_enter_invalid_address1() {
+        // Enter invalid Address1
+        driver.findElement(By.id(prop.getProperty("address1"))).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("address1"))).sendKeys("123sdWrong");
+    }
 
-	@When("I enter valid State")
-	public void i_enter_valid_state() {
-		driver.findElement(By.id(prop.getProperty("country"))).click();
-		WebElement dropdown = driver.findElement(By.id(prop.getProperty("country")));
-		dropdown.findElement(By.xpath(prop.getProperty("india_option"))).click();
-		driver.findElement(By.id(prop.getProperty("zone"))).click();
-		WebElement dropdown1 = driver.findElement(By.id(prop.getProperty("zone")));
-		dropdown1.findElement(By.xpath(prop.getProperty("mh_option"))).click();
-	}
+    @When("I enter invalid Address2")
+    public void i_enter_invalid_address2() {
+        // Enter invalid Address1
+        driver.findElement(By.id(prop.getProperty("address2"))).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("address2"))).sendKeys("1456sdWrong");
+    }
 
-	@When("I enter valid Pincode")
-	public void i_enter_valid_pincode() {
-		driver.findElement(By.id(prop.getProperty("postcode"))).click();
-		driver.findElement(By.id(prop.getProperty("postcode"))).sendKeys("400005");
-	}
+    @When("I enter invalid City")
+    public void i_enter_invalid_city() {
+        // Enter invalid City
+        driver.findElement(By.id(prop.getProperty("city"))).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("city"))).sendKeys("@!123");
+    }
 
-	@When("I click on Continue Button")
-	public void i_click_on_continue_button() {
-		// pass
-	}
+    @When("I enter invalid Post Code")
+    public void i_enter_invalid_post_code() {
+        // Enter invalid Post Code
+        driver.findElement(By.id(prop.getProperty("postcode"))).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("postcode"))).sendKeys("12345asda");
+    }
+    
+    @When("I click on Submit Button")
+    public void i_click_on_submit_button() {
+        // Clicking Continue button
+        driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
+    }
 
-	@Then("I should see page with {string} Checkbox for Billing details")
-	public void i_should_see_page_with_checkbox_for_billing_details(String string) {
-		// Check if CheckBox is displayed
-		boolean same_address = driver
-				.findElement(By.xpath(prop.getProperty("checkbox_label")))
-				.isDisplayed();
-		// Assert CheckBox
-		Assert.assertTrue(same_address);
-	}
+    @Then("I should see Error message for First Name, Last Name, Email, Phone Number input field in the Personal Details Form")
+    public void iShouldSeeErrorMessageForFirstNameLastNameEmailPhoneNumberInputFieldInThePersonalDetailsForm() {
+        // Checking Error message
+        boolean emailError = driver.findElement(By.xpath(prop.getProperty("email_error_message"))).isDisplayed();
+        // Assert Error
+        Assert.assertTrue(emailError);
+    }
+    @When("I don't enter First Name")
+    public void i_don_t_enter_first_name() {
+        driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
+    }
 
-	@When("I enter invalid Address")
-	public void i_enter_invalid_address() {
-		driver.findElement(By.id(prop.getProperty("address"))).click();
-		driver.findElement(By.id(prop.getProperty("address"))).sendKeys("Fire in Place");
-		driver.findElement(By.id(prop.getProperty("city"))).click();
-	}
+    @When("I don't enter Last Name")
+    public void i_don_t_enter_last_name() {
+        driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
+    }
 
-	@When("I enter invalid State")
-	public void i_enter_invalid_state() {
-		driver.findElement(By.id(prop.getProperty("country"))).click();
-		WebElement dropdown = driver.findElement(By.id(prop.getProperty("country")));
-		dropdown.findElement(By.xpath(prop.getProperty("india_option"))).click();
-		driver.findElement(By.id(prop.getProperty("zone"))).click();
-		WebElement dropdown1 = driver.findElement(By.id(prop.getProperty("zone")));
-		dropdown1.findElement(By.xpath(prop.getProperty("mh_option"))).click();
-	}
+    @When("I don't enter Email Address")
+    public void i_don_t_enter_email_address() {
+        driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
+    }
 
-	@When("I enter invalid Pincode")
-	public void i_enter_invalid_pincode() {
-		driver.findElement(By.id(prop.getProperty("postcode"))).click();
-		driver.findElement(By.id(prop.getProperty("postcode"))).sendKeys("ABCDEF");
-	}
+    @When("I don't enter Phone Number")
+    public void i_don_t_enter_phone_number() {
+        driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
+    }
 
-	@Then("I should see Error message for Address, State, Pincode input field in the Address Form")
-	public void i_should_see_error_message_for_address_state_pincode_input_field_in_the_address_form() {
-		// Check if error is displayed
-		boolean error_message = driver
-				.findElement(By.xpath(prop.getProperty("address_error_message")))
-				.isDisplayed();
-		// Assert error message
-		Assert.assertTrue(error_message);
-	}
+    @And("I uncheck the checkbox for same billing address")
+    public void iUncheckCheckboxForSameBillingAddress() {
+        WebElement checkbox = driver.findElement(By.xpath(prop.getProperty("checkbox")));
+        checkbox.click();
+    }
 
-	@When("I enter null Address")
-	public void i_enter_null_address() {
-		// Click on Continue button
-		driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
-	}
+    @And("I check the checkbox for same billing address")
+    public void iCheckTheCheckboxForSameBillingAddress() {
+        WebElement checkbox = driver.findElement(By.xpath(prop.getProperty("checkbox")));
+    }
 
-	@When("I enter null State")
-	public void i_enter_null_state() {
-		// Click on Continue button
-		driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
-	}
+    @Then("Billing Details Form should be displayed")
+    public void billingDetailsFormShouldBeDisplayed() {
+        // First Name field is displayed
+        boolean firstName = driver.findElement(By.xpath(prop.getProperty("billing_firstname_label"))).isDisplayed();
+        // Last Name field is displayed
+        boolean lastName = driver.findElement(By.xpath(prop.getProperty("billing_lastname_label"))).isDisplayed();
+        // Company field is displayed
+        boolean company = driver.findElement(By.xpath(prop.getProperty("billing_company_label"))).isDisplayed();
+        // Address 1 field is displayed
+        boolean address1 = driver.findElement(By.xpath(prop.getProperty("billing_address1_label"))).isDisplayed();
+        // Address 2 field is displayed
+        boolean address2 = driver.findElement(By.xpath(prop.getProperty("billing_address2_label"))).isDisplayed();
+        // City field is displayed
+        boolean city = driver.findElement(By.xpath(prop.getProperty("billing_city_label"))).isDisplayed();
+        // Post Code field is displayed
+        boolean postCode = driver.findElement(By.xpath(prop.getProperty("billing_postcode_label"))).isDisplayed();
+        // Country field is displayed
+        boolean country = driver.findElement(By.xpath(prop.getProperty("billing_country_label"))).isDisplayed();
+        // Zone field is displayed
+        boolean zone = driver.findElement(By.xpath(prop.getProperty("billing_zone_label"))).isDisplayed();
 
-	@When("I enter null Pincode")
-	public void i_enter_null_pincode() {
-		// Click on Continue button
-		driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
-	}
+        // Assert if all the fields are displayed
+        Assert.assertTrue(firstName);
+        Assert.assertTrue(lastName);
+        Assert.assertTrue(company);
+        Assert.assertTrue(address1);
+        Assert.assertTrue(address2);
+        Assert.assertTrue(city);
+        Assert.assertTrue(postCode);
+        Assert.assertTrue(country);
+        Assert.assertTrue(zone);
+    }
 
-	@When("I enter valid details in Address form")
-	public void i_enter_valid_details_in_address_form() {
-		// Entering all valid details in Address form
-		driver.findElement(By.id(prop.getProperty("address"))).click();
-		driver.findElement(By.id(prop.getProperty("address"))).sendKeys("Fire in Place");
-		driver.findElement(By.id(prop.getProperty("city"))).click();
-		driver.findElement(By.id(prop.getProperty("city"))).sendKeys("Mumbai");
-		driver.findElement(By.id(prop.getProperty("country"))).click();
-		WebElement dropdown = driver.findElement(By.id(prop.getProperty("country")));
-		dropdown.findElement(By.xpath(prop.getProperty("india_option"))).click();
-		driver.findElement(By.id(prop.getProperty("zone"))).click();
-		WebElement dropdown1 = driver.findElement(By.id(prop.getProperty("zone")));
-		dropdown1.findElement(By.xpath(prop.getProperty("mh_option"))).click();
-		driver.findElement(By.id(prop.getProperty("postcode"))).click();
-		driver.findElement(By.id(prop.getProperty("postcode"))).sendKeys("400005");
+    @And("I enter valid First Name in Billing Details Form")
+    public void iEnterValidFirstNameInBillingDetailsForm() {
+        driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("firstname_billing_input"))).sendKeys("John");
+    }
 
-	}
+    @And("I enter valid Last Name in Billing Details Form")
+    public void iEnterValidLastNameInBillingDetailsForm() {
+        driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("lastname_billing_input"))).sendKeys("Doe");
+    }
 
-	@When("I enter null details in Address form")
-	public void i_enter_invalid_null_details_in_address_form() {
-		// Clicking on Continue Button directly
-		driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
-	}
+    @And("I enter valid Address1 in Billing Details Form")
+    public void iEnterValidAddress1InBillingDetailsForm() {
+        driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("address1_billing_input"))).sendKeys("123 Main Street");
+    }
+
+    @And("I enter valid Address2 in Billing Details Form")
+    public void iEnterValidAddress2InBillingDetailsForm() {
+        driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("address2_billing_input"))).sendKeys("Apt. 1");
+    }
+
+    @And("I enter valid City in Billing Details Form")
+    public void iEnterValidCityInBillingDetailsForm() {
+        driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("city_billing_input"))).sendKeys("New York");
+    }
+
+    @And("I enter valid Post Code in Billing Details Form")
+    public void iEnterValidPostCodeInBillingDetailsForm() {
+        driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
+        driver.findElement(By.id(prop.getProperty("postcode_billing_input"))).sendKeys("10001");
+    }
+
+    @And("I select valid Country in Billing Details Form")
+    public void iSelectValidCountryInBillingDetailsForm() {
+        new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@id='input-shipping-country']")));
+        driver.findElement(By.id("input-shipping-country")).click();
+        Select country = new Select(driver.findElement(By.id("input-shipping-country")));
+        country.selectByIndex(10);
+    }
+
+    @And("I select valid Zone in Billing Details Form")
+    public void iSelectValidZoneInBillingDetailsForm() throws InterruptedException {
+        new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@id='input-shipping-country']")));
+        driver.findElement(By.id("input-shipping-zone")).click();
+        Select zone = new Select(driver.findElement(By.id("input-shipping-zone")));
+        zone.selectByIndex(2);
+    }
+
+    @And("I click on Continue Button in Billing Details Form")
+    public void iClickOnContinueButtonInBillingDetailsForm() {
+        driver.findElement(By.id(prop.getProperty("continue_button_shipping"))).click();
+    }
+
+    @And("I don't enter First Name in Billing Details Form")
+    public void iDonTEnterFirstNameInBillingDetailsForm() {
+        driver.findElement(By.id(prop.getProperty("continue_button_shipping"))).click();
+    }
+
+    @And("I don't enter Last Name in Billing Details Form")
+    public void iDonTEnterLastNameInBillingDetailsForm() {
+        driver.findElement(By.id(prop.getProperty("continue_button_shipping"))).click();
+    }
+
+    @And("I don't enter Address1 in Billing Details Form")
+    public void iDonTEnterAddress1InBillingDetailsForm() {
+        driver.findElement(By.id(prop.getProperty("continue_button_shipping"))).click();
+    }
+
+    @And("I don't enter Address2 in Billing Details Form")
+    public void iDonTEnterAddress2InBillingDetailsForm() {
+        driver.findElement(By.id(prop.getProperty("continue_button_shipping"))).click();
+    }
+
+    @And("I don't enter City in Billing Details Form")
+    public void iDonTEnterCityInBillingDetailsForm() {
+        driver.findElement(By.id(prop.getProperty("continue_button_shipping"))).click();
+    }
+
+    @And("I don't enter Post Code in Billing Details Form")
+    public void iDonTEnterPostCodeInBillingDetailsForm() {
+        driver.findElement(By.id(prop.getProperty("continue_button_shipping"))).click();
+    }
+
+    @And("I don't select Country in Billing Details Form")
+    public void iDonTSelectCountryInBillingDetailsForm() {
+        driver.findElement(By.id(prop.getProperty("continue_button_shipping"))).click();
+    }
+
+    @And("I don't select Zone in Billing Details Form")
+    public void iDonTSelectZoneInBillingDetailsForm() {
+        driver.findElement(By.id(prop.getProperty("continue_button_shipping"))).click();
+    }
+
+    @Then("I should see Error message for First Name, Last Name, Address1, Address2, City, Post Code, Country, Zone input field in the Billing Details Form")
+    public void iShouldSeeErrorMessageForFirstNameLastNameAddress1Address2CityPostCodeCountryZoneInputFieldInTheBillingDetailsForm() {
+        // Checking Error message
+        boolean error = driver.findElement(By.xpath(prop.getProperty("error_message_billing_form"))).isDisplayed();
+        // Assert Error
+        Assert.assertTrue(error);
+    }
 
 	@After
 	public void afterScenario() {

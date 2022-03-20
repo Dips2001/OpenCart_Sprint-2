@@ -1,22 +1,3 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
-
   @tag
   Feature: Ordering and Checkout Verification
 	  Verfication of functionalities in Ordering and Checkout
@@ -44,49 +25,26 @@
     And I click on Login Button
     Then I should see Billing Details Form
     
-    
-    
-
-#64
-  #@LoginAndRegister
-  #Scenario: To validate Checkout as New User
-    #Given OpenCart website is ready
-    #When I launch URL in chrome browser
-    #And I click on Checkout Button
-    #And I click on Register Option
-    #Then I should see Registeration form
-
-#65
-  #@LoginAndRegister
-  #Scenario: To validate Checkout as Existing User
-    #Given OpenCart website is ready
-    #When I launch URL in chrome browser
-    #And I click on Checkout Button
-    #And I click on Login Button
-    #Then I should see Login form
-
-#66
-  #@LoginAndRegister
-  #Scenario: To validate Checkout as a Guest User
-    #Given OpenCart website is ready
-    #When I launch URL in chrome browser
-    #And I click on Checkout Button
-    #And I click on Continue as Guest Button
-    #Then I should see Personal Details Form
-
-#67
-	@PersonalDetailsForm
-  Scenario: To validate all the input fields are available
+  @LoginAndRegister
+  Scenario: To validate Confirm Order via Guest Checkout
     Given OpenCart website is ready
     When I launch URL in chrome browser
     And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
     Then I should see Personal Details Form
-    And I should see First Name field, Last Name field, Email field, Phone Number field and Contine Button
 
-#68
-	@PersonalDetailsForm
+  @PersonalDetailsForm
+  Scenario: To validate all the input fields are available in personal details form
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And I add some products to shopping cart
+    And I click on Checkout Button
+    And I click on Continue as Guest Button
+    Then I should see Personal Details Form
+    And I should see First Name field, Last Name field, Email field, Phone Number field and Continue Button
+
+  @PersonalDetailsForm
   Scenario:To validate by providing valid values for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
@@ -97,11 +55,17 @@
     And I enter valid Last Name
     And I enter valid Email
     And I enter valid Phone Number
-    And I click on Submit Button
-    Then I should see Address Form
+    And I enter valid Address1
+    And I enter valid Address2
+    And I enter valid City
+    And I enter valid Post Code
+    And I select valid Country
+    And I select valid Zone
+    And I click on Continue Button in Personal Details Form
+    #Same step in Login Scenario
+    Then I should see Delivery Method Form
 
-#69
-	@PersonalDetailsForm
+  @PersonalDetailsForm
   Scenario:To validate by providing invalid values for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
@@ -112,11 +76,14 @@
     And I enter invalid Last Name
     And I enter invalid Email
     And I enter invalid Phone Number
+    And I enter invalid Address1
+    And I enter invalid Address2
+    And I enter invalid City
+    And I enter invalid Post Code
     And I click on Submit Button
     Then I should see Error message for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
 
-#70
-	@PersonalDetailsForm
+  @PersonalDetailsForm
   Scenario:To validate by providing null values for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
@@ -130,128 +97,73 @@
     And I click on Submit Button
     Then I should see Error message for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
 
-#71
-  @PersonalDetailsForm
-  Scenario: To validate that redirection to Address Details form occurs after clicking on the Button if form is filled with valid values
+  @SameAsCheckbox
+  Scenario: To validate the redirection of "Same As" Checkbox when unchecked in the Delivery Method Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
     And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
-    And I enter valid First Name
-    And I enter valid Last Name
-    And I enter valid Email
-    And I enter valid Phone Number
-    And I click on Submit Button
-    Then I should see Address Form
+    And I enter all the valid details in Personal Details form
+    And I uncheck the checkbox for same billing address
+    And I click on Continue Button in Personal Details Form
+    Then Billing Details Form should be displayed
 
-#72
-  @PersonalDetailsForm
-  Scenario: To validate that redirection to Address Details form does not occurs after clicking on the Button if form is filled with invalid or null values
+  @SameAsCheckbox
+  Scenario: To validate the redirection of "Same As" Checkbox when checked in the Delivery Method Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
     And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
-    And I enter valid First Name
-    And I enter valid Last Name
-    And I enter valid Email
-    And I enter valid Phone Number
-    And I click on Submit Button
-    Then I should see Error message for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
-    And Page should not redirect to Address Form
+    And I enter all the valid details in Personal Details form
+    And I check the checkbox for same billing address
+    And I click on Continue Button in Personal Details Form
+    Then I should see Delivery Method Form
 
+    @BillingDetailsForm
+    Scenario: To validate by providing valid values for First Name, Last Name, Email, Phone Number input field in the Billing Details Form
+      Given OpenCart website is ready
+      When I launch URL in chrome browser
+      And I add some products to shopping cart
+      And I click on Checkout Button
+      And I click on Continue as Guest Button
+      And I enter all the valid details in Personal Details form
+      And I uncheck the checkbox for same billing address
+      And I click on Continue Button in Personal Details Form
+      And I enter valid First Name in Billing Details Form
+      And I enter valid Last Name in Billing Details Form
+      And I enter valid Address1 in Billing Details Form
+      And I enter valid Address2 in Billing Details Form
+      And I enter valid City in Billing Details Form
+      And I enter valid Post Code in Billing Details Form
+      And I select valid Country in Billing Details Form
+      And I select valid Zone in Billing Details Form
+      And I click on Continue Button in Billing Details Form
+      Then I should see Delivery Method Form
 
-#73
-	@AddressDetailsForm
-  Scenario: To validate all the input fields are available 
+  @BillingDetailsForm
+  Scenario: To validate by providing null/invalid values for First Name, Last Name, Email, Phone Number input field in the Billing Details Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
     And I add some products to shopping cart
     And I click on Checkout Button
     And I click on Continue as Guest Button
-    And I enter valid details in Personal details form
-    And I click on Submit Button
-    Then I should see Address Form with input fields - Address, State and Pincode
-
-#74
-	@AddressDetailsForm
-  Scenario: To validate by providing valid values for Address, State, Pincode input field in the Address Form
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I add some products to shopping cart
-    And I click on Checkout Button
-    And I click on Continue as Guest Button
-    And I enter valid details in Personal details form
-    And I click on Submit Button
-    And I enter valid Address
-    And I enter valid State
-    And I enter valid Pincode
-    And I click on Continue Button
-    Then I should see page with 'Same as' Checkbox for Billing details
-
-#75
-  @AddressDetailsForm
-  Scenario: To validate by providing invalid values for Address, State, Pincode input field in the Address Form
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I add some products to shopping cart
-    And I click on Checkout Button
-    And I click on Continue as Guest Button
-    And I enter valid details in Personal details form
-    And I click on Submit Button
-    And I enter invalid Address
-    And I enter invalid State
-    And I enter invalid Pincode
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
-#76
-@AddressDetailsForm
-  Scenario: To validate by providing null values for Address, State, Pincode input field in the Address Form
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I add some products to shopping cart
-    And I click on Checkout Button
-    And I click on Continue as Guest Button
-    And I enter valid details in Personal details form
-    And I click on Submit Button
-    And I enter null Address
-    And I enter null State
-    And I enter null Pincode
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
-
-#77
-@AddressDetailsForm
-  Scenario: To validate that redirection occurs after clicking on the Button if form is filled with valid values
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I add some products to shopping cart
-    And I click on Checkout Button
-    And I click on Continue as Guest Button
-    And I enter valid details in Personal details form
-    And I click on Submit Button
-    And I enter valid details in Address form
-    And I click on Continue Button
-    Then I should see page with 'Same as' Checkbox for Billing details
-
-#78
-@AddressDetailsForm
-  Scenario: To validate that redirection does not occur after clicking on the Button if form is filled with invalid or null values
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I add some products to shopping cart
-    And I click on Checkout Button
-    And I click on Continue as Guest Button
-    And I enter valid details in Personal details form
-    And I click on Submit Button
-    And I enter null details in Address form
-    And I click on Continue Button
-    Then I should see Error message for Address, State, Pincode input field in the Address Form
+    And I enter all the valid details in Personal Details form
+    And I uncheck the checkbox for same billing address
+    And I click on Continue Button in Personal Details Form
+    And I don't enter First Name in Billing Details Form
+    And I don't enter Last Name in Billing Details Form
+    And I don't enter Address1 in Billing Details Form
+    And I don't enter Address2 in Billing Details Form
+    And I don't enter City in Billing Details Form
+    And I don't enter Post Code in Billing Details Form
+    And I don't select Country in Billing Details Form
+    And I don't select Zone in Billing Details Form
+    And I click on Continue Button in Billing Details Form
+    Then I should see Error message for First Name, Last Name, Address1, Address2, City, Post Code, Country, Zone input field in the Billing Details Form
 
 
-#
 #
 #79
 #@SameAsCheckbox
