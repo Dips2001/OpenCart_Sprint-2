@@ -40,6 +40,7 @@
     And I click on Continue as Guest Button
     Then I should see Personal Details Form
 
+
   @PersonalDetailsForm
   Scenario: To validate all the input fields are available in personal details form
     Given OpenCart website is ready
@@ -127,29 +128,29 @@
     And I click on Continue Button in Personal Details Form
     Then I should see Delivery Method Form
 
-    @BillingDetailsForm
-    Scenario: To validate by providing valid values for First Name, Last Name, Email, Phone Number input field in the Billing Details Form
-      Given OpenCart website is ready
-      When I launch URL in chrome browser
-      And I add some products to shopping cart
-      And I click on Checkout Button
-      And I click on Continue as Guest Button
-      And I enter all the valid details in Personal Details form
-      And I uncheck the checkbox for same billing address
-      And I click on Continue Button in Personal Details Form
-      And I enter valid First Name in Billing Details Form
-      And I enter valid Last Name in Billing Details Form
-      And I enter valid Address1 in Billing Details Form
-      And I enter valid Address2 in Billing Details Form
-      And I enter valid City in Billing Details Form
-      And I enter valid Post Code in Billing Details Form
-      And I select valid Country in Billing Details Form
-      And I select valid Zone in Billing Details Form
-      And I click on Continue Button in Billing Details Form
-      Then I should see Delivery Method Form
+  @BillingDetailsForm
+  Scenario: To validate by providing valid values for First Name, Last Name, Email, Phone Number input field in the Billing Details Form
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And I add some products to shopping cart
+    And I click on Checkout Button
+    And I click on Continue as Guest Button
+    And I enter all the valid details in Personal Details form
+    And I uncheck the checkbox for same billing address
+    And I click on Continue Button in Personal Details Form
+    And I enter valid First Name in Billing Details Form
+    And I enter valid Last Name in Billing Details Form
+    And I enter valid Address1 in Billing Details Form
+    And I enter valid Address2 in Billing Details Form
+    And I enter valid City in Billing Details Form
+    And I enter valid Post Code in Billing Details Form
+    And I select valid Country in Billing Details Form
+    And I select valid Zone in Billing Details Form
+    And I click on Continue Button in Billing Details Form
+    Then I should see Delivery Method Form
 
   @BillingDetailsForm
-  Scenario: To validate by providing null/invalid values for First Name, Last Name, Email, Phone Number input field in the Billing Details Form
+  Scenario: To validate by providing null values for First Name, Last Name, Email, Phone Number input field in the Billing Details Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
     And I add some products to shopping cart
@@ -166,6 +167,27 @@
     And I don't enter Post Code in Billing Details Form
     And I don't select Country in Billing Details Form
     And I don't select Zone in Billing Details Form
+    And I click on Continue Button in Billing Details Form
+    Then I should see Error message for First Name, Last Name, Address1, Address2, City, Post Code, Country, Zone input field in the Billing Details Form
+
+  @BillingDetailsForm
+  Scenario: To validate by providing invalid values for First Name, Last Name, Email, Phone Number input field in the Billing Details Form
+    Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And I add some products to shopping cart
+    And I click on Checkout Button
+    And I click on Continue as Guest Button
+    And I enter all the valid details in Personal Details form
+    And I uncheck the checkbox for same billing address
+    And I click on Continue Button in Personal Details Form
+    And I enter invalid First Name in Billing Details Form
+    And I enter invalid Last Name in Billing Details Form
+    And I enter invalid Address1 in Billing Details Form
+    And I enter invalid Address2 in Billing Details Form
+    And I enter invalid City in Billing Details Form
+    And I enter invalid Post Code in Billing Details Form
+    And I select valid Country in Billing Details Form
+    And I select valid Zone in Billing Details Form
     And I click on Continue Button in Billing Details Form
     Then I should see Error message for First Name, Last Name, Address1, Address2, City, Post Code, Country, Zone input field in the Billing Details Form
 

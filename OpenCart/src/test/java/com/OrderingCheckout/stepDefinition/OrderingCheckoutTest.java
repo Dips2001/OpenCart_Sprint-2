@@ -200,67 +200,94 @@ public class OrderingCheckoutTest {
         Assert.assertTrue(continueButton);
 	}
 
-	@When("I enter valid First Name")
-	public void i_enter_valid_first_name() {
-		// Enter valid First Name
-		driver.findElement(By.id(prop.getProperty("firstname"))).click();
-		driver.findElement(By.id(prop.getProperty("firstname"))).sendKeys("FirstName");
-	}
-
-	@When("I enter valid Last Name")
-	public void i_enter_valid_last_name() {
-		// Enter valid Last Name
-		driver.findElement(By.id(prop.getProperty("lastname"))).click();
-		driver.findElement(By.id(prop.getProperty("lastname"))).sendKeys("LastName");
-	}
-
-	@When("I enter valid Email")
-	public void i_enter_valid_email() {
-		// Enter valid Email
-		driver.findElement(By.id(prop.getProperty("email"))).click();
-		driver.findElement(By.id(prop.getProperty("email"))).sendKeys("firstlast@gmail.com");
-	}
-
-	@When("I enter valid Phone Number")
-	public void i_enter_valid_phone_number() {
-		// Enter valid Phone Number
-        driver.findElement(By.id(prop.getProperty("telephone"))).click();
-        driver.findElement(By.id(prop.getProperty("telephone"))).sendKeys("1234567890");
+    @When("I enter valid First Name")
+    public void i_enter_valid_first_name() {
+        // Enter valid First Name
+        driver.findElement(By.id(prop.getProperty("firstname"))).click();
+        //Fetch from Excel sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String firstName = sheet.getRow(1).getCell(0).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("firstname"))).sendKeys(firstName);
     }
 
-	@When("I enter valid Company")
+    @When("I enter valid Last Name")
+    public void i_enter_valid_last_name() {
+        // Enter valid Last Name
+        driver.findElement(By.id(prop.getProperty("lastname"))).click();
+        //Fetch from Excel sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String lastName = sheet.getRow(1).getCell(1).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("lastname"))).sendKeys(lastName);
+    }
+
+    @When("I enter valid Email")
+    public void i_enter_valid_email() {
+        // Enter valid Email
+        driver.findElement(By.id(prop.getProperty("email"))).click();
+        //Fetch from Excel sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String email = sheet.getRow(1).getCell(2).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("email"))).sendKeys(email);
+    }
+
+    @When("I enter valid Phone Number")
+    public void i_enter_valid_phone_number() {
+        // Enter valid Phone Number
+        driver.findElement(By.id(prop.getProperty("telephone"))).click();
+        //Fetch from Excel sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String telephone = Math.round(sheet.getRow(1).getCell(3).getNumericCellValue()) + "";
+        driver.findElement(By.id(prop.getProperty("telephone"))).sendKeys(telephone);
+    }
+
+    @When("I enter valid Company")
     public void i_enter_valid_company() {
         // Enter valid Company
         driver.findElement(By.id(prop.getProperty("company"))).click();
-        driver.findElement(By.id(prop.getProperty("company"))).sendKeys("Company");
+        //Fetch from Excel sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String company = sheet.getRow(1).getCell(4).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("company"))).sendKeys(company);
     }
 
     @When("I enter valid Address1")
     public void i_enter_valid_address1() {
         // Enter valid Address 1
         driver.findElement(By.id(prop.getProperty("address1"))).click();
-        driver.findElement(By.id(prop.getProperty("address1"))).sendKeys("Address1");
+        //Fetch from Excel sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String address1 = sheet.getRow(1).getCell(5).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("address1"))).sendKeys(address1);
     }
 
     @When("I enter valid Address2")
     public void i_enter_valid_address2() {
         // Enter valid Address 2
         driver.findElement(By.id(prop.getProperty("address2"))).click();
-        driver.findElement(By.id(prop.getProperty("address2"))).sendKeys("Address2");
+        //Fetch from Excel sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String address2 = sheet.getRow(1).getCell(6).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("address2"))).sendKeys(address2);
     }
 
     @When("I enter valid City")
     public void i_enter_valid_city() {
         // Enter valid City
         driver.findElement(By.id(prop.getProperty("city"))).click();
-        driver.findElement(By.id(prop.getProperty("city"))).sendKeys("City");
+        //Fetch from Excel sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String city = sheet.getRow(1).getCell(7).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("city"))).sendKeys(city);
     }
 
     @When("I enter valid Post Code")
     public void i_enter_valid_post_code() {
         // Enter valid Post Code
         driver.findElement(By.id(prop.getProperty("postcode"))).click();
-        driver.findElement(By.id(prop.getProperty("postcode"))).sendKeys("12345");
+        //Fetch from Excel sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String postcode = Math.round(sheet.getRow(1).getCell(8).getNumericCellValue()) + "";
+        driver.findElement(By.id(prop.getProperty("postcode"))).sendKeys(postcode);
     }
 
     @When("I select valid Country")
@@ -371,7 +398,7 @@ public class OrderingCheckoutTest {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement(By.id(prop.getProperty("postcode"))).sendKeys("12345asda");
     }
-    
+
     @When("I click on Submit Button")
     public void i_click_on_submit_button() {
         // Clicking Continue button
@@ -385,6 +412,7 @@ public class OrderingCheckoutTest {
         // Assert Error
         Assert.assertTrue(emailError);
     }
+
     @When("I don't enter First Name")
     public void i_don_t_enter_first_name() {
         driver.findElement(By.xpath(prop.getProperty("submit_button"))).click();
@@ -452,37 +480,61 @@ public class OrderingCheckoutTest {
     @And("I enter valid First Name in Billing Details Form")
     public void iEnterValidFirstNameInBillingDetailsForm() {
         driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
-        driver.findElement(By.id(prop.getProperty("firstname_billing_input"))).sendKeys("John");
+        // Fetches the First Name from the Excel Sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String firstName = sheet.getRow(1).getCell(1).getStringCellValue();
+        // Enter First Name
+        driver.findElement(By.xpath(prop.getProperty("firstname_billing_input"))).sendKeys(firstName);
     }
 
     @And("I enter valid Last Name in Billing Details Form")
     public void iEnterValidLastNameInBillingDetailsForm() {
         driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
-        driver.findElement(By.id(prop.getProperty("lastname_billing_input"))).sendKeys("Doe");
+        // Fetches the Last Name from the Excel Sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String lastName = sheet.getRow(1).getCell(2).getStringCellValue();
+        // Enter Last Name
+        driver.findElement(By.xpath(prop.getProperty("lastname_billing_input"))).sendKeys(lastName);
     }
 
     @And("I enter valid Address1 in Billing Details Form")
     public void iEnterValidAddress1InBillingDetailsForm() {
         driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
-        driver.findElement(By.id(prop.getProperty("address1_billing_input"))).sendKeys("123 Main Street");
+        // Fetches the Address1 from the Excel Sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String address1 = sheet.getRow(1).getCell(3).getStringCellValue();
+        // Enter Address1
+        driver.findElement(By.xpath(prop.getProperty("address1_billing_input"))).sendKeys(address1);
     }
 
     @And("I enter valid Address2 in Billing Details Form")
     public void iEnterValidAddress2InBillingDetailsForm() {
         driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
-        driver.findElement(By.id(prop.getProperty("address2_billing_input"))).sendKeys("Apt. 1");
+        // Fetches the Address2 from the Excel Sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String address2 = sheet.getRow(1).getCell(4).getStringCellValue();
+        // Enter Address2
+        driver.findElement(By.xpath(prop.getProperty("address2_billing_input"))).sendKeys(address2);
     }
 
     @And("I enter valid City in Billing Details Form")
     public void iEnterValidCityInBillingDetailsForm() {
         driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
-        driver.findElement(By.id(prop.getProperty("city_billing_input"))).sendKeys("New York");
+        // Fetches the City from the Excel Sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String city = sheet.getRow(1).getCell(5).getStringCellValue();
+        // Enter City
+        driver.findElement(By.xpath(prop.getProperty("city_billing_input"))).sendKeys(city);
     }
 
     @And("I enter valid Post Code in Billing Details Form")
     public void iEnterValidPostCodeInBillingDetailsForm() {
         driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
-        driver.findElement(By.id(prop.getProperty("postcode_billing_input"))).sendKeys("10001");
+        // Fetches the Post Code from the Excel Sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String postCode = Math.round(sheet.getRow(1).getCell(6).getNumericCellValue()) + "";
+        // Enter Post Code
+        driver.findElement(By.xpath(prop.getProperty("postcode_billing_input"))).sendKeys(postCode);
     }
 
     @And("I select valid Country in Billing Details Form")
@@ -554,8 +606,45 @@ public class OrderingCheckoutTest {
         Assert.assertTrue(error);
     }
 
-	@After
-	public void afterScenario() {
-		driver.quit();
-	}
+    @And("I enter invalid First Name in Billing Details Form")
+    public void iEnterInvalidFirstNameInBillingDetailsForm() {
+        driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
+        // Enter Invalid First Name which is more than 32 characters
+        driver.findElement(By.id(prop.getProperty("firstname_billing_input"))).sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    }
+
+    @And("I enter invalid Last Name in Billing Details Form")
+    public void iEnterInvalidLastNameInBillingDetailsForm() {
+        driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
+        // Enter Invalid Last Name which is more than 32 characters
+        driver.findElement(By.id(prop.getProperty("lastname_billing_input"))).sendKeys("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+    }
+
+    @And("I enter invalid Address1 in Billing Details Form")
+    public void iEnterInvalidAddress1InBillingDetailsForm() {
+        driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
+        // Enter Invalid Address1
+        driver.findElement(By.id(prop.getProperty("address1_billing_input"))).sendKeys("123 Nowhere");
+    }
+
+    @And("I enter invalid Address2 in Billing Details Form")
+    public void iEnterInvalidAddress2InBillingDetailsForm() {
+        driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
+        // Enter Invalid Address2
+        driver.findElement(By.id(prop.getProperty("address2_billing_input"))).sendKeys("465 Anywhere");
+    }
+
+    @And("I enter invalid City in Billing Details Form")
+    public void iEnterInvalidCityInBillingDetailsForm() {
+        driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
+        // Enter Invalid City
+        driver.findElement(By.id(prop.getProperty("city_billing_input"))).sendKeys("12C123");
+    }
+
+    @And("I enter invalid Post Code in Billing Details Form")
+    public void iEnterInvalidPostCodeInBillingDetailsForm() {
+        driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
+        // Enter Invalid Post Code
+        driver.findElement(By.id(prop.getProperty("postcode_billing_input"))).sendKeys("88Po9a");
+    }
 }
