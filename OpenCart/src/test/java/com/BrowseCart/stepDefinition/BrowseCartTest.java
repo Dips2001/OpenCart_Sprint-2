@@ -140,14 +140,15 @@ public class BrowseCartTest {
 
 	@When("select the price option")
 	public void select_the_price_option() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		Select sort=new Select(driver.findElement(By.xpath("//select[@id='input-sort']")));
+		sort.selectByVisibleText("Price (Low > High)");
 	}
 
 	@Then("the products gets sorted according to price")
 	public void the_products_gets_sorted_according_to_price() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		String s1=driver.findElement(By.xpath("//span[normalize-space()='Ex Tax: $100.00']")).getText();
+	    String s2=driver.findElement(By.xpath("//span[normalize-space()='Ex Tax: $101.00']")).getText();
+	    assertEquals(s1.compareTo(s2),-1);
 	}
 
 	@When("select the model option")
