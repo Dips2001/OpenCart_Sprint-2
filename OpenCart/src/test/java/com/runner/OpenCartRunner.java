@@ -7,8 +7,8 @@ import io.cucumber.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 features="Features",
-tags="@PersonalDetailsForm",
-glue ="com.OrderingCheckout.stepDefinition",
+tags="@Home",
+glue ="com.Home.stepDefinition",
 plugin={"html:target/cucumber-html-report", "json:target/cucumber.json","pretty:target/cucumber-pretty.txt","usage:target/cucumber-usage.json", "junit:target/cucumber-results.xml"},
 dryRun = false,
 monochrome = true
