@@ -280,9 +280,9 @@
 #84
 @BillingDetailsForm
   Scenario: To validate by providing null values for Address, State, Pincode input field in the Billing Address Form
-    Given OpenCart website is ready
-    When I launch URL in chrome browser
-    And I click on Checkout Button
+  Given OpenCart website is ready
+  When I launch URL in chrome browser
+  And I click on Checkout Button
   And I Click on Continue As Guest
 	And i enter valid data in Personal Details Form
 	And i Click on Submit form
@@ -296,7 +296,7 @@
   And I click on Continue Button
    Then I should see Null values for Address, State, Pincode input field in the Billing Address form
 
-#85
+
 @BillingDetailsForm
   Scenario: To validate that redirection occurs after clicking on the button if form is filled with valid values
     Given OpenCart website is ready
@@ -313,7 +313,7 @@
     And i click on submit button
     Then I should see the Payemnt option Page
 
-#86
+
 @BillingDetailsForm
   Scenario: To validate that redirection doesnot occurs after clicking on the button if form is filled with invalid or null values
   Given OpenCart website is ready
@@ -330,7 +330,7 @@
     And i click on submit button
     Then I should see the error message 
 
-#87
+
 @PaymentPage
   Scenario: To validate all the payment options are visible and selectable.
     Given OpenCart website is ready
@@ -347,7 +347,7 @@
 	  And i Click on Submit Button  
     Then I should see the Payment Options Page with selectable payment options
 
-#88
+
 @PaymentPage
   Scenario: To validate that all payment options are redirecting to the their own payment page.
    Given OpenCart website is ready
@@ -364,7 +364,6 @@
 	  And i Click on Submit Button  
     Then I should see the payment form 
 
-#89
 @PaymentFunctionality
   Scenario: To validate that all payment options work
    Given OpenCart website is ready
@@ -381,7 +380,7 @@
 	  And i Click on Submit Button 
 	  And i click on one of the paymrnt option 
     Then I should see the payment form  
-#90
+
 @PaymentFunctionality
   Scenario: To validate that the correct payment amount is calculated and displayed.
     Given OpenCart website is ready
@@ -402,7 +401,7 @@
 	  Then I should see Correct payment amount of the order and i should be redirected to order overview page
   
 
-#91
+
 @OrderOverviewPage
   Scenario: To validate the order overview is being displayed and is accurate.
      Given OpenCart website is ready
@@ -423,7 +422,7 @@
     Then I sould see An overview of the purchase which will include
      the product description, quantity, and price (including tax and shipping).
 
-#92
+
 @ConfirmOrderButton
   Scenario: To validate Confirm Order button is visible and clickable.
   Given OpenCart website is ready
@@ -444,7 +443,7 @@
 	  And i click the confirm order Button 
 	  Then i see the order overview page 
 
-#93
+
 @ConfirmOrderButton
   Scenario: To validate that redirection to homepage occurs after clicking the button with notification of "Order Confirmed".
     Given OpenCart website is ready
