@@ -3,11 +3,14 @@ package com.OrderingCheckout.stepDefinition;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +30,10 @@ import io.cucumber.java.en.When;
 public class OrderingCheckoutTest {
 	public static WebDriver driver;
 	Properties prop;
-
+	File f=new File("src/test/resources/OpenCartData.xlsx");
+	FileInputStream is;
+	XSSFWorkbook w;
+	
 	@Before
 	public void beforeScenario() throws IOException {
 		System.setProperty("webdriver.chrome.driver",
@@ -36,6 +42,8 @@ public class OrderingCheckoutTest {
 		FileInputStream fs = new FileInputStream("src/test/resources/OpenCart.properties");
 		prop = new Properties();
 		prop.load(fs);
+		is=new FileInputStream(f);
+		w=new XSSFWorkbook(is);
 	}
 
 	@Given("OpenCart website is ready")
@@ -104,16 +112,20 @@ public class OrderingCheckoutTest {
 		Assert.assertTrue(guest);
 	}
 	
-	@When("I enter email as <{string}>")
-	public void i_enter_email_as(String email)
+	@When("I enter email")
+	public void i_enter_email()
 	{
+		XSSFSheet sheet=w.getSheetAt(0);
+		String email=sheet.getRow(1).getCell(0).getStringCellValue();
 		driver.findElement(By.xpath(prop.getProperty("login_email"))).clear();
 		driver.findElement(By.xpath(prop.getProperty("login_email"))).sendKeys(email);
 	}
 	
-	@When("I enter password as <{string}>")
-	public void i_enter_password_as(String password)
+	@When("I enter password")
+	public void i_enter_password()
 	{
+		XSSFSheet sheet=w.getSheetAt(0);
+		String password=sheet.getRow(1).getCell(1).getStringCellValue();
 		driver.findElement(By.xpath(prop.getProperty("login_password"))).clear();
 		driver.findElement(By.xpath(prop.getProperty("login_password"))).sendKeys(password);
 	}

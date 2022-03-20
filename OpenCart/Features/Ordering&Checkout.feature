@@ -20,8 +20,8 @@
     And I add some products to shopping cart
     And I click on Checkout Button
     Then I should see Login Form 
-    When I enter email as <"dipanwita.jash@gmail.com">
-    And I enter password as <"Dipanwita">
+    When I enter email
+    And I enter password
     And I click on Login Button
     Then I should see Billing Details Form
     
