@@ -153,14 +153,15 @@ public class BrowseCartTest {
 
 	@When("select the model option")
 	public void select_the_model_option() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		Select sort=new Select(driver.findElement(By.xpath("//select[@id='input-sort']")));
+		sort.selectByVisibleText("Model (A - Z)");
 	}
 
 	@Then("the products gets sorted according to model")
 	public void the_products_gets_sorted_according_to_model() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		String s1=driver.findElement(By.xpath("//a[normalize-space()='HTC Touch HD']")).getText();
+	    String s2=driver.findElement(By.xpath("//a[normalize-space()='iPhone']")).getText();
+	    assertEquals(s1.compareTo(s2),-33);
 	}
 
 	@When("after clicking on wishlist icon")
