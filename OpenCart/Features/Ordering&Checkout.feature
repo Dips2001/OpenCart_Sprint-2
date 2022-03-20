@@ -256,7 +256,6 @@
 #79
 @SameAsCheckbox
     Scenario: To validate that redirection doesnot heppens to billing address form if checkbox is checked.
- 
   Given OpenCart website is ready
   When I launch URL in chrome browser
  	And I click on Checkout button
