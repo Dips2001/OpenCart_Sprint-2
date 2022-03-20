@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -126,14 +127,15 @@ public class BrowseCartTest {
 
 	@When("select the name option")
 	public void select_the_name_option() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		Select sort=new Select(driver.findElement(By.xpath("//select[@id='input-sort']")));
+		sort.selectByVisibleText("Name (A - Z)");
 	}
 
 	@Then("the products gets sorted according to name")
 	public void the_products_gets_sorted_according_to_name() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		String s1=driver.findElement(By.xpath("//a[normalize-space()='HTC Touch HD']")).getText();
+	    String s2=driver.findElement(By.xpath("//a[normalize-space()='iPhone']")).getText();
+	    assertEquals(s1.compareTo(s2),-33);
 	}
 
 	@When("select the price option")
