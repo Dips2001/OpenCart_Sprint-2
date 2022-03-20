@@ -301,6 +301,11 @@ public class HomeTest
 		boolean wishList = driver.findElement(By.xpath(prop.getProperty("wish_list"))).isDisplayed();
 		boolean ShopCart = driver.findElement(By.xpath(prop.getProperty("shopping_cart"))).isDisplayed();
 		boolean checkout = driver.findElement(By.xpath(prop.getProperty("checkout"))).isDisplayed();
+		Assert.assertTrue(myAcc);
+		Assert.assertTrue(wishList);
+		Assert.assertTrue(ShopCart);
+		Assert.assertTrue(checkout);
+		
 		
 		
 
@@ -317,6 +322,11 @@ public class HomeTest
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		boolean reg = driver.findElement(By.xpath(prop.getProperty("register"))).isDisplayed();
 		boolean log = driver.findElement(By.xpath(prop.getProperty("login"))).isDisplayed();
+		Assert.assertTrue(reg);
+		Assert.assertTrue(log);
+
+		
+		
 	}
 
 	@When("click on Wish List in header section")
@@ -368,6 +378,7 @@ public class HomeTest
 	public void the_company_telephone_number_should_be_visible_at_the_header() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		boolean telNumber= driver.findElement(By.xpath(prop.getProperty("phone_number"))).isDisplayed();
+		Assert.assertTrue(telNumber);
 	}
 
 	@When("click on Phone icon")
