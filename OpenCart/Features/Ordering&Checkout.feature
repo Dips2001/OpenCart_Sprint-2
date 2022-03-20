@@ -22,7 +22,13 @@
     Then I should see Login Form 
     When I enter email
     And I enter password
+    #When I enter email as <"<email>">
+    #And I enter password as <"<password>">
     And I click on Login Button
+    #Examples: 
+    #| email                  | password  |
+    #|keshavopencart@gmail.com|Ironman@710|
+    #|dipanwita.jash@gmail.com|Dipanwita  |
     Then I should see Billing Details Form
     
   @LoginAndRegister
