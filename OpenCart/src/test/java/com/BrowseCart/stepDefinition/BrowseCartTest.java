@@ -25,6 +25,7 @@ public class BrowseCartTest {
 	public void beforeScenario() throws IOException
 	{
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\Drivers\\chromedriver_win32\\chromedriver.exe");
+//		System.setProperty("webdriver.chrome.driver", "E:\\Capgemini\\Internship\\Module-4\\Drivers\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
 		FileInputStream fs = new FileInputStream("src/test/resources/OpenCart.properties");
 		prop = new Properties();
@@ -306,5 +307,10 @@ public class BrowseCartTest {
 	public void page_should_be_redirected_to_home_page() {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
+	}
+	
+	@After
+	public void afterScenario() {
+		driver.quit();
 	}
 }

@@ -1,9 +1,9 @@
-  @tag
+  @OrderingCheckout
   Feature: Ordering and Checkout Verification
 	  Verfication of functionalities in Ordering and Checkout
 
 #63
-  @LoginAndRegister
+  @LoginAndRegister @Done
   Scenario: To validate Login form along with two options-Register and Guest Checkout are available
     Given OpenCart website is ready
     When I launch URL in chrome browser
@@ -13,8 +13,8 @@
     And I should see Login Form 
     And I should see Register Account and Guest Checkout options
     
-  @LoginAndRegister
-  Scenario: To validate Confirm Order via Login 
+  @LoginExistingConfirm @Done
+  Scenario: To validate Confirm Order via Login and using Existing Address
   	Given OpenCart website is ready
     When I launch URL in chrome browser
     And I add some products to shopping cart
@@ -30,8 +30,20 @@
     #|keshavopencart@gmail.com|Ironman@710|
     #|dipanwita.jash@gmail.com|Dipanwita  |
     Then I should see Billing Details Form
+    When I click on Use an Existing Address in Billing Details Form
+    Then I should see Delivery Details Form
+    When I click on Use an Existing Address in Delivery Details Form
+    Then I should see Delivery Method Form
+    When I click on preferred Shipping Method
+    Then I should see Payment Method Form
+    When I click on preferred Payment Method
+    And I click on Terms and Conditions
+    Then I should see Confirm Order Form
+    When I click on Confirm Order
+    Then I should get confirmation about my order
     
-  @LoginAndRegister
+    
+  @LoginAndRegister @Done
   Scenario: To validate Confirm Order via Guest Checkout
     Given OpenCart website is ready
     When I launch URL in chrome browser
@@ -41,7 +53,7 @@
     Then I should see Personal Details Form
 
 
-  @PersonalDetailsForm
+  @PersonalDetailsForm @Done
   Scenario: To validate all the input fields are available in personal details form
     Given OpenCart website is ready
     When I launch URL in chrome browser
@@ -51,7 +63,7 @@
     Then I should see Personal Details Form
     And I should see First Name field, Last Name field, Email field, Phone Number field and Continue Button
 
-  @PersonalDetailsForm
+  @PersonalDetailsForm @Done
   Scenario:To validate by providing valid values for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
@@ -72,7 +84,7 @@
     #Same step in Login Scenario
     Then I should see Delivery Method Form
 
-  @PersonalDetailsForm
+  @PersonalDetailsForm @Done
   Scenario:To validate by providing invalid values for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
     Given OpenCart website is ready
     When I launch URL in chrome browser
@@ -90,7 +102,7 @@
     And I click on Submit Button
     Then I should see Error message for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
 
-  @PersonalDetailsForm
+  @PersonalDetailsForm @Done
   Scenario:To validate by providing null values for First Name, Last Name, Email, Phone Number input field in the Personal Details Form
     Given OpenCart website is ready
     When I launch URL in chrome browser

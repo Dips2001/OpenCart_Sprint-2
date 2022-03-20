@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
+@BrowseCart
 Feature: Browse and Cart Verification
   Verfying the browse and cart appreance and functions
 

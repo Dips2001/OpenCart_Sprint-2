@@ -116,7 +116,7 @@ public class OrderingCheckoutTest {
 	public void i_enter_email()
 	{
 		XSSFSheet sheet=w.getSheetAt(0);
-		String email=sheet.getRow(1).getCell(0).getStringCellValue();
+		String email=sheet.getRow(2).getCell(0).getStringCellValue();
 		driver.findElement(By.xpath(prop.getProperty("login_email"))).clear();
 		driver.findElement(By.xpath(prop.getProperty("login_email"))).sendKeys(email);
 	}
@@ -125,7 +125,7 @@ public class OrderingCheckoutTest {
 	public void i_enter_password()
 	{
 		XSSFSheet sheet=w.getSheetAt(0);
-		String password=sheet.getRow(1).getCell(1).getStringCellValue();
+		String password=sheet.getRow(2).getCell(1).getStringCellValue();
 		driver.findElement(By.xpath(prop.getProperty("login_password"))).clear();
 		driver.findElement(By.xpath(prop.getProperty("login_password"))).sendKeys(password);
 	}
@@ -142,7 +142,82 @@ public class OrderingCheckoutTest {
 		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 2: Account & Billing Details']")).getText(),"Step 2: Account & Billing Details");
 	}
 	
+	@When("I click on Use an Existing Address in Billing Details Form")
+	public void i_click_on_use_an_existing_address_in_billing_details_form() throws InterruptedException {
+		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.name("payment_address")).click();
+		driver.findElement(By.id("button-payment-address")).click();
+	}
+	
+	@Then("I should see Delivery Details Form")
+	public void i_should_see_delivery_details_form() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 3: Delivery Details']")).getText(),"Step 3: Delivery Details");
+	}
+	
+	@When("I click on Use an Existing Address in Delivery Details Form")
+	public void i_click_on_use_an_existing_address_in_delivery_details_form() throws InterruptedException {
+		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.name("shipping_address")).click();
+		driver.findElement(By.id("button-shipping-address")).click();
+	}
+	
+//	@Then("I should see Delivery Method Form")
+//	public void i_should_see_delivery_method_form() {
+//		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+//		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 3: Delivery Details']")).getText(),"Step 3: Delivery Details");
+//	}
+	
+	@When("I click on preferred Shipping Method")
+	public void i_click_on_preferred_shipping_method() throws InterruptedException {
+		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.name("shipping_method")).click();
+		driver.findElement(By.id("button-shipping-method")).click();
+	}
+	
+	@Then("I should see Payment Method Form")
+	public void i_should_see_payment_method_form() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 5: Payment Method']")).getText(),"Step 5: Payment Method");
+	}
+	
+	@When("I click on preferred Payment Method")
+	public void i_click_on_preferred_payment_method() throws InterruptedException {
+		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.name("payment_method")).click();
+	}
+	
+	@When("I click on Terms and Conditions")
+	public void i_click_on_terms_and_conditions() throws InterruptedException {
+		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.name("agree")).click();
+		driver.findElement(By.id("button-payment-method")).click();
+	}
 
+	@Then("I should see Confirm Order Form")
+	public void i_should_see_confirm_order_form() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 6: Confirm Order']")).getText(),"Step 6: Confirm Order");
+	}
+	
+	@When("I click on Confirm Order")
+	public void i_click_on_confirm_order() throws InterruptedException {
+		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.id("button-confirm")).click();
+	}
+	
+	@Then("I should get confirmation about my order")
+	public void i_should_get_confirmation_about_my_order() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath("//h1[normalize-space()='Your order has been placed!']")).getText(), "Your order has been placed!");
+	}
+	
 	@When("I click on Continue as Guest Button")
 	public void i_click_on_continue_as_guest_button() {
 		// Clicking on Guest Button
@@ -330,8 +405,10 @@ public class OrderingCheckoutTest {
     @Then("I should see Delivery Method Form")
     public void i_should_see_delivery_method_form() throws InterruptedException {
         Thread.sleep(2000);
-        WebElement flatRate = driver.findElement(By.xpath("//p[contains(text(),'Please select the preferred shipping method to use')]"));
-        Assert.assertTrue(flatRate.isDisplayed());
+//        WebElement flatRate = driver.findElement(By.xpath("//p[contains(text(),'Please select the preferred shipping method to use')]"));
+//        Assert.assertTrue(flatRate.isDisplayed());
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 4: Delivery Method']")).getText(),"Step 4: Delivery Method");
     }
 
 
@@ -647,4 +724,9 @@ public class OrderingCheckoutTest {
         // Enter Invalid Post Code
         driver.findElement(By.id(prop.getProperty("postcode_billing_input"))).sendKeys("88Po9a");
     }
+    
+	@After
+	public void afterScenario() {
+		driver.quit();
+	}
 }
