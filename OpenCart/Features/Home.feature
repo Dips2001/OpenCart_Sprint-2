@@ -109,6 +109,7 @@
   Scenario: To validate links for My Account, Wish List, Shopping Cart and Checkout are present in header section
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    And I click on store logo
     Then OpenCart website should load Header section with links for My Account, Wish List, Shopping Cart and Checkout are present in header section
 
 
@@ -116,7 +117,7 @@
   Scenario: To validate that dropdown list containing Register and Login appears on clicking on the "My Account" link
     Given OpenCart website is ready
     When I launch URL in chrome browser
-    And click on My account in header section
+    When click on My account in header section
     Then dropdown list should display options as Register and Login.
 
 @WishList
