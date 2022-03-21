@@ -124,7 +124,8 @@ public class BrowseCartTest {
 
 	@Then("the products gets sorted according to rating")
 	public void the_products_gets_sorted_according_to_rating() {
-	    //pass
+//	    System.out.println("Sorted according to rating");
+		// pass
 	}
 
 	@When("select the name option")
