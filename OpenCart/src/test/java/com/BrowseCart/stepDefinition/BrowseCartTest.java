@@ -13,6 +13,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import com.hello.Then;
+import com.hello.When;
+import com.hello.io;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
@@ -179,62 +183,55 @@ public class BrowseCartTest {
 
 	@When("I open product page")
 	public void i_open_product_page() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath(prop.getProperty("productPage"))).click();
 	}
 
 	@Then("Add to compare option should be visible.")
 	public void add_to_compare_option_should_be_visible() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		boolean addtoCompare = driver.findElement(By.xpath(prop.getProperty("compareButton"))).isDisplayed();
 	}
 
 	@When("I click on Add to compare option button")
 	public void i_click_on_add_to_compare_option_button() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.findElement(By.xpath(prop.getProperty("compareButton"))).click();
 	}
 
 	@Then("product should be added to compare list.")
 	public void product_should_be_added_to_compare_list() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("compareList"))).getText(),"HP LP3065");
 	}
 
 	@When("I open home page")
 	public void i_open_home_page() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.findElement(By.xpath(prop.getProperty("homePage"))).click();
 	}
 
 	@Then("shopping cart option should be visible.")
 	public void shopping_cart_option_should_be_visible() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		boolean comparelist = driver.findElement(By.xpath(prop.getProperty("shopping_cart"))).isDisplayed();
 	}
 
 	@When("I click on shopping cart")
 	public void i_click_on_shopping_cart() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();;
+		driver.findElement(By.xpath(prop.getProperty("shopping_cart"))).click();
 	}
 
 	@Then("products added to cart should be present.")
 	public void products_added_to_cart_should_be_present() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("cart_total"))).getText(),"1 item(s) - $122.00");
 	}
 
 	@When("I heading to checkout")
 	public void i_heading_to_checkout() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.findElement(By.xpath(prop.getProperty("shopping_cart"))).click();
 	}
 
 	@Then("coupon code  option should be visible to customer.")
 	public void coupon_code_option_should_be_visible_to_customer() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		boolean comparelist = driver.findElement(By.xpath(prop.getProperty("couponCode"))).isDisplayed();
 	}
 
 	@When("I insert coupon code while buying product")
@@ -287,27 +284,27 @@ public class BrowseCartTest {
 
 	@When("I completed the process of checkout")
 	public void i_completed_the_process_of_checkout() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.findElement(By.xpath(prop.getProperty("checkout"))).click();
 	}
 
 	@Then("continue to shopping option should be visible")
 	public void continue_to_shopping_option_should_be_visible() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.findElement(By.xpath(prop.getProperty("continueButton"))).isDisplayed();
 	}
 
 	@When("I click on continue to shopping button")
 	public void i_click_on_continue_to_shopping_button() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.findElement(By.xpath(prop.getProperty("continueButton"))).click();
 	}
 
 	@Then("page should be redirected to home page")
 	public void page_should_be_redirected_to_home_page() {
-		// Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		String expectedPageTitle = "Your Store";
+		String actualPageTitle = driver.getTitle();
+		Assert.assertEquals(expectedPageTitle,actualPageTitle);
+	    
 	}
+
 
 	@After
 	public void afterScenario() {
