@@ -8,14 +8,12 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-
-//import com.hello.Then;
-//import com.hello.When;
-//import com.hello.io;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -28,8 +26,8 @@ public class BrowseCartTest {
 	@Before
 	public void beforeScenario() throws IOException
 	{
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\Drivers\\chromedriver_win32\\chromedriver.exe");
-//		System.setProperty("webdriver.chrome.driver", "E:\\Capgemini\\Internship\\Module-4\\Drivers\\chromedriver_win32\\chromedriver.exe");
+//		System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\Drivers\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "E:\\Capgemini\\Internship\\Module-4\\Drivers\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
 		FileInputStream fs = new FileInputStream("src/test/resources/OpenCart.properties");
 		prop = new Properties();
@@ -120,14 +118,13 @@ public class BrowseCartTest {
 
 	@When("select the rating option")
 	public void select_the_rating_option() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		Select sort=new Select(driver.findElement(By.xpath("//select[@id='input-sort']")));
+		sort.selectByVisibleText("Rating (Highest)");
 	}
 
 	@Then("the products gets sorted according to rating")
 	public void the_products_gets_sorted_according_to_rating() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    //pass
 	}
 
 	@When("select the name option")
@@ -171,20 +168,12 @@ public class BrowseCartTest {
 
 	@When("after clicking on wishlist icon")
 	public void after_clicking_on_wishlist_icon() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    // pass
 	}
 
 	@Then("the product get added to wishlist")
 	public void the_product_get_added_to_wishlist() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@When("I open product page")
-	public void i_open_product_page() {
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath(prop.getProperty("productPage"))).click();
+	    // pass
 	}
 
 	@Then("Add to compare option should be visible.")
@@ -200,22 +189,33 @@ public class BrowseCartTest {
 	@Then("product should be added to compare list.")
 	public void product_should_be_added_to_compare_list() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath(prop.getProperty("compareList"))).getText(),"HP LP3065");
-	}
-
-	@When("I open home page")
-	public void i_open_home_page() {
-		driver.findElement(By.xpath(prop.getProperty("homePage"))).click();
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("compareList"))).getText(),"Success: You have added MacBook to your product comparison!\n×");
 	}
 
 	@Then("shopping cart option should be visible.")
 	public void shopping_cart_option_should_be_visible() {
-		boolean comparelist = driver.findElement(By.xpath(prop.getProperty("shopping_cart"))).isDisplayed();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		assertTrue(driver.findElement(By.xpath(prop.getProperty("add_to_cart"))).isEnabled());
+	}
+	
+	@When("I add some products to shopping cart")
+	public void i_add_some_products_to_shopping_cart() {
+		driver.findElement(By.name(prop.getProperty("search"))).sendKeys("hp");
+	    driver.findElement(By.xpath(prop.getProperty("search_icon"))).click();
+	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath(prop.getProperty("hp_add_to_cart"))).click();
+	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    driver.findElement(By.xpath(prop.getProperty("button_cart"))).click();
+	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    assertEquals(driver.findElement(By.xpath(prop.getProperty("alert1"))).getText(), "Success: You have added HP LP3065 to your shopping cart!\n×");
 	}
 
 	@When("I click on shopping cart")
 	public void i_click_on_shopping_cart() {
-		driver.findElement(By.xpath(prop.getProperty("shopping_cart"))).click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath(prop.getProperty("cart_total"))).click();
+		driver.findElement(By.xpath(prop.getProperty("cart_view"))).click();
+//	    driver.findElement(By.xpath(prop.getProperty("shopping_cart"))).click();
 	}
 
 	@Then("products added to cart should be present.")
@@ -223,78 +223,125 @@ public class BrowseCartTest {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		assertEquals(driver.findElement(By.xpath(prop.getProperty("cart_total"))).getText(),"1 item(s) - $122.00");
 	}
-
-	@When("I heading to checkout")
-	public void i_heading_to_checkout() {
-		driver.findElement(By.xpath(prop.getProperty("shopping_cart"))).click();
+	
+	@When("I click on coupon code")
+	public void i_click_on_coupon_code() {
+		driver.findElement(By.xpath(prop.getProperty("use"))).click();
 	}
 
-	@Then("coupon code  option should be visible to customer.")
+	@Then("coupon code option should be visible to customer.")
 	public void coupon_code_option_should_be_visible_to_customer() {
-		boolean comparelist = driver.findElement(By.xpath(prop.getProperty("couponCode"))).isDisplayed();
+		assertTrue(driver.findElement(By.name(prop.getProperty("coupon_code"))).isDisplayed());
 	}
 
 	@When("I insert coupon code while buying product")
 	public void i_insert_coupon_code_while_buying_product() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.name(prop.getProperty("coupon_code"))).click();
+	    driver.findElement(By.name(prop.getProperty("coupon_code"))).sendKeys("2222");;
+	    driver.findElement(By.id(prop.getProperty("coupon_button"))).click();
 	}
 
-	@Then("total cost of product should be changed according to coupon discount")
-	public void total_cost_of_product_should_be_changed_according_to_coupon_discount() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("the warning message gets displayed in Coupon Code")
+	public void the_warning_message_gets_displayed_in_coupon_code() {
+	    assertEquals(driver.findElement(By.xpath(prop.getProperty("coupon_warning"))).getText(), "Warning: Coupon is either invalid, expired or reached its usage limit!\n×");
+	    driver.findElement(By.xpath(prop.getProperty("use"))).click();
+	}
+	
+	@When("I click on estimate shipping taxes")
+	public void i_click_on_estimate_shipping_taxes() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.cssSelector(".accordion-toggle.collapsed[href='#collapse-shipping']")).click();
+		driver.findElement(By.cssSelector(".accordion-toggle.collapsed[href='#collapse-shipping']")).click();
 	}
 
 	@Then("estimate shipping taxes option should be visible")
 	public void estimate_shipping_taxes_option_should_be_visible() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    //pass
 	}
-
-	@When("I click on add to estimate option")
+	
+    @When("I select valid Country")
+    public void i_select_valid_country() {
+        // Select valid Country
+        driver.findElement(By.id("input-country")).click();
+        WebElement dropdown = driver.findElement(By.id("input-country"));
+        dropdown.findElement(By.xpath(prop.getProperty("india_option"))).click();
+    }
+    
+    @When("I select valid Zone")
+    public void i_select_valid_zone() {
+        // Select valid Zone
+        driver.findElement(By.id("input-zone")).click();
+        Select dropdown1 = new Select(driver.findElement(By.id("input-zone")));
+        dropdown1.selectByVisibleText("West Bengal");
+//        WebElement dropdown1 = driver.findElement(By.id("input-zone"));
+//        dropdown1.findElement(By.xpath(prop.getProperty("mh_option"))).click();
+    }
+    
+    @When("I enter valid Post Code")
+    public void i_enter_valid_post_code() {
+        // Enter valid Post Code
+        driver.findElement(By.id("input-postcode")).click();
+        driver.findElement(By.id("input-postcode")).sendKeys("400022");
+    }
+    
+    @When("I click on add to estimate option")
 	public void i_click_on_add_to_estimate_option() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		i_select_valid_country();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		i_select_valid_zone();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		i_enter_valid_post_code();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//button[@id='button-quote']")).click();
 	}
 
 	@Then("total cost of product should be changed according to shipping and taxes")
 	public void total_cost_of_product_should_be_changed_according_to_shipping_and_taxes() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+//		driver.switchTo().alert().accept();
+	    driver.findElement(By.name("shipping_method")).click();
+	    driver.findElement(By.id("button-shipping")).click();
 	}
 
+	@When("I click on add to gift certificate")
+	public void i_click_on_add_to_gift_certificate() throws InterruptedException {
+//		driver.findElement(By.xpath("//a[@class='accordion-toggle']")).click();
+		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//a[normalize-space()='Use Gift Certificate']")).click();
+	}
+	
 	@Then("coupon code or gift voucher option should be visible to customer.")
 	public void coupon_code_or_gift_voucher_option_should_be_visible_to_customer() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    // pass
 	}
 
-	@When("I  add gift voucher")
+	@When("I add gift voucher")
 	public void i_add_gift_voucher() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    driver.findElement(By.name("voucher")).click();
+	    driver.findElement(By.name("voucher")).sendKeys("1234");
+	    driver.findElement(By.id("button-voucher")).click();
 	}
 
-	@Then("total cost of product should be changed according to gift voucher discount")
-	public void total_cost_of_product_should_be_changed_according_to_gift_voucher_discount() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("the warning message gets displayed in Gift Voucher")
+	public void the_warning_message_gets_displayed_in_gift_voucher() {
+	    //pass
 	}
 
-	@When("I completed the process of checkout")
-	public void i_completed_the_process_of_checkout() {
-		driver.findElement(By.xpath(prop.getProperty("checkout"))).click();
+	@When("I click on checkout button")
+	public void i_click_on_checkout_button() {
+		driver.findElement(By.xpath("//a[@class='btn btn-primary']")).click();
 	}
 
-	@Then("continue to shopping option should be visible")
-	public void continue_to_shopping_option_should_be_visible() {
-		driver.findElement(By.xpath(prop.getProperty("continueButton"))).isDisplayed();
+	@Then("checkout option should be visible")
+	public void checkout_option_should_be_visible() {
+		assertEquals(driver.getTitle(),"Checkout");
 	}
 
 	@When("I click on continue to shopping button")
 	public void i_click_on_continue_to_shopping_button() {
-		driver.findElement(By.xpath(prop.getProperty("continueButton"))).click();
+		driver.findElement(By.xpath("//a[@class='btn btn-default']")).click();
 	}
 
 	@Then("page should be redirected to home page")

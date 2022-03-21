@@ -87,123 +87,63 @@ Feature: Browse and Cart Verification
 		When I go to products page
 		And select the rating option 
 		Then the products gets sorted according to rating
-		
-	@SortingProducts
-	Scenario: To validate the products sorting according to name
-		Given Open cart website is ready
-		And URL should be working
-		When I go to products page
-		And select the name option 
+		When select the name option 
 		Then the products gets sorted according to name
-	
-	@SortingProducts
-	Scenario: To validate the products sorting according to price
-		Given Open cart website is ready
-		And URL should be working
-		When I go to products page
-		And select the price option 
+		When select the price option 
 		Then the products gets sorted according to price
-	
-	@SortingProducts
-	Scenario: To validate the products sorting according to model
-		Given Open cart website is ready
-		And URL should be working
-		When I go to products page
-		And select the model option 
+		When select the model option 
 		Then the products gets sorted according to model
 
 	@WishlistButton
-	Scenario: To validate after clicking on add to product,  product is added in wishlist or not
+	Scenario: To validate after clicking on add to product, product is added in wishlist or not
 		Given Open cart website is ready
 		And URL should be working
 		When I go to products page
 		And after clicking on wishlist icon 
 		Then the product get added to wishlist
 		
-	@ProductPage
+	@ProductPage 
   Scenario: To validate Add to compare option is visible on product page
 	  Given Open cart website is ready
 	  And URL should be working
-	  When I open product page
 	  Then Add to compare option should be visible.
 
- @ProductPage
+ @ProductPage 
 	Scenario: To validate after clicking on add to compare, product is added to compare list
 		Given Open cart website is ready
 		And URL should be working
 		When I click on Add to compare option button
 		Then product should be added to compare list.
 	
-	@ShoppingCart
+	@ShoppingCart 
 	Scenario: To validate shopping cart option is visible on page
 		Given Open cart website is ready
 		And URL should be working
-		When I open home page
 		Then shopping cart option should be visible.
 	
 	
-	@ShoppingCart
+	@ShoppingCart 
 	Scenario: To validate products are present in shopping cart, if previously added
 		Given Open cart website is ready
 		And URL should be working
-		When I click on shopping cart
+		When I add some products to shopping cart
+		And I click on shopping cart
 		Then products added to cart should be present.
-	
-	@ShoppingCart
-	Scenario: 1. To validate coupon code option is visible to customer before heading to checkout
-		Given Open cart website is ready
-		And URL should be working
-		When I heading to checkout
-		Then coupon code  option should be visible to customer.
-	
-	
-	@ShoppingCart
-	Scenario: To validate changes in total cost after adding coupon code
-		Given Open cart website is ready
-		And URL should be working
+		When I click on coupon code
+		Then coupon code option should be visible to customer.
 		When I insert coupon code while buying product 
-		Then total cost of product should be changed according to coupon discount
-	
-	@ShoppingCart
-	Scenario: To validate estimate shipping taxes option is visible to customer before heading to checkout
-		Given Open cart website is ready
-		And URL should be working
-		When I heading to checkout
+		Then the warning message gets displayed in Coupon Code
+		When I click on estimate shipping taxes
 		Then estimate shipping taxes option should be visible
-	
-	
-	@ShoppingCart
-	Scenario: To validate changes in total cost after adding estimate shipping taxes
-		Given Open cart website is ready
-		And URL should be working
 		When I click on add to estimate option
 		Then total cost of product should be changed according to shipping and taxes
-	
-	@ShoppingCart
-	Scenario: To validate coupon code or gift voucher option is visible to customer before heading to checkout
-		Given Open cart website is ready
-		And URL should be working
-		When I heading to checkout
+		When I click on add to gift certificate
 		Then coupon code or gift voucher option should be visible to customer.
-	
-	@ShoppingCart
-	Scenario: To validate changes in total cost after adding gift voucher
-		Given Open cart website is ready
-		And URL should be working
-		When I  add gift voucher
-		Then total cost of product should be changed according to gift voucher discount
-	
-	@Checkout
-	Scenario: To validate continue to shopping button is visible on home page
-		Given Open cart website is ready
-		And URL should be working
-		When I completed the process of checkout
-		Then continue to shopping option should be visible
-	
-	@Checkout
-	Scenario: To validate working of continue to shopping button
-		Given Open cart website is ready
-		And URL should be working
-		When I click on continue to shopping button
+		When I add gift voucher
+		Then the warning message gets displayed in Gift Voucher
+		When I click on checkout button
+		Then checkout option should be visible
+	  When I click on shopping cart
+		And I click on continue to shopping button
 		Then page should be redirected to home page
 	
