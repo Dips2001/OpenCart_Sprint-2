@@ -210,11 +210,10 @@
  		And I click on Checkout button
  		And I click on Continue As Guest
  		And I enter valid data in Personal Details Form
- 		And I Click on Submit button
+ 		And I click on Continue Button in Personal Details Form
  		And I enter valid data in Address Form
- 		And I click on submit button
  		And I click on checkbox for same billing address
- 		And I click the submit button
+ 		And I click on Continue Button in Billing Details Form 
   	Then I should see Delivery Method Form
     When I click on preferred Shipping Method
     Then I should see Payment Method Form
@@ -232,11 +231,10 @@
     And I click on Checkout button
  		And I click on Continue As Guest
  		And I enter valid data in Personal Details Form
- 		And I Click on Submit button
+ 		And I click on Continue Button in Personal Details Form
  		And I enter valid data in Address Form
- 		And I click on submit button
  		And I do not click the checkbox for same billing address
- 		And I click the submit button
+ 		And I click on Continue Button in Billing Details Form 
     Then I should see the Delivery details Form
     And I click the continue button
     Then I should see Delivery Method Form
@@ -256,11 +254,10 @@
     And I click on Checkout Button
     And I Click on Continue As Guest
 	  And I enter valid data in Personal Details Form
-	 	And i Click on Submit form
+	 	And I click on Continue Button in Personal Details Form
 		And i enter valid in Address Form
-		And i Click on Submit form
 		And i Uncheck the checkbox "Same as Billing Address"
-		And i Click on Submit Button  
+	  And I click on Continue Button in Billing Details Form 
     Then I should see the Delivery details Form
     And I enter address in delivery details
 		And i enter state in delivery details
@@ -287,11 +284,10 @@
   	And I click on Checkout Button
   	And I Click on Continue As Guest
 		And i enter valid data in Personal Details Form
-		And i Click on Submit form
+		And I click on Continue Button in Personal Details Form
 		And i enter valid in Address Form
-		And i Click on Submit form
 		And i Uncheck the checkbox "Same as Billing Address"
-		And i Click on Submit Button  
+		And I click on Continue Button in Billing Details Form  
 		And I enter invalid address in delivery details
 		And i enter invalid state in delivery details
 		And i enter invalid pincode in delivery details
@@ -308,11 +304,10 @@
 	  And I click on Checkout Button
 	  And I Click on Continue As Guest
 		And i enter valid data in Personal Details Form
-		And i Click on Submit form
+		And I click on Continue Button in Personal Details Form
 		And i enter valid in Address Form
-		And i Click on Submit form
 		And i Uncheck the checkbox "Same as Billing Address"
-		And i Click on Submit Button  
+		And I click on Continue Button in Billing Details Form   
 		And I enter null Address in delivery details
 	  And I enter null State in delivery details
 	  And I enter null Pincode in delivery details
