@@ -109,7 +109,7 @@
   Scenario: To validate links for My Account, Wish List, Shopping Cart and Checkout are present in header section
     Given OpenCart website is ready
     When I launch URL in chrome browser
-    And I click on store logo
+    When I click on store logo
     Then OpenCart website should load Header section with links for My Account, Wish List, Shopping Cart and Checkout are present in header section
 
 
@@ -147,6 +147,7 @@
   Scenario:To validate that Company Telephone Number is given is header section
     Given OpenCart website is ready
     When I launch URL in chrome browser
+    When I click on store logo
     Then The company telephone number should be visible at the header.
 
 
