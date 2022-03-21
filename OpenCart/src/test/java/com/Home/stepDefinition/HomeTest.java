@@ -99,6 +99,7 @@ public class HomeTest
 
 	@When("I click on store logo")
 	public void i_click_on_store_logo() {
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	    driver.findElement(By.xpath(prop.getProperty("logo"))).click();
 	}
 
@@ -292,12 +293,6 @@ public class HomeTest
 		  
 		  Assert.assertEquals(expectedPageTitle,actualPageTitle);
 	}
-	
-	@When("I click on store logo")
-	public void i_click_on_store_logo1() {
-		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		 driver.findElement(By.xpath(prop.getProperty("logo"))).click();
-	}
 
 	@Then("OpenCart website should load Header section with links for My Account, Wish List, Shopping Cart and Checkout are present in header section")
 	public void open_cart_website_should_load_header_section_with_links_for_my_account_wish_list_shopping_cart_and_checkout_are_present_in_header_section() {
@@ -376,12 +371,6 @@ public class HomeTest
 		  Assert.assertEquals(expectedPageTitle,actualPageTitle);
 	}
 	
-	@When("I click on store logo")
-	public void i_click_on_store_logo2() {
-		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		 driver.findElement(By.xpath(prop.getProperty("logo"))).click();
-	}
-
 	@Then("The company telephone number should be visible at the header.")
 	public void the_company_telephone_number_should_be_visible_at_the_header() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);

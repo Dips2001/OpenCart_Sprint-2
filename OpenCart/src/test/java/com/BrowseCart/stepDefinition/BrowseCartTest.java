@@ -13,9 +13,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import com.hello.Then;
-import com.hello.When;
-import com.hello.io;
+//import com.hello.Then;
+//import com.hello.When;
+//import com.hello.io;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -301,7 +301,7 @@ public class BrowseCartTest {
 	public void page_should_be_redirected_to_home_page() {
 		String expectedPageTitle = "Your Store";
 		String actualPageTitle = driver.getTitle();
-		Assert.assertEquals(expectedPageTitle,actualPageTitle);
+		assertEquals(expectedPageTitle,actualPageTitle);
 	    
 	}
 
