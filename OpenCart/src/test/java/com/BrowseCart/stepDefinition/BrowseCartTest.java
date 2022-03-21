@@ -179,61 +179,61 @@ public class BrowseCartTest {
 
 	@When("I open product page")
 	public void i_open_product_page() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("Add to compare option should be visible.")
 	public void add_to_compare_option_should_be_visible() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 
 	@When("I click on Add to compare option button")
 	public void i_click_on_add_to_compare_option_button() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("product should be added to compare list.")
 	public void product_should_be_added_to_compare_list() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 
 	@When("I open home page")
 	public void i_open_home_page() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("shopping cart option should be visible.")
 	public void shopping_cart_option_should_be_visible() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 
 	@When("I click on shopping cart")
 	public void i_click_on_shopping_cart() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		// Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();;
 	}
 
 	@Then("products added to cart should be present.")
 	public void products_added_to_cart_should_be_present() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 
 	@When("I heading to checkout")
 	public void i_heading_to_checkout() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("coupon code  option should be visible to customer.")
 	public void coupon_code_option_should_be_visible_to_customer() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 
@@ -287,28 +287,28 @@ public class BrowseCartTest {
 
 	@When("I completed the process of checkout")
 	public void i_completed_the_process_of_checkout() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("continue to shopping option should be visible")
 	public void continue_to_shopping_option_should_be_visible() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 
 	@When("I click on continue to shopping button")
 	public void i_click_on_continue_to_shopping_button() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("page should be redirected to home page")
 	public void page_should_be_redirected_to_home_page() {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
-	
+
 	@After
 	public void afterScenario() {
 		driver.quit();
