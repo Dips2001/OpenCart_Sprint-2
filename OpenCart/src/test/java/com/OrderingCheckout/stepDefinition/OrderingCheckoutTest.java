@@ -233,8 +233,8 @@ public class OrderingCheckoutTest {
 		Assert.assertTrue(personal);
 	}
 
-	@Then("I should see First Name field, Last Name field, Email field, Phone Number field and Contine Button")
-	public void i_should_see_first_name_field_last_name_field_email_field_phone_number_field_and_contine_button() {
+	@Then("I should see First Name field, Last Name field, Email field, Phone Number field and Continue Button")
+	public void i_should_see_first_name_field_last_name_field_email_field_phone_number_field_and_continue_button() {
 		// First Name field is displayed
         boolean firstName = driver.findElement(By.xpath(prop.getProperty("firstname_label"))).isDisplayed();
         // Last Name field is displayed
