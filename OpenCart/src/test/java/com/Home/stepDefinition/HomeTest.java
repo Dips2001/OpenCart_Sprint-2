@@ -263,26 +263,12 @@ public class HomeTest
 	@Then("search text should appear in the Search criteria box")
 	public void search_text_should_appear_in_the_search_criteria_box() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	    driver.findElement(By.xpath(prop.getProperty("search_criteria")));
-	    WebElement ActualSearchText = driver.findElement(By.xpath(prop.getProperty("search_criteria")));
-	    String ExpectedSearchText = "iPhone";
+	    assertEquals(driver.findElement(By.xpath(prop.getProperty("search_criteria"))).getAttribute("value"),"iPhone");
+//	    WebElement ActualSearchText = driver.findElement(By.xpath(prop.getProperty("search_criteria")));
+//	    String ExpectedSearchText = "iPhone";
+//	    
+//	    assertEquals(ExpectedSearchText,ActualSearchText.getText());
 	    
-	    Assert.assertEquals(ExpectedSearchText,ActualSearchText.getText());
-	    
-	}
-
-	@When("click on Search Box")
-	public void click_on_search_box() {
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	    driver.findElement(By.xpath(prop.getProperty("search"))).click();
-	   
-	    
-	}
-
-	@When("click search button")
-	public void click_search_button() {
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	    driver.findElement(By.xpath(prop.getProperty("search_icon"))).click();
 	}
 
 	@Then("OpenCart website should load Search page")
@@ -291,7 +277,7 @@ public class HomeTest
 		 String expectedPageTitle = "Search";
 		  String actualPageTitle = driver.getTitle();
 		  
-		  Assert.assertEquals(expectedPageTitle,actualPageTitle);
+		  assertEquals(expectedPageTitle,actualPageTitle);
 	}
 
 	@Then("OpenCart website should load Header section with links for My Account, Wish List, Shopping Cart and Checkout are present in header section")
@@ -301,10 +287,10 @@ public class HomeTest
 		boolean wishList = driver.findElement(By.xpath(prop.getProperty("wish_list"))).isDisplayed();
 		boolean ShopCart = driver.findElement(By.xpath(prop.getProperty("shopping_cart"))).isDisplayed();
 		boolean checkout = driver.findElement(By.xpath(prop.getProperty("checkout"))).isDisplayed();
-		Assert.assertTrue(myAcc);
-		Assert.assertTrue(wishList);
-		Assert.assertTrue(ShopCart);
-		Assert.assertTrue(checkout);
+		assertTrue(myAcc);
+		assertTrue(wishList);
+		assertTrue(ShopCart);
+		assertTrue(checkout);
 		
 		}
 
@@ -319,8 +305,8 @@ public class HomeTest
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		boolean reg = driver.findElement(By.xpath(prop.getProperty("register"))).isDisplayed();
 		boolean log = driver.findElement(By.xpath(prop.getProperty("login"))).isDisplayed();
-		Assert.assertTrue(reg);
-		Assert.assertTrue(log);
+		assertTrue(reg);
+		assertTrue(log);
 
 		
 		
@@ -338,7 +324,7 @@ public class HomeTest
 		 String expectedPageTitle = "Account Login";
 		  String actualPageTitle = driver.getTitle();
 		  
-		  Assert.assertEquals(expectedPageTitle,actualPageTitle);
+		  assertEquals(expectedPageTitle,actualPageTitle);
 	}
 
 	@When("click on Shopping Cart in header section")
@@ -353,7 +339,7 @@ public class HomeTest
 		String expectedPageTitle = "Shopping Cart";
 		  String actualPageTitle = driver.getTitle();
 		  
-		  Assert.assertEquals(expectedPageTitle,actualPageTitle);
+		  assertEquals(expectedPageTitle,actualPageTitle);
 	}
 
 	@When("click on Checkout in header section")
@@ -368,14 +354,14 @@ public class HomeTest
 		 String expectedPageTitle = "Shopping Cart";
 		  String actualPageTitle = driver.getTitle();
 		  
-		  Assert.assertEquals(expectedPageTitle,actualPageTitle);
+		  assertEquals(expectedPageTitle,actualPageTitle);
 	}
 	
 	@Then("The company telephone number should be visible at the header.")
 	public void the_company_telephone_number_should_be_visible_at_the_header() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		boolean telNumber= driver.findElement(By.xpath(prop.getProperty("phone_number"))).isDisplayed();
-		Assert.assertTrue(telNumber);
+		assertTrue(telNumber);
 	}
 
 	@When("click on Phone icon")
@@ -390,7 +376,7 @@ public class HomeTest
 		 String expectedPageTitle = "Contact Us";
 		  String actualPageTitle = driver.getTitle();
 		  
-		  Assert.assertEquals(expectedPageTitle,actualPageTitle);
+		  assertEquals(expectedPageTitle,actualPageTitle);
 	}
 
 	@When("click on dropdown icon of My Account")
@@ -411,7 +397,7 @@ public class HomeTest
 		 String expectedPageTitle = "Register Account";
 		  String actualPageTitle = driver.getTitle();
 		  
-		  Assert.assertEquals(expectedPageTitle,actualPageTitle);
+		  assertEquals(expectedPageTitle,actualPageTitle);
 	}
 
 	@When("click on Login")
@@ -425,7 +411,7 @@ public class HomeTest
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		 String expectedPageTitle = "Account Login";
 		 String actualPageTitle = driver.getTitle();	  
-		 Assert.assertEquals(expectedPageTitle,actualPageTitle);
+		 assertEquals(expectedPageTitle,actualPageTitle);
 	}
 	
 	@After

@@ -100,8 +100,8 @@
   Scenario: To validate that search page is opened after nothing provided in search box and search button is pressed
     Given OpenCart website is ready
     When I launch URL in chrome browser
-    And click on Search Box
-    And click search button
+    And I click on Search Box
+    And I click on Search button
     Then OpenCart website should load Search page 
 
 
