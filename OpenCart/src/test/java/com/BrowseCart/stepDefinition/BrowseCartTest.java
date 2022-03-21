@@ -120,14 +120,13 @@ public class BrowseCartTest {
 
 	@When("select the rating option")
 	public void select_the_rating_option() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		Select sort=new Select(driver.findElement(By.xpath("//select[@id='input-sort']")));
+		sort.selectByVisibleText("Rating (Highest)");
 	}
 
 	@Then("the products gets sorted according to rating")
 	public void the_products_gets_sorted_according_to_rating() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    System.out.println("Sorted according to rating");
 	}
 
 	@When("select the name option")
