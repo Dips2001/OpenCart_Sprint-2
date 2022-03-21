@@ -58,12 +58,14 @@ public class OrderingCheckoutTest {
 	}
 
 	@When("I add some products to shopping cart")
-	public void i_add_some_products_to_shopping_cart() {
+	public void i_add_some_products_to_shopping_cart() throws InterruptedException {
 		driver.findElement(By.name(prop.getProperty("search"))).sendKeys("hp");
 	    driver.findElement(By.xpath(prop.getProperty("search_icon"))).click();
 	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("hp_add_to_cart"))).click();
 	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    Thread.sleep(2000);
 	    driver.findElement(By.xpath(prop.getProperty("button_cart"))).click();
 	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	    assertEquals(driver.findElement(By.xpath(prop.getProperty("alert1"))).getText(), "Success: You have added HP LP3065 to your shopping cart!\n×");
@@ -130,6 +132,24 @@ public class OrderingCheckoutTest {
 		driver.findElement(By.xpath(prop.getProperty("login_password"))).sendKeys(password);
 	}
 	
+	@When("I enter second email")
+	public void i_enter_second_email()
+	{
+		XSSFSheet sheet=w.getSheetAt(0);
+		String email=sheet.getRow(1).getCell(0).getStringCellValue();
+		driver.findElement(By.xpath(prop.getProperty("login_email"))).clear();
+		driver.findElement(By.xpath(prop.getProperty("login_email"))).sendKeys(email);
+	}
+	
+	@When("I enter second password")
+	public void i_enter_second_password()
+	{
+		XSSFSheet sheet=w.getSheetAt(0);
+		String password=sheet.getRow(1).getCell(1).getStringCellValue();
+		driver.findElement(By.xpath(prop.getProperty("login_password"))).clear();
+		driver.findElement(By.xpath(prop.getProperty("login_password"))).sendKeys(password);
+	}
+	
 	@When("I click on Login Button")
 	public void i_click_on_login_button()
 	{
@@ -146,7 +166,40 @@ public class OrderingCheckoutTest {
 	public void i_click_on_use_an_existing_address_in_billing_details_form() throws InterruptedException {
 		Thread.sleep(2000);
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.name("payment_address")).click();
+		driver.findElement(By.xpath("//input[@value='existing']")).click();
+		driver.findElement(By.id("button-payment-address")).click();
+	}
+	
+	@When("I click on Use a New Address in Billing Details Form")
+	public void i_click_on_use_a_new_address_in_billing_details_form() throws InterruptedException {
+		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//input[@value='new']")).click();
+		Thread.sleep(3000);    	
+    	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+    	driver.findElement(By.id(prop.getProperty("firstname"))).click();
+        //Fetch from Excel sheet
+        XSSFSheet sheet = w.getSheetAt(1);
+        String firstName = sheet.getRow(2).getCell(0).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("firstname"))).sendKeys(firstName);
+        String lastName = sheet.getRow(2).getCell(1).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("lastname"))).sendKeys(lastName);
+        String company = sheet.getRow(2).getCell(4).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("company"))).sendKeys(company);
+        String address1 = sheet.getRow(2).getCell(5).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("address1"))).sendKeys(address1);
+        String address2 = sheet.getRow(2).getCell(6).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("address2"))).sendKeys(address2);
+        String city = sheet.getRow(2).getCell(7).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("city"))).sendKeys(city);
+        String postcode = Math.round(sheet.getRow(2).getCell(8).getNumericCellValue()) + "";
+        driver.findElement(By.id(prop.getProperty("postcode"))).sendKeys(postcode);
+        driver.findElement(By.id(prop.getProperty("country"))).click();
+        WebElement dropdown = driver.findElement(By.id(prop.getProperty("country")));
+        dropdown.findElement(By.xpath(prop.getProperty("india_option"))).click();
+        driver.findElement(By.id(prop.getProperty("zone"))).click();
+        WebElement dropdown1 = driver.findElement(By.id(prop.getProperty("zone")));
+        dropdown1.findElement(By.xpath(prop.getProperty("bihar_option"))).click();
 		driver.findElement(By.id("button-payment-address")).click();
 	}
 	
@@ -160,7 +213,52 @@ public class OrderingCheckoutTest {
 	public void i_click_on_use_an_existing_address_in_delivery_details_form() throws InterruptedException {
 		Thread.sleep(2000);
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.name("shipping_address")).click();
+		driver.findElement(By.xpath("//label[normalize-space()='I want to use an existing address']//input[@name='shipping_address']")).click();
+		driver.findElement(By.id("button-shipping-address")).click();
+	}
+	
+	@When("I click on Use a New Address in Delivery Details Form")
+	public void i_click_on_use_a_new_address_in_delivery_details_form() throws InterruptedException {
+		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//label[normalize-space()='I want to use a new address']//input[@name='shipping_address']")).click();
+		XSSFSheet sheet = w.getSheetAt(1);
+	    String firstName = sheet.getRow(2).getCell(0).getStringCellValue();
+	    driver.findElement(By.id(prop.getProperty("firstname_billing_input"))).clear();
+	    driver.findElement(By.id(prop.getProperty("firstname_billing_input"))).sendKeys(firstName);
+	    String lastName = sheet.getRow(2).getCell(1).getStringCellValue();
+	    driver.findElement(By.id(prop.getProperty("lastname_billing_input"))).clear();
+	    driver.findElement(By.id(prop.getProperty("lastname_billing_input"))).sendKeys(lastName);
+//        String company = sheet.getRow(2).getCell(4).getStringCellValue();
+//        driver.findElement(By.id(prop.getProperty("company_billing_input"))).clear();
+//        driver.findElement(By.id(prop.getProperty("company_billing_input"))).sendKeys(company);
+        String address1 = sheet.getRow(2).getCell(5).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("address1_billing_input"))).clear();
+        driver.findElement(By.id(prop.getProperty("address1_billing_input"))).sendKeys(address1);
+        String address2 = sheet.getRow(2).getCell(6).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("address2_billing_input"))).clear();
+        driver.findElement(By.id(prop.getProperty("address2_billing_input"))).sendKeys(address2);
+        String city = sheet.getRow(2).getCell(7).getStringCellValue();
+        driver.findElement(By.id(prop.getProperty("city_billing_input"))).clear();
+        driver.findElement(By.id(prop.getProperty("city_billing_input"))).sendKeys(city);
+        String postcode = Math.round(sheet.getRow(2).getCell(8).getNumericCellValue()) + "";
+        driver.findElement(By.id(prop.getProperty("postcode_billing_input"))).clear();
+        driver.findElement(By.id(prop.getProperty("postcode_billing_input"))).sendKeys(postcode);
+//        WebElement dropdown = driver.findElement(By.id("input-shipping-country"));
+//        dropdown.findElement(By.xpath(prop.getProperty("india_option"))).click();
+//        driver.findElement(By.id(prop.getProperty("zone"))).click();
+//        WebElement dropdown1 = driver.findElement(By.id("input-shipping-zone"));
+//        dropdown1.findElement(By.xpath(prop.getProperty("bihar_option"))).click();
+//		driver.findElement(By.id("button-payment-address")).click();
+        
+//        new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@id='input-shipping-country']")));
+//        driver.findElement(By.id("input-shipping-country")).click();
+//        Select country = new Select(driver.findElement(By.id("input-shipping-country")));
+//        country.selectByIndex(10);
+//        new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@id='input-shipping-country']")));
+//        driver.findElement(By.id("input-shipping-zone")).click();
+//        Select zone = new Select(driver.findElement(By.id("input-shipping-zone")));
+//        zone.selectByIndex(2);
 		driver.findElement(By.id("button-shipping-address")).click();
 	}
 	
@@ -415,8 +513,10 @@ public class OrderingCheckoutTest {
 
 
     @When("I enter invalid First Name")
-    public void i_enter_invalid_first_name() {
+    public void i_enter_invalid_first_name() throws InterruptedException {
         // Enter invalid First Name
+    	Thread.sleep(2000);
+    	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement(By.id(prop.getProperty("firstname"))).click();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement(By.id(prop.getProperty("firstname"))).sendKeys("@!123");

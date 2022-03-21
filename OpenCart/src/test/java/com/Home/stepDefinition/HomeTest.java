@@ -181,11 +181,13 @@ public class HomeTest
 	}
 
 	@When("I add some products to shopping cart")
-	public void i_add_some_products_to_shopping_cart() {
+	public void i_add_some_products_to_shopping_cart() throws InterruptedException {
 		driver.findElement(By.name(prop.getProperty("search"))).sendKeys("hp");
 	    driver.findElement(By.xpath(prop.getProperty("search_icon"))).click();
+	    Thread.sleep(3000);
 	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		driver.findElement(By.xpath(prop.getProperty("hp_add_to_cart"))).click();
+		Thread.sleep(3000);
 	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	    driver.findElement(By.xpath(prop.getProperty("button_cart"))).click();
 	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);

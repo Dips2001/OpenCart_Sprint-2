@@ -42,6 +42,29 @@
     When I click on Confirm Order
     Then I should get confirmation about my order
     
+    @LoginNewConfirm @Done
+  Scenario: To validate Confirm Order via Login and using Existing Address
+  	Given OpenCart website is ready
+    When I launch URL in chrome browser
+    And I add some products to shopping cart
+    And I click on Checkout Button
+    Then I should see Login Form 
+    When I enter second email
+    And I enter second password
+    And I click on Login Button
+    Then I should see Billing Details Form
+    When I click on Use a New Address in Billing Details Form
+    Then I should see Delivery Details Form
+    When I click on Use a New Address in Delivery Details Form
+    Then I should see Delivery Method Form
+    When I click on preferred Shipping Method
+    Then I should see Payment Method Form
+    When I click on preferred Payment Method
+    And I click on Terms and Conditions
+    Then I should see Confirm Order Form
+    When I click on Confirm Order
+    Then I should get confirmation about my order
+    
     
   @LoginAndRegister @Done
   Scenario: To validate Confirm Order via Guest Checkout
