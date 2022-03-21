@@ -382,9 +382,11 @@ public class OrderingCheckoutTest {
     }
 
     @When("I enter all the valid details in Personal Details form")
-    public void i_enter_all_the_valid_details_in_personal_details_form() {
+    public void i_enter_all_the_valid_details_in_personal_details_form() throws InterruptedException {
         // Enter all the valid details in Personal Details form
-        i_enter_valid_first_name();
+    	Thread.sleep(3000);    	
+    	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		i_enter_valid_first_name();
         i_enter_valid_last_name();
         i_enter_valid_email();
         i_enter_valid_phone_number();
@@ -559,9 +561,9 @@ public class OrderingCheckoutTest {
         driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
         // Fetches the First Name from the Excel Sheet
         XSSFSheet sheet = w.getSheetAt(1);
-        String firstName = sheet.getRow(1).getCell(1).getStringCellValue();
+        String firstName = sheet.getRow(1).getCell(0).getStringCellValue();
         // Enter First Name
-        driver.findElement(By.xpath(prop.getProperty("firstname_billing_input"))).sendKeys(firstName);
+        driver.findElement(By.id(prop.getProperty("firstname_billing_input"))).sendKeys(firstName);
     }
 
     @And("I enter valid Last Name in Billing Details Form")
@@ -569,9 +571,9 @@ public class OrderingCheckoutTest {
         driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
         // Fetches the Last Name from the Excel Sheet
         XSSFSheet sheet = w.getSheetAt(1);
-        String lastName = sheet.getRow(1).getCell(2).getStringCellValue();
+        String lastName = sheet.getRow(1).getCell(1).getStringCellValue();
         // Enter Last Name
-        driver.findElement(By.xpath(prop.getProperty("lastname_billing_input"))).sendKeys(lastName);
+        driver.findElement(By.id(prop.getProperty("lastname_billing_input"))).sendKeys(lastName);
     }
 
     @And("I enter valid Address1 in Billing Details Form")
@@ -579,9 +581,9 @@ public class OrderingCheckoutTest {
         driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
         // Fetches the Address1 from the Excel Sheet
         XSSFSheet sheet = w.getSheetAt(1);
-        String address1 = sheet.getRow(1).getCell(3).getStringCellValue();
+        String address1 = sheet.getRow(1).getCell(5).getStringCellValue();
         // Enter Address1
-        driver.findElement(By.xpath(prop.getProperty("address1_billing_input"))).sendKeys(address1);
+        driver.findElement(By.id(prop.getProperty("address1_billing_input"))).sendKeys(address1);
     }
 
     @And("I enter valid Address2 in Billing Details Form")
@@ -589,9 +591,9 @@ public class OrderingCheckoutTest {
         driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
         // Fetches the Address2 from the Excel Sheet
         XSSFSheet sheet = w.getSheetAt(1);
-        String address2 = sheet.getRow(1).getCell(4).getStringCellValue();
+        String address2 = sheet.getRow(1).getCell(6).getStringCellValue();
         // Enter Address2
-        driver.findElement(By.xpath(prop.getProperty("address2_billing_input"))).sendKeys(address2);
+        driver.findElement(By.id(prop.getProperty("address2_billing_input"))).sendKeys(address2);
     }
 
     @And("I enter valid City in Billing Details Form")
@@ -599,9 +601,9 @@ public class OrderingCheckoutTest {
         driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
         // Fetches the City from the Excel Sheet
         XSSFSheet sheet = w.getSheetAt(1);
-        String city = sheet.getRow(1).getCell(5).getStringCellValue();
+        String city = sheet.getRow(1).getCell(7).getStringCellValue();
         // Enter City
-        driver.findElement(By.xpath(prop.getProperty("city_billing_input"))).sendKeys(city);
+        driver.findElement(By.id(prop.getProperty("city_billing_input"))).sendKeys(city);
     }
 
     @And("I enter valid Post Code in Billing Details Form")
@@ -609,9 +611,9 @@ public class OrderingCheckoutTest {
         driver.manage().timeouts().implicitlyWait(240, TimeUnit.SECONDS);
         // Fetches the Post Code from the Excel Sheet
         XSSFSheet sheet = w.getSheetAt(1);
-        String postCode = Math.round(sheet.getRow(1).getCell(6).getNumericCellValue()) + "";
+        String postCode = Math.round(sheet.getRow(1).getCell(8).getNumericCellValue()) + "";
         // Enter Post Code
-        driver.findElement(By.xpath(prop.getProperty("postcode_billing_input"))).sendKeys(postCode);
+        driver.findElement(By.id(prop.getProperty("postcode_billing_input"))).sendKeys(postCode);
     }
 
     @And("I select valid Country in Billing Details Form")
