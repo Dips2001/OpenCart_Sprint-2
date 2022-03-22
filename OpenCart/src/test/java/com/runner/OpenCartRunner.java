@@ -27,8 +27,8 @@ import io.cucumber.testng.PickleWrapper;
 
 @CucumberOptions(
 features="Features",
-tags="@Home",
-glue = "com.Home.stepDefinition",
+tags="@SortingProducts",
+glue = "com.BrowseCart.stepDefinition",
 plugin={"html:target/cucumber-html-report", "json:target/cucumber.json","pretty:target/cucumber-pretty.txt","usage:target/cucumber-usage.json", "junit:target/cucumber-results.xml"},
 dryRun = false,
 monochrome = true
