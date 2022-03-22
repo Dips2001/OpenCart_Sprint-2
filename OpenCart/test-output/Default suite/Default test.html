@@ -1,0 +1,174 @@
+<html>
+<head>
+<title>TestNG:  Default test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Default test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>19/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Mar 22 11:59:58 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>152 seconds (152545 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate the header section is in proper position and visible in all pages", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>17</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that Shopping Cart displays total number of items purchased and total price of orders", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>16</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that redirection to Home page occurs after clicking on the logo", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>6</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate the customer can select among various currency icons", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>7</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate the customer can select among various currency icons", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>7</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that Shopping Cart displays total number of items purchased and total price of orders", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>17</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate the functionality of shopping cart option when empty", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>4</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that redirection occurs to the Shopping Cart page which contains a link to checkout on clicking the "Checkout" link", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>6</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate the customer can select among various currency icons", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>5</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that redirection to the Login page after clicking Login", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>6</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that Company Telephone Number is given is header section", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>5</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate links for My Account, Wish List, Shopping Cart and Checkout are present in header section", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>6</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that redirection occurs to the Wish List page on clicking on the "Wish List" link", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>7</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that search page is opened after nothing provided in search box and search button is pressed", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>6</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that search page opens with pre-filled search criteria when text is given by customer in Search Box and click on Search button", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>6</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that redirection occurs to the Shopping Cart page on clicking the "Shopping Cart" link", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>6</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that dropdown list containing Register and Login appears on clicking on the "My Account" link", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>4</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that redirection to the Register page after clicking Register", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>6</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+<tr>
+<td title='com.runner.OpenCartRunner.Scenario()'><b>Scenario</b><br>Test class: com.runner.OpenCartRunner<br>Test method: Runs Cucumber Feature<br>Parameters: "To validate that redirection to Contact Us page happens after clicking on 'Phone' icon", "Optional[Verification of Home Page]"</td>
+<td></td>
+<td>6</td>
+<td>com.runner.OpenCartRunner@6f7923a5</td></tr>
+</table><p>
+</body>
+</html>
