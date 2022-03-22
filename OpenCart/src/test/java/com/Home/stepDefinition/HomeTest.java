@@ -7,13 +7,18 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -24,15 +29,47 @@ public class HomeTest
 	public static WebDriver driver;
 	Properties prop;
 	
+	static int flag=0;
 	
 	@Before
 	public void beforeScenario() throws IOException
 	{
-		System.setProperty("webdriver.chrome.driver", "E:\\Capgemini\\Internship\\Module-4\\Drivers\\chromedriver_win32\\chromedriver.exe");
-		driver = new ChromeDriver();
+		while(flag == 0)
+		{
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Please enter your preferred browser :- \n1) Google Chrome \n2) Mozilla Firefox \n3) Microsoft Edge\n");
+			int choice = sc.nextInt();
+			if(choice == 1)
+			{
+				System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\Drivers\\chromedriver.exe");
+				flag=choice;
+			}
+			else if(choice == 2)
+			{
+				System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\Drivers\\geckodriver.exe");
+		        flag=choice;
+			}
+			else if(choice == 3)
+			{
+				System.setProperty("webdriver.edge.driver", "src\\test\\resources\\Drivers\\msedgedriver.exe");
+				flag=choice;
+			}
+			else
+			{
+				System.out.println("Invalid input\n");
+				flag=0;
+			}
+		}
+		if(flag == 1)
+			driver = new ChromeDriver();
+		else if(flag == 2)	
+	        driver = new FirefoxDriver();
+		else if(flag == 3)
+			driver=new EdgeDriver();
 		FileInputStream fs = new FileInputStream("src/test/resources/OpenCart.properties");
 		prop = new Properties();
 		prop.load(fs);
+		
 	}
 	
 	@Given("OpenCart website is ready")
@@ -118,8 +155,8 @@ public class HomeTest
 
 	@Then("the currency dropdown containing Euro, Pound Sterling and US dollar should appear")
 	public void the_currency_dropdown_containing_euro_pound_sterling_and_us_dollar_should_appear() {
-		assertEquals(driver.findElement(By.name(prop.getProperty("euro"))).getText(),"€ Euro");
-		assertEquals(driver.findElement(By.name(prop.getProperty("pound"))).getText(),"£ Pound Sterling");
+		assertEquals(driver.findElement(By.name(prop.getProperty("euro"))).getText(),"â‚¬ Euro");
+		assertEquals(driver.findElement(By.name(prop.getProperty("pound"))).getText(),"Â£ Pound Sterling");
 		assertEquals(driver.findElement(By.name(prop.getProperty("dollar"))).getText(),"$ US Dollar");
 	}
 			
@@ -131,11 +168,11 @@ public class HomeTest
 	@Then("the price of all the products should convert to Euro currency")
 	public void the_price_of_all_the_products_should_convert_to_euro_currency() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath(prop.getProperty("euro_icon"))).getText(),"€");
-	    assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price1"))).getText().contains("€"));
-		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price2"))).getText().contains("€"));
-		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price3"))).getText().contains("€"));
-		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price4"))).getText().contains("€"));
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("euro_icon"))).getText(),"â‚¬");
+	    assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price1"))).getText().contains("â‚¬"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price2"))).getText().contains("â‚¬"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price3"))).getText().contains("â‚¬"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price4"))).getText().contains("â‚¬"));
 	}
 
 	@When("I select Pound Sterling currency")
@@ -146,11 +183,11 @@ public class HomeTest
 	@Then("the price of all the products should convert to Pound Sterling currency")
 	public void the_price_of_all_the_products_should_convert_to_pound_sterling_currency() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath(prop.getProperty("pound_icon"))).getText(),"£");
-		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price1"))).getText().contains("£"));
-		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price2"))).getText().contains("£"));
-		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price3"))).getText().contains("£"));
-		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price4"))).getText().contains("£"));
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("pound_icon"))).getText(),"Â£");
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price1"))).getText().contains("Â£"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price2"))).getText().contains("Â£"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price3"))).getText().contains("Â£"));
+		assertTrue(driver.findElement(By.cssSelector(prop.getProperty("price4"))).getText().contains("Â£"));
 	}
 
 	@When("I select US Dollar currency")
@@ -191,7 +228,7 @@ public class HomeTest
 	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	    driver.findElement(By.xpath(prop.getProperty("button_cart"))).click();
 	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	    assertEquals(driver.findElement(By.xpath(prop.getProperty("alert1"))).getText(), "Success: You have added HP LP3065 to your shopping cart!\n×");
+	    assertEquals(driver.findElement(By.xpath(prop.getProperty("alert1"))).getText(), "Success: You have added HP LP3065 to your shopping cart!\nÃ—");
 	}
 
 	@Then("shopping cart button should display number of items purchased and total cost of order")

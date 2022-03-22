@@ -22,68 +22,68 @@ Feature: Browse and Cart Verification
 
   @BrowsingProducts
   Scenario: To validate that able to browse products similar to other products 
-    Given Open cart website is ready
-    And URL should be working
+    Given OpenCart website is ready
+    And I launch URL in chrome browser
     When I browse products
     Then similar products should be available
 
   @BrowsingProducts
   Scenario: To validate that able to browse products with same category
-    Given Open cart website is ready
-    And URL should be working
+    Given OpenCart website is ready
+    And I launch URL in chrome browser
     When I browse products
     Then same category products should be there
 
 	@SearchingProducts
 	Scenario: To validate that able to search products based on categories
-		Given Open cart website is ready
-		And URL should be working
+		Given OpenCart website is ready
+		And I launch URL in chrome browser
 		And Search option should be there
 		When I search products
 		Then searching should be available based on categories
 		
 	@SearchProducts
 	Scenario: To validate that able to search products based on sub-category
-		Given Open cart website is ready
-		And URL should be working
+		Given OpenCart website is ready
+		And I launch URL in chrome browser
 		And Search option should be there
 		When I search products
 		Then searching should be available based on sub-categories
 	
 	@ListButton
 	Scenario: To validate the appreance of list button on the products page
-		Given Open cart website is ready
-		And URL should be working
+		Given OpenCart website is ready
+		And I launch URL in chrome browser
 		When I go to products page
 		Then The list button should be visible there
 		
 	@ListButton
 	Scenario:  To validate the working of list preference button for displaying products
-		Given Open cart website is ready
-		And URL should be working
+		Given OpenCart website is ready
+		And I launch URL in chrome browser
 		When I go to products page
 		And after clicking on list preference button
 		Then the products should be displayed in list
 	
 	@GridButton
 	Scenario: To validate the appreance of grid button on the products page
-		Given Open cart website is ready
-		And URL should be working
+		Given OpenCart website is ready
+		And I launch URL in chrome browser
 		When I go to products page
 		Then The grid button should be visible there
 
 	@GridButton
 	Scenario: To validate the working of grid preference button for dislplaying products
-		Given Open cart website is ready
-		And URL should be working
+		Given OpenCart website is ready
+		And I launch URL in chrome browser
 		When I go to products page
 		And after clicking on grid preference button
 		Then the products should be displayed in grid
 	
 	@SortingProducts
 	Scenario: To validate the products sorting according to rating
-		Given Open cart website is ready
-		And URL should be working
+		Given OpenCart website is ready
+		And I launch URL in chrome browser
 		When I go to products page
 		And select the rating option 
 		Then the products gets sorted according to rating
@@ -96,36 +96,36 @@ Feature: Browse and Cart Verification
 
 	@WishlistButton
 	Scenario: To validate after clicking on add to product, product is added in wishlist or not
-		Given Open cart website is ready
-		And URL should be working
+		Given OpenCart website is ready
+		And I launch URL in chrome browser
 		When I go to products page
 		And after clicking on wishlist icon 
 		Then the product get added to wishlist
 		
 	@ProductPage 
   Scenario: To validate Add to compare option is visible on product page
-	  Given Open cart website is ready
-	  And URL should be working
+	  Given OpenCart website is ready
+	  And I launch URL in chrome browser
 	  Then Add to compare option should be visible.
 
  @ProductPage 
 	Scenario: To validate after clicking on add to compare, product is added to compare list
-		Given Open cart website is ready
-		And URL should be working
+		Given OpenCart website is ready
+		And I launch URL in chrome browser
 		When I click on Add to compare option button
 		Then product should be added to compare list.
 	
 	@ShoppingCart 
 	Scenario: To validate shopping cart option is visible on page
-		Given Open cart website is ready
-		And URL should be working
+		Given OpenCart website is ready
+		And I launch URL in chrome browser
 		Then shopping cart option should be visible.
 	
 	
 	@ShoppingCart 
 	Scenario: To validate products are present in shopping cart, if previously added
-		Given Open cart website is ready
-		And URL should be working
+		Given OpenCart website is ready
+		And I launch URL in chrome browser
 		When I add some products to shopping cart
 		And I click on shopping cart
 		Then products added to cart should be present.

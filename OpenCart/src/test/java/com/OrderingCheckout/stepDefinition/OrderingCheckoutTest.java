@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -16,6 +17,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,17 +31,49 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class OrderingCheckoutTest {
+	
 	public static WebDriver driver;
 	Properties prop;
 	File f=new File("src/test/resources/OpenCartData.xlsx");
 	FileInputStream is;
 	XSSFWorkbook w;
+	static int flag=0;
 	
 	@Before
 	public void beforeScenario() throws IOException {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Capgemini\\Internship\\Module-4\\Drivers\\chromedriver_win32\\chromedriver.exe");
-		driver = new ChromeDriver();
+		while(flag == 0)
+		{
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Please enter your preferred browser :- \n1) Google Chrome \n2) Mozilla Firefox \n3) Microsoft Edge\n");
+			int choice = sc.nextInt();
+			if(choice == 1)
+			{
+				System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\Drivers\\chromedriver.exe");
+				flag=choice;
+			}
+			else if(choice == 2)
+			{
+				System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\Drivers\\geckodriver.exe");
+		        flag=choice;
+			}
+			else if(choice == 3)
+			{
+				System.setProperty("webdriver.edge.driver", "src\\test\\resources\\Drivers\\msedgedriver.exe");
+				flag=choice;
+			}
+			else
+			{
+				System.out.println("Invalid input\n");
+				flag=0;
+			}
+		}
+		if(flag == 1)
+			driver = new ChromeDriver();
+		else if(flag == 2)	
+	        driver = new FirefoxDriver();
+		else if(flag == 3)
+			driver=new EdgeDriver();
+		
 		FileInputStream fs = new FileInputStream("src/test/resources/OpenCart.properties");
 		prop = new Properties();
 		prop.load(fs);

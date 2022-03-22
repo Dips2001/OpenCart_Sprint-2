@@ -1,400 +1,320 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="19" passed="19" failed="0" skipped="0">
+<testng-results ignored="0" total="15" passed="15" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-03-22T11:59:58 IST" name="Default suite" finished-at="2022-03-22T12:02:31 IST" duration-ms="152545">
+  <suite started-at="2022-03-22T20:22:08 IST" name="Default suite" finished-at="2022-03-22T20:29:59 IST" duration-ms="470160">
     <groups>
       <group name="cucumber">
         <method signature="OpenCartRunner.Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" name="Scenario" class="com.runner.OpenCartRunner"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2022-03-22T11:59:58 IST" name="Default test" finished-at="2022-03-22T12:02:31 IST" duration-ms="152545">
+    <test started-at="2022-03-22T20:22:08 IST" name="Default test" finished-at="2022-03-22T20:29:59 IST" duration-ms="470160">
       <class name="com.runner.OpenCartRunner">
-        <test-method is-config="true" signature="setUpCucumber()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T11:59:58 IST" name="setUpCucumber" finished-at="2022-03-22T11:59:59 IST" duration-ms="1127" status="PASS">
+        <test-method is-config="true" signature="setUpCucumber()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:22:08 IST" name="setUpCucumber" finished-at="2022-03-22T20:22:11 IST" duration-ms="2266" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpCucumber -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T11:59:59 IST" name="setUpClass" finished-at="2022-03-22T11:59:59 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:22:11 IST" name="setUpClass" finished-at="2022-03-22T20:22:11 IST" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T11:59:59 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:00:17 IST" duration-ms="17541" status="PASS">
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:22:11 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:22:38 IST" duration-ms="26931" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate the header section is in proper position and visible in all pages"]]>
+                <![CDATA["To validate Login form along with two options-Register and Guest Checkout are available"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:00:17 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:00:23 IST" duration-ms="6024" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:22:38 IST" name="setUpClass" finished-at="2022-03-22T20:22:38 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:22:38 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:23:27 IST" duration-ms="49212" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate that redirection to Home page occurs after clicking on the logo"]]>
+                <![CDATA["To validate Confirm Order via Login and using Existing Address"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:00:17 IST" name="setUpClass" finished-at="2022-03-22T12:00:17 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:23:27 IST" name="setUpClass" finished-at="2022-03-22T20:23:27 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:00:23 IST" name="setUpClass" finished-at="2022-03-22T12:00:23 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:00:23 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:00:30 IST" duration-ms="7498" status="PASS">
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:23:27 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:24:22 IST" duration-ms="54972" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate the customer can select among various currency icons"]]>
+                <![CDATA["To validate Confirm Order via Login and using Existing Address"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:00:30 IST" name="setUpClass" finished-at="2022-03-22T12:00:30 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:24:22 IST" name="setUpClass" finished-at="2022-03-22T20:24:22 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:00:30 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:00:38 IST" duration-ms="7707" status="PASS">
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:24:22 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:24:41 IST" duration-ms="19310" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate the customer can select among various currency icons"]]>
+                <![CDATA["To validate Confirm Order via Guest Checkout"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:00:38 IST" name="setUpClass" finished-at="2022-03-22T12:00:38 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:24:41 IST" name="setUpClass" finished-at="2022-03-22T20:24:41 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:00:38 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:00:43 IST" duration-ms="5412" status="PASS">
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:24:41 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:25:02 IST" duration-ms="20723" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate the customer can select among various currency icons"]]>
+                <![CDATA["To validate all the input fields are available in personal details form"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:00:43 IST" name="setUpClass" finished-at="2022-03-22T12:00:43 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:25:02 IST" name="setUpClass" finished-at="2022-03-22T20:25:02 IST" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:00:43 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:00:48 IST" duration-ms="4333" status="PASS">
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:25:02 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:25:26 IST" duration-ms="24372" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate the functionality of shopping cart option when empty"]]>
+                <![CDATA["To validate by providing valid values for First Name, Last Name, Email, Phone Number input field in the Personal Details Form"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:00:48 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:01:04 IST" duration-ms="16528" status="PASS">
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:25:26 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:25:48 IST" duration-ms="22154" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate that Shopping Cart displays total number of items purchased and total price of orders"]]>
+                <![CDATA["To validate by providing invalid values for First Name, Last Name, Email, Phone Number input field in the Personal Details Form"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:00:48 IST" name="setUpClass" finished-at="2022-03-22T12:00:48 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:25:26 IST" name="setUpClass" finished-at="2022-03-22T20:25:26 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:04 IST" name="setUpClass" finished-at="2022-03-22T12:01:04 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:25:48 IST" name="setUpClass" finished-at="2022-03-22T20:25:48 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:04 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:01:21 IST" duration-ms="17071" status="PASS">
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:25:48 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:26:09 IST" duration-ms="20766" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate that Shopping Cart displays total number of items purchased and total price of orders"]]>
+                <![CDATA["To validate by providing null values for First Name, Last Name, Email, Phone Number input field in the Personal Details Form"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:21 IST" name="setUpClass" finished-at="2022-03-22T12:01:21 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:21 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:01:28 IST" duration-ms="6239" status="PASS">
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:26:09 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:26:35 IST" duration-ms="26153" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate that search page opens with pre-filled search criteria when text is given by customer in Search Box and click on Search button"]]>
+                <![CDATA["To validate the redirection of "Same As" Checkbox when unchecked in the Delivery Method Form"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:28 IST" name="setUpClass" finished-at="2022-03-22T12:01:28 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:26:09 IST" name="setUpClass" finished-at="2022-03-22T20:26:09 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:28 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:01:34 IST" duration-ms="6373" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:26:35 IST" name="setUpClass" finished-at="2022-03-22T20:26:35 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:26:35 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:27:01 IST" duration-ms="25613" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate that search page is opened after nothing provided in search box and search button is pressed"]]>
+                <![CDATA["To validate the redirection of "Same As" Checkbox when checked in the Delivery Method Form"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:34 IST" name="setUpClass" finished-at="2022-03-22T12:01:34 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:27:01 IST" name="setUpClass" finished-at="2022-03-22T20:27:01 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:34 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:01:40 IST" duration-ms="6458" status="PASS">
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:27:01 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:27:33 IST" duration-ms="31551" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate links for My Account, Wish List, Shopping Cart and Checkout are present in header section"]]>
+                <![CDATA["To validate by providing valid values for First Name, Last Name, Email, Phone Number input field in the Billing Details Form"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:40 IST" name="setUpClass" finished-at="2022-03-22T12:01:40 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:40 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:01:45 IST" duration-ms="4977" status="PASS">
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:27:33 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:27:59 IST" duration-ms="26833" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate that dropdown list containing Register and Login appears on clicking on the "My Account" link"]]>
+                <![CDATA["To validate by providing null values for First Name, Last Name, Email, Phone Number input field in the Billing Details Form"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:45 IST" name="setUpClass" finished-at="2022-03-22T12:01:45 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:27:33 IST" name="setUpClass" finished-at="2022-03-22T20:27:33 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:45 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:01:53 IST" duration-ms="7088" status="PASS">
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:27:59 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:28:31 IST" duration-ms="31744" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate that redirection occurs to the Wish List page on clicking on the "Wish List" link"]]>
+                <![CDATA["To validate by providing invalid values for First Name, Last Name, Email, Phone Number input field in the Billing Details Form"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:53 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:01:59 IST" duration-ms="6374" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:27:59 IST" name="setUpClass" finished-at="2022-03-22T20:27:59 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:28:31 IST" name="setUpClass" finished-at="2022-03-22T20:28:31 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:28:31 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:29:13 IST" duration-ms="41473" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate that redirection occurs to the Shopping Cart page on clicking the "Shopping Cart" link"]]>
+                <![CDATA["To validate that redirection doesnot heppens to billing address form if checkbox is checked."]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:53 IST" name="setUpClass" finished-at="2022-03-22T12:01:53 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:29:13 IST" name="setUpClass" finished-at="2022-03-22T20:29:13 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:59 IST" name="setUpClass" finished-at="2022-03-22T12:01:59 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:01:59 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:02:06 IST" duration-ms="6846" status="PASS">
+        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:29:13 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T20:29:58 IST" duration-ms="45705" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To validate that redirection occurs to the Shopping Cart page which contains a link to checkout on clicking the "Checkout" link"]]>
+                <![CDATA["To validate that redirection happens to billing address form if checkbox is not checked."]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
+                <![CDATA["Optional[Ordering and Checkout Verification]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:02:06 IST" name="setUpClass" finished-at="2022-03-22T12:02:06 IST" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:02:06 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:02:11 IST" duration-ms="5620" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["To validate that Company Telephone Number is given is header section"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:02:11 IST" name="setUpClass" finished-at="2022-03-22T12:02:11 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:02:11 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:02:18 IST" duration-ms="6535" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["To validate that redirection to Contact Us page happens after clicking on 'Phone' icon"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:02:18 IST" name="setUpClass" finished-at="2022-03-22T12:02:18 IST" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:02:18 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:02:24 IST" duration-ms="6129" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["To validate that redirection to the Register page after clicking Register"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Scenario -->
-        <test-method signature="Scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:02:24 IST" name="Scenario" description="Runs Cucumber Feature" data-provider="Scenarios" finished-at="2022-03-22T12:02:30 IST" duration-ms="6169" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["To validate that redirection to the Login page after clicking Login"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Optional[Verification of Home Page]"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Scenario -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:02:24 IST" name="setUpClass" finished-at="2022-03-22T12:02:24 IST" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T12:02:30 IST" name="tearDownClass" finished-at="2022-03-22T12:02:31 IST" duration-ms="358" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.OpenCartRunner@6f7923a5]" started-at="2022-03-22T20:29:58 IST" name="tearDownClass" finished-at="2022-03-22T20:29:59 IST" duration-ms="224" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
