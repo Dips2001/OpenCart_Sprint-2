@@ -74,10 +74,6 @@ public class OrderingCheckoutTest {
 	@When("I click on Checkout Button")
 	public void i_click_on_checkout_button() {
 		// Clicking on the Checkout Button
-//		driver.findElement(By.xpath("//a[@title='Checkout']")).click();
-//		driver.findElement(By.xpath(prop.getProperty("checkout"))).click();
-//		driver.findElement(By.cssSelector("a[title='Checkout'] span[class='hidden-xs hidden-sm hidden-md']")).click();
-//		driver.findElement(By.xpath("//span[normalize-space()='Checkout']")).click();
 		driver.findElement(By.xpath(prop.getProperty("cart_total"))).click();
 		driver.findElement(By.xpath(prop.getProperty("cart_checkout"))).click();
 	}
@@ -85,7 +81,7 @@ public class OrderingCheckoutTest {
 	@Then("I should see Checkout Options Form")
 	public void i_should_see_checkout_options_form() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 1: Checkout Options']")).getText(),"Step 1: Checkout Options");
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("step1"))).getText(),"Step 1: Checkout Options");
 	}
 
 	@Then("I should see Login Form")
@@ -159,14 +155,14 @@ public class OrderingCheckoutTest {
 	@Then("I should see Billing Details Form")
 	public void i_should_see_billing_details_form() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 2: Account & Billing Details']")).getText(),"Step 2: Account & Billing Details");
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("step2"))).getText(),"Step 2: Account & Billing Details");
 	}
 	
 	@When("I click on Use an Existing Address in Billing Details Form")
 	public void i_click_on_use_an_existing_address_in_billing_details_form() throws InterruptedException {
 		Thread.sleep(2000);
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//input[@value='existing']")).click();
+		driver.findElement(By.xpath(prop.getProperty("existing"))).click();
 		driver.findElement(By.id("button-payment-address")).click();
 	}
 	
@@ -174,7 +170,7 @@ public class OrderingCheckoutTest {
 	public void i_click_on_use_a_new_address_in_billing_details_form() throws InterruptedException {
 		Thread.sleep(2000);
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//input[@value='new']")).click();
+		driver.findElement(By.xpath(prop.getProperty("new"))).click();
 		Thread.sleep(3000);    	
     	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
     	driver.findElement(By.id(prop.getProperty("firstname"))).click();
@@ -206,14 +202,14 @@ public class OrderingCheckoutTest {
 	@Then("I should see Delivery Details Form")
 	public void i_should_see_delivery_details_form() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 3: Delivery Details']")).getText(),"Step 3: Delivery Details");
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("step3"))).getText(),"Step 3: Delivery Details");
 	}
 	
 	@When("I click on Use an Existing Address in Delivery Details Form")
 	public void i_click_on_use_an_existing_address_in_delivery_details_form() throws InterruptedException {
 		Thread.sleep(2000);
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//label[normalize-space()='I want to use an existing address']//input[@name='shipping_address']")).click();
+		driver.findElement(By.xpath(prop.getProperty("existing_address"))).click();
 		driver.findElement(By.id("button-shipping-address")).click();
 	}
 	
@@ -221,7 +217,7 @@ public class OrderingCheckoutTest {
 	public void i_click_on_use_a_new_address_in_delivery_details_form() throws InterruptedException {
 		Thread.sleep(4000);
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//label[normalize-space()='I want to use a new address']//input[@name='shipping_address']")).click();
+		driver.findElement(By.xpath(prop.getProperty("new_address"))).click();
 		XSSFSheet sheet = w.getSheetAt(1);
 	    String firstName = sheet.getRow(2).getCell(0).getStringCellValue();
 	    driver.findElement(By.id(prop.getProperty("firstname_billing_input"))).clear();
@@ -244,28 +240,13 @@ public class OrderingCheckoutTest {
         String postcode = Math.round(sheet.getRow(2).getCell(8).getNumericCellValue()) + "";
         driver.findElement(By.id(prop.getProperty("postcode_billing_input"))).clear();
         driver.findElement(By.id(prop.getProperty("postcode_billing_input"))).sendKeys(postcode);
-//        WebElement dropdown = driver.findElement(By.id("input-shipping-country"));
-//        dropdown.findElement(By.xpath(prop.getProperty("india_option"))).click();
-//        driver.findElement(By.id(prop.getProperty("zone"))).click();
-//        WebElement dropdown1 = driver.findElement(By.id("input-shipping-zone"));
-//        dropdown1.findElement(By.xpath(prop.getProperty("bihar_option"))).click();
-//		driver.findElement(By.id("button-payment-address")).click();
-        
-//        new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@id='input-shipping-country']")));
-//        driver.findElement(By.id("input-shipping-country")).click();
-//        Select country = new Select(driver.findElement(By.id("input-shipping-country")));
-//        country.selectByIndex(10);
-//        new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@id='input-shipping-country']")));
-//        driver.findElement(By.id("input-shipping-zone")).click();
-//        Select zone = new Select(driver.findElement(By.id("input-shipping-zone")));
-//        zone.selectByIndex(2);
 		driver.findElement(By.id("button-shipping-address")).click();
 	}
 	
 //	@Then("I should see Delivery Method Form")
 //	public void i_should_see_delivery_method_form() {
 //		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-//		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 3: Delivery Details']")).getText(),"Step 3: Delivery Details");
+//		assertEquals(driver.findElement(By.xpath(prop.getProperty("step4")).getText(),"Step 4: Delivery Method");
 //	}
 	
 	@When("I click on preferred Shipping Method")
@@ -279,7 +260,7 @@ public class OrderingCheckoutTest {
 	@Then("I should see Payment Method Form")
 	public void i_should_see_payment_method_form() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 5: Payment Method']")).getText(),"Step 5: Payment Method");
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("step5"))).getText(),"Step 5: Payment Method");
 	}
 	
 	@When("I click on preferred Payment Method")
@@ -300,7 +281,7 @@ public class OrderingCheckoutTest {
 	@Then("I should see Confirm Order Form")
 	public void i_should_see_confirm_order_form() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath("//h4[normalize-space()='Step 6: Confirm Order']")).getText(),"Step 6: Confirm Order");
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("step6"))).getText(),"Step 6: Confirm Order");
 	}
 	
 	@When("I click on Confirm Order")
@@ -313,7 +294,7 @@ public class OrderingCheckoutTest {
 	@Then("I should get confirmation about my order")
 	public void i_should_get_confirmation_about_my_order() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		assertEquals(driver.findElement(By.xpath("//h1[normalize-space()='Your order has been placed!']")).getText(), "Your order has been placed!");
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("order_placed"))).getText(), "Your order has been placed!");
 	}
 	
 	@When("I click on Continue as Guest Button")

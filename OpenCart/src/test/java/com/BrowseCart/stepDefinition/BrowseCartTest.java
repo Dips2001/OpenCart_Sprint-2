@@ -47,27 +47,27 @@ public class BrowseCartTest {
 
 	@When("I browse products")
 	public void i_browse_products() {
-		driver.findElement(By.xpath("//img[@title='iPhone']")).click();
+		driver.findElement(By.xpath(prop.getProperty("iPhone"))).click();
 	}
 
 	@Then("similar products should be available")
 	public void similar_products_should_be_available() {
-		assertEquals(driver.findElement(By.xpath("//a[normalize-space()='Apple Cinema 30\"']")).getText(),"Apple Cinema 30\"");
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("Apple_Cinema_30"))).getText(),"Apple Cinema 30\"");
 	}
 
 	@Then("same category products should be there")
 	public void same_category_products_should_be_there() {
-		assertEquals(driver.findElement(By.xpath("//a[normalize-space()='Apple Cinema 30\"']")).getText(),"Apple Cinema 30\"");
+		assertEquals(driver.findElement(By.xpath(prop.getProperty("Apple_Cinema_30"))).getText(),"Apple Cinema 30\"");
 	}
 
 	@Given("Search option should be there")
 	public void search_option_should_be_there() {
-	    assertTrue(driver.findElement(By.name("search")).isDisplayed());
+	    assertTrue(driver.findElement(By.name(prop.getProperty("search"))).isDisplayed());
 	}
 
 	@When("I search products")
 	public void i_search_products() {
-		driver.findElement(By.xpath("//i[@class='fa fa-search']")).click();
+		driver.findElement(By.xpath(prop.getProperty("search_icon_single"))).click();
 	}
 
 	@Then("searching should be available based on categories")
@@ -83,7 +83,7 @@ public class BrowseCartTest {
 	@When("I go to products page")
 	public void i_go_to_products_page() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//ul[@class='nav navbar-nav']//a[contains(text(),'Phones & PDAs')]")).click();
+		driver.findElement(By.xpath(prop.getProperty("phones_pdas"))).click();
 	}
 
 	@Then("The list button should be visible there")
@@ -98,7 +98,7 @@ public class BrowseCartTest {
 
 	@Then("the products should be displayed in list")
 	public void the_products_should_be_displayed_in_list() {
-		assertTrue(driver.findElement(By.xpath("//div[@id='content']//div[1]//div[1]//div[2]//div[1]")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(prop.getProperty("list_view"))).isDisplayed());
 	}
 
 	@Then("The grid button should be visible there")
@@ -113,12 +113,12 @@ public class BrowseCartTest {
 
 	@Then("the products should be displayed in grid")
 	public void the_products_should_be_displayed_in_grid() {
-		assertTrue(driver.findElement(By.xpath("//body//div[@id='product-category']//div[@class='row']//div[@class='row']//div[2]//div[1]//div[2]//div[1]//p[2]")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath("grid_view_display")).isDisplayed());
 	}
 
 	@When("select the rating option")
 	public void select_the_rating_option() {
-		Select sort=new Select(driver.findElement(By.xpath("//select[@id='input-sort']")));
+		Select sort=new Select(driver.findElement(By.xpath(prop.getProperty("input-sort"))));
 		sort.selectByVisibleText("Rating (Highest)");
 	}
 
@@ -130,40 +130,40 @@ public class BrowseCartTest {
 
 	@When("select the name option")
 	public void select_the_name_option() {
-		Select sort=new Select(driver.findElement(By.xpath("//select[@id='input-sort']")));
+		Select sort=new Select(driver.findElement(By.xpath(prop.getProperty("input-sort"))));
 		sort.selectByVisibleText("Name (A - Z)");
 	}
 
 	@Then("the products gets sorted according to name")
 	public void the_products_gets_sorted_according_to_name() {
-		String s1=driver.findElement(By.xpath("//a[normalize-space()='HTC Touch HD']")).getText();
-	    String s2=driver.findElement(By.xpath("//a[normalize-space()='iPhone']")).getText();
+		String s1=driver.findElement(By.xpath(prop.getProperty("htc_touch_hd1"))).getText();
+	    String s2=driver.findElement(By.xpath(prop.getProperty("iphone2"))).getText();
 	    assertEquals(s1.compareTo(s2),-33);
 	}
 
 	@When("select the price option")
 	public void select_the_price_option() {
-		Select sort=new Select(driver.findElement(By.xpath("//select[@id='input-sort']")));
+		Select sort=new Select(driver.findElement(By.xpath(prop.getProperty("input-sort"))));
 		sort.selectByVisibleText("Price (Low > High)");
 	}
 
 	@Then("the products gets sorted according to price")
 	public void the_products_gets_sorted_according_to_price() {
-		String s1=driver.findElement(By.xpath("//span[normalize-space()='Ex Tax: $100.00']")).getText();
-	    String s2=driver.findElement(By.xpath("//span[normalize-space()='Ex Tax: $101.00']")).getText();
+		String s1=driver.findElement(By.xpath(prop.getProperty("span1"))).getText();
+	    String s2=driver.findElement(By.xpath(prop.getProperty("span2"))).getText();
 	    assertEquals(s1.compareTo(s2),-1);
 	}
 
 	@When("select the model option")
 	public void select_the_model_option() {
-		Select sort=new Select(driver.findElement(By.xpath("//select[@id='input-sort']")));
+		Select sort=new Select(driver.findElement(By.xpath(prop.getProperty("input-sort"))));
 		sort.selectByVisibleText("Model (A - Z)");
 	}
 
 	@Then("the products gets sorted according to model")
 	public void the_products_gets_sorted_according_to_model() {
-		String s1=driver.findElement(By.xpath("//a[normalize-space()='HTC Touch HD']")).getText();
-	    String s2=driver.findElement(By.xpath("//a[normalize-space()='iPhone']")).getText();
+		String s1=driver.findElement(By.xpath(prop.getProperty("htc_touch_hd1"))).getText();
+	    String s2=driver.findElement(By.xpath(prop.getProperty("iphone2"))).getText();
 	    assertEquals(s1.compareTo(s2),-33);
 	}
 
@@ -252,8 +252,8 @@ public class BrowseCartTest {
 	@When("I click on estimate shipping taxes")
 	public void i_click_on_estimate_shipping_taxes() {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		driver.findElement(By.cssSelector(".accordion-toggle.collapsed[href='#collapse-shipping']")).click();
-		driver.findElement(By.cssSelector(".accordion-toggle.collapsed[href='#collapse-shipping']")).click();
+		driver.findElement(By.cssSelector(prop.getProperty("estimate_shipping_taxes"))).click();
+		driver.findElement(By.cssSelector(prop.getProperty("estimate_shipping_taxes"))).click();
 	}
 
 	@Then("estimate shipping taxes option should be visible")
@@ -275,8 +275,6 @@ public class BrowseCartTest {
         driver.findElement(By.id("input-zone")).click();
         Select dropdown1 = new Select(driver.findElement(By.id("input-zone")));
         dropdown1.selectByVisibleText("West Bengal");
-//        WebElement dropdown1 = driver.findElement(By.id("input-zone"));
-//        dropdown1.findElement(By.xpath(prop.getProperty("mh_option"))).click();
     }
     
     @When("I enter valid Post Code")
