@@ -113,11 +113,12 @@ public class BrowseCartTest {
 
 	@Then("the products should be displayed in grid")
 	public void the_products_should_be_displayed_in_grid() {
-		assertTrue(driver.findElement(By.xpath("grid_view_display")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(prop.getProperty("grid_view_display"))).isDisplayed());
 	}
 
 	@When("select the rating option")
-	public void select_the_rating_option() {
+	public void select_the_rating_option() throws InterruptedException {
+		Thread.sleep(2000);
 		Select sort=new Select(driver.findElement(By.xpath(prop.getProperty("input-sort"))));
 		sort.selectByVisibleText("Rating (Highest)");
 	}
